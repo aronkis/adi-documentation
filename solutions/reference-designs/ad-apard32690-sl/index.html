@@ -13,7 +13,7 @@
     <link rel="icon" href="../../../_static/icon.svg"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="AD-T1LUSB2.0-EBZ" href="ad-t1lusb-ebz/index.html" />
+    <link rel="next" title="AD-APARDPFWD-SL" href="ad-apardpfwd-sl/index.html" />
     <link rel="prev" title="Reference Designs" href="../index.html" />
    
   
@@ -226,6 +226,7 @@ Content on this topic
 <li class="toctree-l3"><a class="reference internal" href="../../../eval/user-guide/adc/ad4052-ardz/user-guide.html">Evaluating the device</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../eval/user-guide/adc/ad4130-pmod/index.html">EVAL-AD4130-8-PMDZ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../eval/user-guide/adc/ad9084-ebz/index.html">EVAL-AD9084-EBZ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../eval/user-guide/mem/adxl355-pmdz/index.html">EVAL-ADXL355-PMDZ</a></li>
 <li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-9-2" id="toctree-collapse-9-2"/><div class="collapse"><a class="reference internal" href="../../../eval/user-guide/transceiver/adrv9009/index.html">ADRV9009 &amp; ADRV9008</a><label for="toctree-collapse-9-2"><div class="icon"></div></label></div><ul>
@@ -295,6 +296,8 @@ Content on this topic
 <li class="toctree-l1"><a class="reference internal" href="../../application-software/index.html">Application Software</a></li>
 <li class="toctree-l1 current"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13" id="toctree-collapse-13" checked=""/><div class="collapse"><a class="reference internal" href="../index.html">Reference Designs</a><label for="toctree-collapse-13"><div class="icon"></div></label></div><ul class="current">
 <li class="toctree-l2 current"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-1" id="toctree-collapse-13-1" checked=""/><div class="collapse"><a class="current reference internal" href="#">AD-APARD32690-SL</a><label for="toctree-collapse-13-1"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="ad-apardpfwd-sl/index.html">AD-APARDPFWD-SL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ad-apardspoe-sl/index.html">AD-APARDSPOE-SL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ad-t1lusb-ebz/index.html">AD-T1LUSB2.0-EBZ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nina-w102/index.html">NINA-W102 Networking Support</a></li>
 </ul>
@@ -344,6 +347,7 @@ Content on this topic
 <li class="toctree-l3"><a class="reference internal" href="../eval-cn0584-ebz/matlab-configuration/index.html">MATLAB Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../eval-cn0591-rpiz/index.html">EVAL-CN0591-RPIZ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../eval-ess1-sys/index.html">EVAL-ESS1-SYS</a></li>
 <li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-9" id="toctree-collapse-13-9"/><div class="collapse"><a class="reference internal" href="../eval-isomax/index.html">EVAL-ISOMAX</a><label for="toctree-collapse-13-9"><div class="icon"></div></label></div><ul>
 <li class="toctree-l3"><a class="reference internal" href="../eval-isomax/hardware_guide/index.html">Hardware User Guide</a></li>
@@ -512,7 +516,7 @@ system together and get it up and running in no time.</p>
 <section id="application-development">
 <h3>Application Development<a class="headerlink" href="#application-development" title="Link to this heading"></a></h3>
 <figure class="align-default" id="id4">
-<a class="reference internal image-reference" href="../../../_images/sw_block_diagram.png"><img alt="../../../_images/sw_block_diagram.png" src="../../../_images/sw_block_diagram.png" style="width: 400px;" />
+<a class="reference internal image-reference" href="../../../_images/sw_block_diagram1.png"><img alt="../../../_images/sw_block_diagram1.png" src="../../../_images/sw_block_diagram1.png" style="width: 400px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Figure 3 </span><span class="caption-text">Software Architecture</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
@@ -527,6 +531,10 @@ transfer.</p>
 </section>
 <section id="hardware-components-and-connections">
 <h3>Hardware Components and Connections<a class="headerlink" href="#hardware-components-and-connections" title="Link to this heading"></a></h3>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>TO BE REPLACED!</p>
+</div>
 <figure class="align-default" id="id5">
 <img alt="../../../_images/apard32690_hw_components.png" src="../../../_images/apard32690_hw_components.png" />
 <figcaption>
@@ -593,6 +601,18 @@ transfer.</p>
 <tr class="row-odd"><td></td>
 <td><p>Position 2-3: Set programmer voltage to 1V8 (WiFi chip programming)</p></td>
 </tr>
+<tr class="row-even"><td><p>JP12</p></td>
+<td><p>Position 1-2: To use the Low Power UART0RX port for programming and debugging</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Position 2-3: to use the normal UART0RX port for programming and debugging</p></td>
+</tr>
+<tr class="row-even"><td><p>JP13</p></td>
+<td><p>Position 1-2: To use the Low Power UART0TX port for programming and debugging</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Position 2-3: to use the normal UART0TX port for programming and debugging</p></td>
+</tr>
 <tr class="row-even"><td><p>Connectors</p></td>
 <td></td>
 </tr>
@@ -608,49 +628,52 @@ transfer.</p>
 <tr class="row-even"><td><p>P9</p></td>
 <td><p>SWD Programmer</p></td>
 </tr>
-<tr class="row-odd"><td><p>P11</p></td>
+<tr class="row-odd"><td><p>P58</p></td>
+<td><p>RISC-V Programmer</p></td>
+</tr>
+<tr class="row-even"><td><p>P11</p></td>
 <td><p>SPOE Shield ISO GND</p></td>
 </tr>
-<tr class="row-even"><td><p>P16</p></td>
+<tr class="row-odd"><td><p>P16</p></td>
 <td><p>SPOE Shield PI+</p></td>
 </tr>
-<tr class="row-odd"><td><p>P17</p></td>
+<tr class="row-even"><td><p>P17</p></td>
 <td><p>SPOE Shield PI-</p></td>
 </tr>
-<tr class="row-even"><td><p>P53</p></td>
+<tr class="row-odd"><td><p>P53</p></td>
 <td><p>SPOE Shield PI+</p></td>
 </tr>
-<tr class="row-odd"><td><p>P54</p></td>
+<tr class="row-even"><td><p>P54</p></td>
 <td><p>SPOE Shield PI-</p></td>
 </tr>
-<tr class="row-even"><td><p>P12</p></td>
+<tr class="row-odd"><td><p>P12</p></td>
 <td><p>SPOE Shield Data TRX N</p></td>
 </tr>
-<tr class="row-odd"><td><p>P15</p></td>
+<tr class="row-even"><td><p>P15</p></td>
 <td><p>SPOE Shield Data TRX P</p></td>
 </tr>
-<tr class="row-even"><td><p>P8</p></td>
+<tr class="row-odd"><td><p>P8</p></td>
 <td><p>SPI PMOD</p></td>
 </tr>
-<tr class="row-odd"><td><p>P13</p></td>
+<tr class="row-even"><td><p>P13</p></td>
 <td><p>I2C PMOD</p></td>
 </tr>
-<tr class="row-even"><td><p>P2</p></td>
+<tr class="row-odd"><td><p>P2</p></td>
 <td><p>Arduino Connector - Power</p></td>
 </tr>
-<tr class="row-odd"><td><p>P3</p></td>
+<tr class="row-even"><td><p>P3</p></td>
 <td><p>Arduino Connector - Analog</p></td>
 </tr>
-<tr class="row-even"><td><p>P4</p></td>
+<tr class="row-odd"><td><p>P4</p></td>
 <td><p>Arduino Connector - SPI / I2S</p></td>
 </tr>
-<tr class="row-odd"><td><p>P5</p></td>
+<tr class="row-even"><td><p>P5</p></td>
 <td><p>Arduino Connector - SPI &amp; I2C</p></td>
 </tr>
-<tr class="row-even"><td><p>P6</p></td>
+<tr class="row-odd"><td><p>P6</p></td>
 <td><p>Arduino Connector - UART</p></td>
 </tr>
-<tr class="row-odd"><td><p>P7</p></td>
+<tr class="row-even"><td><p>P7</p></td>
 <td><p>Arduino Connector - GPIO &amp; CAN</p></td>
 </tr>
 </tbody>
@@ -698,7 +721,7 @@ MAX32625PICO.</p>
 <li><p>Once you see the MAINTENANCE drive being mounted, you may release the button.</p>
 <blockquote>
 <div><figure class="align-default" id="id7">
-<a class="reference internal image-reference" href="../../../_images/picture2.jpg"><img alt="../../../_images/picture2.jpg" src="../../../_images/picture2.jpg" style="width: 300px;" />
+<a class="reference internal image-reference" href="../../../_images/picture21.jpg"><img alt="../../../_images/picture21.jpg" src="../../../_images/picture21.jpg" style="width: 300px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Figure 6 </span><span class="caption-text">Imaging the MAX32625PICO</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
@@ -742,6 +765,8 @@ documentation can be found on the Analog Devices GitHub at the link above.</p>
 <h3>User Guide<a class="headerlink" href="#user-guide" title="Link to this heading"></a></h3>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="ad-apardpfwd-sl/index.html">AD-APARDPFWD-SL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ad-apardspoe-sl/index.html">AD-APARDSPOE-SL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ad-t1lusb-ebz/index.html">AD-T1LUSB2.0-EBZ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nina-w102/index.html">NINA-W102 Networking Support</a></li>
 </ul>
@@ -759,7 +784,7 @@ documentation can be found on the Analog Devices GitHub at the link above.</p>
               <div class="related">
                 &nbsp;
     <a href="../index.html" title="Previous document (Alt+Shift+LeftArrow)" class="prev">Reference Designs</a>
-    <a href="ad-t1lusb-ebz/index.html" title="Next document (Alt+Shift+RightArrow)" class="next">AD-T1LUSB2.0-EBZ</a>
+    <a href="ad-apardpfwd-sl/index.html" title="Next document (Alt+Shift+RightArrow)" class="next">AD-APARDPFWD-SL</a>
               </div>
           
         </div>
