@@ -8,13 +8,13 @@
 
     <title>AD-SWIOT1L-SL &#8212; System Level Documentation  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8e8a900e" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/app.min.css?v=9d1cc31f" />
-    <script async="async" src="../../../_static/app.umd.js?v=da3838b9"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/app.min.css?v=8d0b0339" />
+    <script async="async" src="../../../_static/app.umd.js?v=2f9373fc"></script>
     <link rel="icon" href="../../../_static/icon.svg"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Hardware User Guide" href="hardware-guide/index.html" />
-    <link rel="prev" title="Using with Raspberry Pi" href="../ad-gmslcamrpi-adp/raspberry-pi-user-guide/index.html" />
+    <link rel="prev" title="Software User Guide" href="../ad-pqmon-sl/software-guide/index.html" />
    
   
   
@@ -22,6 +22,7 @@
   <meta name="version" content="">
   
     <meta name="page_source_suffix" content=".rst">
+  
   
   
 
@@ -96,7 +97,8 @@
 <li><a class="reference internal" href="#specifications">Specifications</a></li>
 <li><a class="reference internal" href="#package-contents">Package Contents</a></li>
 <li><a class="reference internal" href="#application-development">Application Development</a></li>
-<li><a class="reference internal" href="#user-guides">User Guides</a></li>
+<li><a class="reference internal" href="#getting-started-with-ad-swiot1l-sl">Getting Started with AD-SWIOT1L-SL</a></li>
+<li><a class="reference internal" href="#user-guides">User guides</a></li>
 <li><a class="reference internal" href="#help-and-support">Help and Support</a></li>
 </ul>
 </li>
@@ -285,43 +287,68 @@ Content on this topic
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../application-software/index.html">Application Software</a></li>
 <li class="toctree-l1 current"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13" id="toctree-collapse-13" checked=""/><div class="collapse"><a class="reference internal" href="../index.html">Reference Designs</a><label for="toctree-collapse-13"><div class="icon"></div></label></div><ul class="current">
-<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-1" id="toctree-collapse-13-1"/><div class="collapse"><a class="reference internal" href="../ad-apard32690-sl/index.html">AD-APARD32690-SL</a><label for="toctree-collapse-13-1"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-1" id="toctree-collapse-13-1"/><div class="collapse"><a class="reference internal" href="../ad-acevsecrdset-sl/index.html">AD-ACEVSECRDSET-SL</a><label for="toctree-collapse-13-1"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ad-acevsecrdset-sl/hardware-guide/index.html">Hardware User Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ad-acevsecrdset-sl/software-guide/index.html">Software User Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-2" id="toctree-collapse-13-2"/><div class="collapse"><a class="reference internal" href="../ad-apard32690-sl/index.html">AD-APARD32690-SL</a><label for="toctree-collapse-13-2"><div class="icon"></div></label></div><ul>
 <li class="toctree-l3"><a class="reference internal" href="../ad-apard32690-sl/ad-apardpfwd-sl/index.html">AD-APARDPFWD-SL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ad-apard32690-sl/ad-apardspoe-sl/index.html">AD-APARDSPOE-SL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ad-apard32690-sl/ad-t1lusb-ebz/index.html">AD-T1LUSB2.0-EBZ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ad-apard32690-sl/nina-w102/index.html">NINA-W102 Networking Support</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-2" id="toctree-collapse-13-2"/><div class="collapse"><a class="reference internal" href="../ad-bmse2e3w-sl/index.html">AD-BMSE2E3W-SL</a><label for="toctree-collapse-13-2"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-3" id="toctree-collapse-13-3"/><div class="collapse"><a class="reference internal" href="../ad-bmse2e3w-sl/index.html">AD-BMSE2E3W-SL</a><label for="toctree-collapse-13-3"><div class="icon"></div></label></div><ul>
 <li class="toctree-l3"><a class="reference internal" href="../ad-bmse2e3w-sl/sample_application/index.html">Sample Application</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ad-bmse2e3w-sl/software_guide/index.html">Software User Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-3" id="toctree-collapse-13-3"/><div class="collapse"><a class="reference internal" href="../ad-cellpackbm-sl/index.html">AD-CELLPACKBM-SL</a><label for="toctree-collapse-13-3"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-4" id="toctree-collapse-13-4"/><div class="collapse"><a class="reference internal" href="../ad-cellpackbm-sl/index.html">AD-CELLPACKBM-SL</a><label for="toctree-collapse-13-4"><div class="icon"></div></label></div><ul>
 <li class="toctree-l3"><a class="reference internal" href="../ad-cellpackbm-sl/hardware_guide/index.html">Hardware User Guide</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ad-cellpackbm-sl/software_guide/index.html">Software User Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../ad-gmsl-d-e-adp/index.html">AD-GMSL-D-E-ADP#</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ad-gmsl2eth-sl/index.html">AD-GMSL2ETH-SL</a></li>
-<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-4" id="toctree-collapse-13-4"/><div class="collapse"><a class="reference internal" href="../ad-gmsl522-sl/index.html">AD-GMSL522-SL</a><label for="toctree-collapse-13-4"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-5" id="toctree-collapse-13-5"/><div class="collapse"><a class="reference internal" href="../ad-gmsl522-sl/index.html">AD-GMSL522-SL</a><label for="toctree-collapse-13-5"><div class="icon"></div></label></div><ul>
 <li class="toctree-l3"><a class="reference internal" href="../ad-gmsl522-sl/hardware-guide/index.html">Hardware Guide</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ad-gmsl522-sl/software-guide/index.html">Software Guide</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../ad-gmsl716mipi-evk/index.html">AD-GMSL716MIPI-EVK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ad-gmsl717mipi-evk/index.html">AD-GMSL717MIPI-EVK</a></li>
-<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-5" id="toctree-collapse-13-5"/><div class="collapse"><a class="reference internal" href="../ad-gmslcamrpi-adp/index.html">AD-GMSLCAMRPI-ADP#</a><label for="toctree-collapse-13-5"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-6" id="toctree-collapse-13-6"/><div class="collapse"><a class="reference internal" href="../ad-gmslcamrpi-adp/index.html">AD-GMSLCAMRPI-ADP#</a><label for="toctree-collapse-13-6"><div class="icon"></div></label></div><ul>
 <li class="toctree-l3"><a class="reference internal" href="../ad-gmslcamrpi-adp/amd-kria/index.html">Using with AMD Kria</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ad-gmslcamrpi-adp/nvidia-jetson/index.html">Using with Nvidia Jetson Orin Nano</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../ad-gmslcamrpi-adp/raspberry-pi-user-guide/index.html">Using with Raspberry Pi</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-6" id="toctree-collapse-13-6" checked=""/><div class="collapse"><a class="current reference internal" href="#">AD-SWIOT1L-SL</a><label for="toctree-collapse-13-6"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-7" id="toctree-collapse-13-7"/><div class="collapse"><a class="reference internal" href="../ad-paarray3552r-sl/index.html">AD-PAARRAY3552R-SL</a><label for="toctree-collapse-13-7"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ad-paarray3552r-sl/hardware-guide/index.html">Hardware User Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ad-paarray3552r-sl/software-guide/index.html">Software User Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-8" id="toctree-collapse-13-8"/><div class="collapse"><a class="reference internal" href="../ad-pqmon-sl/index.html">AD-PQMON-SL</a><label for="toctree-collapse-13-8"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ad-pqmon-sl/hardware-guide/index.html">Hardware User Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ad-pqmon-sl/software-guide/index.html">Software User Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-9" id="toctree-collapse-13-9" checked=""/><div class="collapse"><a class="current reference internal" href="#">AD-SWIOT1L-SL</a><label for="toctree-collapse-13-9"><div class="icon"></div></label></div><ul>
 <li class="toctree-l3"><a class="reference internal" href="hardware-guide/index.html">Hardware User Guide</a></li>
 <li class="toctree-l3"><a class="reference internal" href="software-guide/index.html">Software User Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-7" id="toctree-collapse-13-7"/><div class="collapse"><a class="reference internal" href="../eval-cn0503-ardz/index.html">EVAL-CN0503-ARDZ</a><label for="toctree-collapse-13-7"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-10" id="toctree-collapse-13-10"/><div class="collapse"><a class="reference internal" href="../admv96s-wgbe-ek1/index.html">ADMV96S-WGBE-EK1</a><label for="toctree-collapse-13-10"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="../admv96s-wgbe-ek1/hardware-guide/index.html">Hardware User Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../admv96s-wgbe-ek1/software-guide/index.html">Software User Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../adrd8012-01Z/index.html">ADRD8012-01Z</a></li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-11" id="toctree-collapse-13-11"/><div class="collapse"><a class="reference internal" href="../eval-adbms6830bmsw/index.html">EVAL-ADBMS6830BMSW</a><label for="toctree-collapse-13-11"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="../eval-adbms6830bmsw/software-guide/index.html">Software User Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-12" id="toctree-collapse-13-12"/><div class="collapse"><a class="reference internal" href="../eval-cn0503-ardz/index.html">EVAL-CN0503-ARDZ</a><label for="toctree-collapse-13-12"><div class="icon"></div></label></div><ul>
 <li class="toctree-l3"><a class="reference internal" href="../eval-cn0503-ardz/cn0503-software/index.html">Software User Guide</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../eval-cn0503-ardz/fluorescence-measurement/index.html">Fluorescence Measurement Demo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../eval-cn0503-ardz/nitrate-measurement/index.html">Nitrate Measurement Demo</a></li>
@@ -332,19 +359,24 @@ Content on this topic
 <li class="toctree-l2"><a class="reference internal" href="../eval-cn0565-ardz/index.html">EVAL-CN0565-ARDZ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../eval-cn0575-rpiz/index.html">EVAL-CN0575-RPIZ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../eval-cn0577-fmcz/index.html">EVAL-CN0577-FMCZ</a></li>
-<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-8" id="toctree-collapse-13-8"/><div class="collapse"><a class="reference internal" href="../eval-cn0584-ebz/index.html">EVAL-CN0584-EBZ</a><label for="toctree-collapse-13-8"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><a class="reference internal" href="../eval-cn0581-ebz/index.html">EVAL-CN0581-EBZ</a></li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-13" id="toctree-collapse-13-13"/><div class="collapse"><a class="reference internal" href="../eval-cn0584-ebz/index.html">EVAL-CN0584-EBZ</a><label for="toctree-collapse-13-13"><div class="icon"></div></label></div><ul>
 <li class="toctree-l3"><a class="reference internal" href="../eval-cn0584-ebz/digital-template/index.html">Digital Template Model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../eval-cn0584-ebz/matlab-configuration/index.html">MATLAB Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../eval-cn0591-rpiz/index.html">EVAL-CN0591-RPIZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../eval-cn0585-fmcz/index.html">EVAL-CN0585-FMCZ</a></li>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-14" id="toctree-collapse-13-14"/><div class="collapse"><a class="reference internal" href="../eval-cn0591-rpiz/index.html">EVAL-CN0591-RPIZ</a><label for="toctree-collapse-13-14"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="../eval-cn0591-rpiz/sample_application/index.html">Temperature Controller Application</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../eval-ess1-sys/index.html">EVAL-ESS1-SYS</a></li>
-<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-9" id="toctree-collapse-13-9"/><div class="collapse"><a class="reference internal" href="../eval-isomax/index.html">EVAL-ISOMAX</a><label for="toctree-collapse-13-9"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-15" id="toctree-collapse-13-15"/><div class="collapse"><a class="reference internal" href="../eval-isomax/index.html">EVAL-ISOMAX</a><label for="toctree-collapse-13-15"><div class="icon"></div></label></div><ul>
 <li class="toctree-l3"><a class="reference internal" href="../eval-isomax/hardware_guide/index.html">Hardware User Guide</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../eval-isomax/software_guide/index.html">Software User Guide</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-10" id="toctree-collapse-13-10"/><div class="collapse"><a class="reference internal" href="../eval-ltpa-kit/index.html">EVAL-LTPA-KIT (LTpowerAnalyzer Kit)</a><label for="toctree-collapse-13-10"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-13-16" id="toctree-collapse-13-16"/><div class="collapse"><a class="reference internal" href="../eval-ltpa-kit/index.html">EVAL-LTPA-KIT (LTpowerAnalyzer Kit)</a><label for="toctree-collapse-13-16"><div class="icon"></div></label></div><ul>
 <li class="toctree-l3"><a class="reference internal" href="../eval-ltpa-kit/hardware_guide/index.html">EVAL-LTPA-KIT Hardware User Guide</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../eval-ltpa-kit/software_guide/index.html">EVAL-LTPA-KIT Software Guide</a></li>
 </ul>
@@ -411,31 +443,33 @@ Content on this topic
 <h2>Software-configurable Analog and Digital I/O with 10BASE-T1L Evaluation and Development Platform<a class="headerlink" href="#software-configurable-analog-and-digital-i-o-with-10base-t1l-evaluation-and-development-platform" title="Link to this heading"></a></h2>
 <section id="introduction">
 <h3>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h3>
-<figure class="align-right" id="id1">
-<a class="reference internal image-reference" href="../../../_images/ad-swiot1l-sl_angle-web.jpg"><img alt="../../../_images/ad-swiot1l-sl_angle-web.jpg" src="../../../_images/ad-swiot1l-sl_angle-web.jpg" style="width: 400px;" />
-</a>
-<figcaption>
-<p><span class="caption-number">Figure 1 </span><span class="caption-text">AD-SWIOT1L-SL Development Platform</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<p>The <a class="icon adi reference external" href="https://www.analog.com/AD-SWIOT1L-SL" target="_blank">AD-SWIOT1L-SL</a> is a complete hardware and software platform for prototyping intelligent,
-secure, network-capable field devices, with applications in factory automation,
-process control, and intelligent buildings. Some of the main features and
-benefits include:</p>
+<p>The <a class="icon adi reference external" href="https://www.analog.com/AD-SWIOT1L-SL" target="_blank">AD-SWIOT1L-SL</a> is a complete hardware and software platform for
+prototyping intelligent, secure, network-capable field devices, with
+applications in factory automation, process control, and intelligent buildings.
+Some of the main features and benefits include:</p>
 <ul class="simple">
 <li><p>Ultimate flexibility in I/O interface configurability through software</p></li>
 <li><p>Embedded processing for implementing self-capable edge devices</p></li>
-<li><p>Built-in security for root-of-trust, mutual authentication, data confidentiality and integrity, secure boot, and secure communications</p></li>
+<li><p>Built-in security for root-of-trust, mutual authentication, data
+confidentiality and integrity, secure boot, and secure communications</p></li>
 <li><p>Long-range single-pair 10BASE-T1L Ethernet interface</p></li>
-<li><p>Power delivery via the 10BASE-T1L interface or from a field supply enabling both low and high power applications</p></li>
+<li><p>Power delivery via the 10BASE-T1L interface or from a field supply enabling
+both low and high power applications</p></li>
 <li><p>Fully isolated design for safe operation</p></li>
 <li><p>Industry standard form factor compatible with DIN rail mounts</p></li>
 </ul>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../../_images/ad-swiot1l-sl_angle-web.jpg"><img alt="../../../_images/ad-swiot1l-sl_angle-web.jpg" src="../../../_images/ad-swiot1l-sl_angle-web.jpg" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 1 </span><span class="caption-text"><a class="icon adi reference external" href="https://www.analog.com/AD-SWIOT1L-SL" target="_blank">AD-SWIOT1L-SL</a> Development Platform</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 <figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="../../../_images/swiot1l_block_diagram1.png"><img alt="../../../_images/swiot1l_block_diagram1.png" src="../../../_images/swiot1l_block_diagram1.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 2 </span><span class="caption-text">AD-SWIOT1L-SL Simplifed Block Diagram</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 2 </span><span class="caption-text"><a class="icon adi reference external" href="https://www.analog.com/AD-SWIOT1L-SL" target="_blank">AD-SWIOT1L-SL</a> Simplifed Block Diagram</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -518,24 +552,48 @@ system together and get it up and running in no time.</p>
 <p>The AD-SWIOT1L-SL comes with pre-programmed firmware enabling the system to
 interface with a PC application for system configuration, control, and data
 acquisition over the 10BASE-T1L interface.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../../../_images/swiot1l_kit_v1.jpg"><img alt="../../../_images/swiot1l_kit_v1.jpg" src="../../../_images/swiot1l_kit_v1.jpg" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 3 </span><span class="caption-text"><a class="icon adi reference external" href="https://www.analog.com/AD-SWIOT1L-SL" target="_blank">AD-SWIOT1L-SL</a> Package Contents</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 <section id="application-development">
 <h3>Application Development<a class="headerlink" href="#application-development" title="Link to this heading"></a></h3>
-<figure class="align-right">
-<a class="reference internal image-reference" href="../../../_images/sw_block_diagram.png"><img alt="../../../_images/sw_block_diagram.png" src="../../../_images/sw_block_diagram.png" style="width: 300px;" />
-</a>
-</figure>
 <p>The AD-SWIOT1L-SL firmware is based on ADI’s open-source no-OS framework. It
-includes the bare-metal device drivers for all the components in the system as
+includes the bare-metal device drivers for all the components in the system, as
 well as example applications enabling connectivity via the 10BASE-T1L interface
 for system configuration and data transfer.</p>
-<div class="admonition-download admonition">
-<p class="admonition-title">Download</p>
-<p><a class="icon git reference external" href="https://github.com/analogdevicesinc/no-OS/tree/main/projects/swiot1l" target="_blank">AD-SWIOT1L-SL Firmware Source Code and User Guide</a></p>
-</div>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../../../_images/sw_block_diagram.png"><img alt="../../../_images/sw_block_diagram.png" src="../../../_images/sw_block_diagram.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 4 </span><span class="caption-text"><a class="icon adi reference external" href="https://www.analog.com/AD-SWIOT1L-SL" target="_blank">AD-SWIOT1L-SL</a> Software Block Diagram</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="getting-started-with-ad-swiot1l-sl">
+<h3>Getting Started with AD-SWIOT1L-SL<a class="headerlink" href="#getting-started-with-ad-swiot1l-sl" title="Link to this heading"></a></h3>
+<p>Depending on your specific use case for the AD-SWIOT1L-SL platform, these guickstart guides may serve as valuable resources to assist you in navigating your project:</p>
+<ol class="arabic simple">
+<li><p><a class="icon link reference external" href="https://analogdevicesinc.github.io/scopy/plugins/swiot1l/index.html" target="_blank">Interact with AD-SWIOT1L-SL using Scopy</a></p></li>
+<li><p><a class="icon link reference external" href="https://analogdevicesinc.github.io/documentation/solutions/reference-designs/ad-swiot1l-sl/software-guide/index.html" target="_blank">Program and debug AD-SWIOT1L-SL application code</a></p>
+<ul class="simple">
+<li><p>A step-by-step guide to properly setup and configure your AD-SWIOT1L-SL
+system</p></li>
+</ul>
+</li>
+<li><p><a class="icon link reference external" href="https://github.com/analogdevicesinc/no-OS/tree/main/projects/swiot1l" target="_blank">Program and debug AD-SWIOT1L-SL firmware</a></p>
+<ul class="simple">
+<li><p>Detailed information about programming and debugging the system</p></li>
+</ul>
+</li>
+</ol>
 </section>
 <section id="user-guides">
-<h3>User Guides<a class="headerlink" href="#user-guides" title="Link to this heading"></a></h3>
+<h3>User guides<a class="headerlink" href="#user-guides" title="Link to this heading"></a></h3>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="hardware-guide/index.html">Hardware User Guide</a></li>
@@ -554,7 +612,7 @@ for system configuration and data transfer.</p>
           </div>
               <div class="related">
                 &nbsp;
-    <a href="../ad-gmslcamrpi-adp/raspberry-pi-user-guide/index.html" title="Previous document (Alt+Shift+LeftArrow)" class="prev">Using with Raspberry Pi</a>
+    <a href="../ad-pqmon-sl/software-guide/index.html" title="Previous document (Alt+Shift+LeftArrow)" class="prev">Software User Guide</a>
     <a href="hardware-guide/index.html" title="Next document (Alt+Shift+RightArrow)" class="next">Hardware User Guide</a>
               </div>
           
