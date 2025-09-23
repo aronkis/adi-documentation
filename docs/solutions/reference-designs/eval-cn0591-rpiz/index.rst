@@ -229,6 +229,8 @@ Setup with DC Power Supply with USB-C or other DC Power Supply
 
    EVAL-CN0591-RPIZ Block Diagram
 
+.. _software-setup:
+
 Software Setup
 ~~~~~~~~~~~~~~
 
@@ -275,8 +277,10 @@ Save the changes and reboot the system by entering the following command in the 
 
    $sudo reboot
 
-Setting up a static IP
-^^^^^^^^^^^^^^^^^^^^^^
+.. _setting-up-static-ip:
+
+Setting Up a Static IP
+----------------------
 
 To set up a static IP address for the CN0591, the user has to modify the IPv4
 address of the chosen network interface.
@@ -448,6 +452,15 @@ Hardware Registration
 
    Receive software update notifications, documentation updates, view the latest
    videos, and more when you :adi:`register <EVAL-CN0591-RPIZ?&v=RevC>` your hardware.
+
+Sample Application
+------------------
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+
+   */index
 
 Help and Support
 -------------------

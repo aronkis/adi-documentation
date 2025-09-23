@@ -1,0 +1,47 @@
+ADI|adi
+LTspice
+[Dd]octools
+
+[Tt]octree
+[Dd]ocname
+
+PDO(s)?
+LED(s)?
+
+[Ee]valuate
+[Pp]reloaded
+
+[Mm]aximum
+[Mm]inimum
+[Mm]ultiple
+[Uu]ltrafast
+[Uu]ltralow
+[Mm]icrocontroller
+[Oo]vertemperature
+[Mm]onitor
+[Pp]urchase
+[Bb]ootloader
+[Ww]alkthrough
+[Aa]cquire
+
+Tx
+Rx
+MIMO(s)?
+Doherty
+
+ns
+dBm
+
+[Oo]vercurrent
+[Oo]vervoltage
+[Uu]ndervoltage
+[Ww]earables
+[Pp]inout
+[Dd]atasheet
+[Hh]owever
+
+# Passiv allow
+is rated
+is kept
+are highlighted
+be adjusted
