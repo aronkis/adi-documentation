@@ -1,6 +1,6 @@
-.. _eval-cn0591-rpiz:
+.. _ad-rpi-t1lpse-sl:
 
-EVAL-CN0591-RPIZ
+AD-RPI-T1LPSE-SL
 ================
 
 2-port 10BASE-T1L Field Switch with SPoE PSE
@@ -9,13 +9,13 @@ EVAL-CN0591-RPIZ
 General Description
 -------------------
 
-.. figure:: eval-cn0591-rpiz-top-iso.png
+.. figure:: ad-rpi-t1lpse-sl-top-iso.png
    :width: 400 px
    :align: right
 
-   EVAL-CN0591-RPIZ Board
+   AD-RPI-T1LPSE-SL Board
 
-The :adi:`EVAL-CN0591-RPIZ <CN0591>` is a 10BASE-T1L MAC/PHY interface with Single 
+The :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>` is a 10BASE-T1L MAC/PHY interface with Single 
 Pair Power over Ethernet (SPoE), designed for developing field devices and applications 
 on the Raspberry Pi platform. It functions as Power Sourcing Equipment (PSE), 
 capable of delivering power to other devices over a 10BASE-T1L network.
@@ -27,7 +27,7 @@ regulated 5V to the Raspberry Pi.
 The system supports SPoE Class 10–12 (nominal 24V) and Class 13–14 (nominal 55V), 
 enabling flexible power configurations for various industrial and embedded applications.
 
-Designed for use on the Raspberry Pi platform, the CN0591 hardware features a 
+Designed for use on the Raspberry Pi platform, the AD-RPI-T1LPSE-SL hardware features a 
 40-pin GPIO header and uses an extended version of the standard HAT.
 
 Evaluation Board Hardware
@@ -36,19 +36,19 @@ Evaluation Board Hardware
 Primary Side
 ~~~~~~~~~~~~
 
-.. figure:: eval-cn0591-rpiz-top-with-labels.png
+.. figure:: ad-rpi-t1lpse-sl-top-with-labels.png
 
-   EVAL-CN0591-RPIZ Primary Side
+   AD-RPI-T1LPSE-SL Primary Side
 
 10BASE-T1L Ports (P1 and P2)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: eval-cn0591-10base-t1l-port.png
+.. figure:: ad-rpi-t1lpse-sl-10base-t1l-port.png
    :width: 350 px
 
    10BASE-T1L Ports
 
-The :adi:`EVAL-CN0591-RPIZ <CN0591>` evaluation board features two 10BASE-T1L ports, 
+The :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>` evaluation board features two 10BASE-T1L ports, 
 allowing connection to up to two PDs. Each port supports independent control of 
 power sourcing and data transmission.
 
@@ -61,7 +61,7 @@ When the board is powered via USB-C, the default output voltage is 24V, generate
 by the :adi:`LT3757A` flyback boost converter, suitable for SPoE Classes 10–12. To enable 
 SPoE Classes 13–14, which require 54V, switch *S3* to activate the higher voltage output.
 
-.. figure:: eval-cn0591-s3-switch.png
+.. figure:: ad-rpi-t1lpse-sl-s3-switch.png
    :width: 350 px
 
    SPoE Voltage Switch
@@ -127,7 +127,7 @@ The device by default is configured to operate in SPoE Class 12 (24V nominal) or
 SPoE Class 14 (54V nominal) mode. In order to use classes 11 and 13, the 
 following solder jumper configurations are required:
 
-.. figure:: eval-cn0591-spoe-classes.png
+.. figure:: ad-rpi-t1lpse-sl-spoe-classes.png
    :width: 475 px
 
    SPoE PD Power Class Jumpers
@@ -159,11 +159,11 @@ The complete power requirements for the SPoE classes are shown in the table belo
 Secondary Side
 ~~~~~~~~~~~~~~
 
-.. figure:: eval-cn0591-rpiz-bottom-with-labels.png
+.. figure:: ad-rpi-t1lpse-sl-bottom-with-labels.png
 
-   EVAL-CN0591-RPIZ Secondary Side
+   AD-RPI-T1LPSE-SL Secondary Side
 
-The secondary side of the :adi:`EVAL-CN0591-RPIZ <CN0591>` evaluation board
+The secondary side of the :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>` evaluation board
 features a Raspberry Pi compatible 40-pin GPIO header, which is used to
 connect the board to the Raspberry Pi and the serial communication and 
 classification protocol (SCCP) drivers. 
@@ -182,7 +182,7 @@ configured using the following jumper configurations:
 
    Using a 9V power source is not recommended for Class 14 operation without external active cooling. 
    The boost converter generates significant heat at this voltage, which could potentially damage the 
-   Raspberry Pi or the :adi:`EVAL-CN0591-RPIZ <CN0591>` evaluation board.
+   Raspberry Pi or the :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>` evaluation board.
 
 .. important::
 
@@ -195,7 +195,7 @@ System Setup
 
 **Hardware**
 
-- :adi:`EVAL-CN0591-RPIZ <CN0591>` Circuit Evaluation Board
+- :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>` Circuit Evaluation Board
 - Raspberry Pi Model 3B (or higher)
 - Micro-SD Card for Raspberry Pi
 - 10BASE-T1L media converter, either:
@@ -217,17 +217,16 @@ System Setup
 
 **Documentation**
 
-- :adi:`CN0591` Circuit Note
+- :adi:`AD-RPI-T1LPSE-SL` Circuit Note
 
 Block Diagram
 ~~~~~~~~~~~~~
 
 Setup with DC Power Supply with USB-C or other DC Power Supply
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. figure::
-   eval-cn0591-rpiz-block-diagram.png
+.. figure:: ad-rpi-t1lpse-sl-block-diagram.png
 
-   EVAL-CN0591-RPIZ Block Diagram
+   AD-RPI-T1LPSE-SL Block Diagram
 
 .. _software-setup:
 
@@ -237,7 +236,7 @@ Software Setup
 Downloading and Flashing the Micro-SD Card
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To use the :adi:`EVAL-CN0591-RPIZ <CN0591>` with the Raspberry Pi, the
+To use the :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>` with the Raspberry Pi, the
 micro-SD card should be preloaded with :ref:`kuiper`, a distribution based on 
 Raspbian from the Raspberry Pi Foundation that incorporates Linux drivers for 
 ADI products as well as tools and other software products.
@@ -250,23 +249,23 @@ Configuring the Micro-SD Card
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Linux kernel requires a matching device tree overlay to identify the
-devices on the CN0591. The overlay table is included with the :ref:`kuiper`
+devices on the AD-RPI-T1LPSE-SL. The overlay table is included with the :ref:`kuiper`
 and simply needs to be enabled.
 
 To do this, follow the Hardware Configuration procedure under **Configuring
 the SD Card for Raspberry Pi Projects** in the :ref:`kuiper` page.
-Enable the CN0591 overlay by adding the following line to *config.txt*
+Enable the AD-RPI-T1LPSE-SL overlay by adding the following line to *config.txt*
 for class 12:
 
 ::
 
-   dtoverlay=rpi-cn0591-class12
+   dtoverlay=rpi-t1lpse-class12
 
 or for class 14:
 
 ::
 
-   dtoverlay=rpi-cn0591-class14
+   dtoverlay=rpi-t1lpse-class14
 
 Save the changes and reboot the system by entering the following command in the console:
 
@@ -282,12 +281,12 @@ Save the changes and reboot the system by entering the following command in the 
 Setting Up a Static IP
 ----------------------
 
-To set up a static IP address for the CN0591, the user has to modify the IPv4
+To set up a static IP address for the AD-RPI-T1LPSE-SL, the user has to modify the IPv4
 address of the chosen network interface.
 This can be done by right-clicking in the top right corner the network icon
 and selecting Wireless & Wired Network Settings.
 
-.. figure:: eval-cn-0591-rpiz-static-ip-location.png
+.. figure:: ad-rpi-t1lpse-sl-static-ip-location.png
    :width: 400 px
 
    Network Settings Location
@@ -295,7 +294,7 @@ and selecting Wireless & Wired Network Settings.
 Next to the **interface** field select the wanted interface (e.g. **eth1 / 
 eth2**) and type in the chosen IP address as shown below:
 
-.. figure:: eval-cn-0591-rpiz-static-ip-set-ip.png
+.. figure:: ad-rpi-t1lpse-sl-static-ip-set-ip.png
    :width: 400 px
 
    Static IP Address Configuration
@@ -310,7 +309,7 @@ following command in a terminal:
 
    $sudo ip link set eth0 down
 
-.. figure:: eval-cn-0591-rpiz-static-ip-set-eth0-down.png
+.. figure:: ad-rpi-t1lpse-sl-static-ip-set-eth0-down.png
    :width: 400 px
 
    Setting eth0 down
@@ -324,7 +323,7 @@ Next, set the interface up again by entering the following command:
 
    $sudo ip link set eth0 up
 
-.. figure:: eval-cn-0591-rpiz-static-ip-set-eth0-up.png
+.. figure:: ad-rpi-t1lpse-sl-static-ip-set-eth0-up.png
    :width: 400 px
 
    Setting eth0 up
@@ -340,7 +339,7 @@ console, the next to the **inet** field the static IP address should be shown:
 
    $ip a
 
-.. figure:: eval-cn-0591-rpiz-static-ip-result.png
+.. figure:: ad-rpi-t1lpse-sl-static-ip-result.png
    :width: 400 px
 
    Static IP Address Result
@@ -348,23 +347,23 @@ console, the next to the **inet** field the static IP address should be shown:
 Basic Operation
 ~~~~~~~~~~~~~~~
 
-.. figure:: eval-cn0591-setup.png
+.. figure:: ad-rpi-t1lpse-sl-setup.png
 
    Complete Evaluation Setup
 
 To establish a 10BASE-T1L connection to a Raspberry Pi using the
-:adi:`EVAL-CN0591-RPIZ <CN0591>` evaluation board and ping the Raspberry Pi 
+:adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>` evaluation board and ping the Raspberry Pi 
 follow the below procedure:
 
 #. Ensure that the jumpers and switches of the :adi:`EVAL-ADIN1100EBZ <eval-adin1100>` are configured to the default settings.
 
 #. Insert the micro-SD card into its slot on the Raspberry Pi.
 
-#. Connect the :adi:`EVAL-CN0591-RPIZ <CN0591>` circuit evaluation board to the Raspberry Pi GPIO header.
+#. Connect the :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>` circuit evaluation board to the Raspberry Pi GPIO header.
 
 #. Using a twisted-pair cable, connect **P2** on the
    :adi:`AD-T1LUSB2.0-EBZ <ad-t1lusb20-ebz>` USB2.0 to 10BASE-T1L Interface
-   to the **P2** terminal block on the :adi:`EVAL-CN0591-RPIZ <CN0591>`
+   to the **P2** terminal block on the :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>`
 
 #. Using a USB-C cable, connect **P1** on the
    :adi:`AD-T1LUSB2.0-EBZ <ad-t1lusb20-ebz>` evaluation board to a USB port on
@@ -378,10 +377,10 @@ follow the below procedure:
 
 #. *Operation with external DC Power Supply (Using the P21 terminal block):*
 
-   * Using wires, connect the **P21** terminal block on the :adi:`EVAL-CN0591-RPIZ <CN0591>`
+   * Using wires, connect the **P21** terminal block on the :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>`
    * Set the **S2** switch towards the **Terminal Block**. 
 
-#. Wait for the **DS1** LED on the :adi:`EVAL-CN0591-RPIZ <CN0591>` circuit
+#. Wait for the **DS1** LED on the :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>` circuit
    evaluation board and the **DS1**, **DS2** LEDs on the 
    :adi:`EVAL-ADIN1100EBZ <EVAL-ADIN1100>` evaluation board to turn on and
    start blinking at the same time. This indicates that a 10BASE-T1L link has 
@@ -408,10 +407,10 @@ follow the below procedure:
          IP address: 192.168.90.zzz
          Subnet mask: 255.255.0.0
 
-     where **zzz** is a number between 1 and 254, currently unused in the network (for example, 10 cannot be used, since it is used by the CN0591).
+     where **zzz** is a number between 1 and 254, currently unused in the network (for example, 10 cannot be used, since it is used by the AD-RPI-T1LPSE-SL).
    * Click on **OK** to save the changes and close the dialog boxes.
 
-#. Open up a terminal and ping the CN0591:
+#. Open up a terminal and ping the AD-RPI-T1LPSE-SL:
    ::
 
       ping 192.168.90.10 
@@ -426,7 +425,7 @@ Schematic, PCB Layout, Bill of Materials
 
 .. admonition:: Download
 
-  :download:`EVAL-CN0591-RPIZ Design & Integration Files <CN0591-DesignSupport.zip>`
+  :download:`AD-RPI-T1LPSE-SL Design & Integration Files <AD-RPI-T1LPSE-SL-DesignSupport.zip>`
 
   - Schematics
   - PCB Layout
@@ -436,8 +435,7 @@ Schematic, PCB Layout, Bill of Materials
 Additional Information and Useful Links
 ---------------------------------------
 
-- :adi:`CN0591 Design Support Package <CN0591-DesignSupport>`
-- :adi:`CN0591 Circuit Note Page <CN0591>`
+- :adi:`AD-RPI-T1LPSE-SL Design Support Package <AD-RPI-T1LPSE-SL-DesignSupport>`
 - :adi:`ADIN2111 Product Page <ADIN2111>`
 - :adi:`MAX17573 Product Page <MAX17573>`
 - :adi:`MAX77958 Product Page <MAX77958>`
@@ -451,7 +449,7 @@ Hardware Registration
 .. tip::
 
    Receive software update notifications, documentation updates, view the latest
-   videos, and more when you :adi:`register <EVAL-CN0591-RPIZ?&v=RevC>` your hardware.
+   videos, and more when you :adi:`register <AD-RPI-T1LPSE-SL?&v=RevC>` your hardware.
 
 Sample Application
 ------------------

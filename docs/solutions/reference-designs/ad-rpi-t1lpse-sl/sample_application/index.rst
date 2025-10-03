@@ -1,7 +1,7 @@
 Temperature Controller Application
 ==================================
 
-This sample application demonstrates a basic Temperature Controller using the :adi:`AD-CN0591-RPIZ` 
+This sample application demonstrates a basic Temperature Controller using the :adi:`AD-AD-RPI-T1LPSE-SL-RPIZ` 
 board, two :adi:`AD-SWIOT1L-SL` boards, a Raspberry Pi, a fan actuator and a temperature 
 sensor. The system reads temperature data and adjusts fan speed (via SWIOT1L output) 
 based on configurable thresholds and hysteresis.
@@ -37,7 +37,7 @@ Hardware Setup
 
 **Equipment Needed**
 
-- 1x :adi:`AD-CN0591-RPIZ` Board
+- 1x :adi:`AD-AD-RPI-T1LPSE-SL-RPIZ` Board
 - 2x :adi:`AD-SWIOT1L-SL` Boards
 - 1x Raspberry Pi 4 Model B running Kuiper 2
 - 1x :adi:`TMP01` Temperature Sensor
@@ -46,9 +46,9 @@ Hardware Setup
 
 **Setup Procedure**
 
-1. Connect the :adi:`AD-CN0591-RPIZ` board to the Raspberry Pi via the 40-pin header
+1. Connect the :adi:`AD-AD-RPI-T1LPSE-SL-RPIZ` board to the Raspberry Pi via the 40-pin header
 
-2. Connect the two :adi:`AD-SWIOT1L-SL` boards to the :adi:`AD-CN0591-RPIZ` board via the T1L connectors
+2. Connect the two :adi:`AD-SWIOT1L-SL` boards to the :adi:`AD-AD-RPI-T1LPSE-SL-RPIZ` board via the T1L connectors
 
 3. Connect the first :adi:`AD-SWIOT1L-SL` board to the :adi:`TMP01` temperature sensor
 
@@ -126,8 +126,8 @@ Each :adi:`AD-SWIOT1L-SL` must be updated with the provided firmware image.
 
 2. Repeat the process for **both boards**.
 
-3. Use the firmware images provided in the `pyadi-iio <https://github.com/analogdevicesinc/pyadi-iio/tree/swiot/examples/cn0591/host_setup>`_ repository,
-   under ``examples/cn0591/host_setup/config/firmware``. These images configure the boards with static IP addresses:
+3. Use the firmware images provided in the `pyadi-iio <https://github.com/analogdevicesinc/pyadi-iio/tree/swiot/examples/rpi_t1lpse/host_setup>`_ repository,
+   under ``examples/rpi_t1lpse/host_setup/config/firmware``. These images configure the boards with static IP addresses:
 
    - The first board will have the ``192.168.97.40`` IP address
    - The second board will have the ``192.168.97.41`` IP address
@@ -142,7 +142,7 @@ Each :adi:`AD-SWIOT1L-SL` must be updated with the provided firmware image.
       $ ping 192.168.97.40
       $ ping 192.168.97.41
 
-   .. figure:: eval-cn0591-rpiz-sample-application-ping.png
+   .. figure:: ad-rpi-t1lpse-sl-rpiz-sample-application-ping.png
       :align: center
       :width: 500
 
@@ -153,7 +153,7 @@ Network Setup
 
 The SWIOT1L boards use static IP addresses. You can configure them in two ways:
 
-- **Manual static IP** — follow the steps on the CN0591 main page under :ref:`setting-up-static-ip`.
+- **Manual static IP** — follow the steps on the AD-RPI-T1LPSE-SL main page under :ref:`setting-up-static-ip`.
 - **NetworkManager profiles** — use the provided connection profiles and steps below (recommended).
 
 1. From the project folder, navigate to the ``host_setup`` directory.
@@ -168,7 +168,7 @@ The SWIOT1L boards use static IP addresses. You can configure them in two ways:
       $ sudo cp -v "Wired connection 2" /etc/NetworkManager/system-connections/
       $ sudo cp -v "Wired connection 3" /etc/NetworkManager/system-connections/
 
-   .. figure:: eval-cn0591-rpiz-sample-application-network-setup.png
+   .. figure:: ad-rpi-t1lpse-sl-rpiz-sample-application-network-setup.png
       :align: center
       :width: 500
 
@@ -184,7 +184,7 @@ The SWIOT1L boards use static IP addresses. You can configure them in two ways:
       $ sudo chmod 600 /etc/NetworkManager/system-connections/Wired\ connection\ 2
       $ sudo chmod 600 /etc/NetworkManager/system-connections/Wired\ connection\ 3
 
-   .. figure:: eval-cn0591-rpiz-sample-application-network-chmod.png
+   .. figure:: ad-rpi-t1lpse-sl-rpiz-sample-application-network-chmod.png
       :align: center
       :width: 500
 
@@ -208,14 +208,14 @@ The SWIOT1L boards use static IP addresses. You can configure them in two ways:
 
       $ nmcli connection show
 
-   .. figure:: eval-cn0591-rpiz-sample-application-nmcli-conn-show.png
+   .. figure:: ad-rpi-t1lpse-sl-rpiz-sample-application-nmcli-conn-show.png
       :align: center
       :width: 500
 
       Example of active NetworkManager connections
 
 For full host setup details (including the NetworkManager profiles and context), see the README here:
-`pyadi-iio host_setup README <https://github.com/analogdevicesinc/pyadi-iio/blob/swiot/examples/cn0591/host_setup/README.md>`_.
+`pyadi-iio host_setup README <https://github.com/analogdevicesinc/pyadi-iio/blob/swiot/examples/rpi_t1lpse/host_setup/README.md>`_.
 
 
 Application Execution
@@ -240,16 +240,16 @@ Run the Temperature Controller example:
       :group: analog
       :show-user:
 
-      $ cd examples/cn0591
+      $ cd examples/rpi_t1lpse
       $ python3 temperature_controller.py
 
-   .. figure:: eval-cn0591-rpiz-sample-application-console-output.png
+   .. figure:: ad-rpi-t1lpse-sl-rpiz-sample-application-console-output.png
       :align: center
       :width: 500
 
       Example Console Output of the Temperature Controller Application
 
-   .. figure:: eval-cn0591-rpiz-sample-application-plot-output.png
+   .. figure:: ad-rpi-t1lpse-sl-rpiz-sample-application-plot-output.png
       :align: center
       :width: 500
 
@@ -258,7 +258,7 @@ Run the Temperature Controller example:
 Use Cases
 ^^^^^^^^^
 
-This demo illustrates how the :adi:`AD-CN0591-RPIZ` platform together with
+This demo illustrates how the :adi:`AD-AD-RPI-T1LPSE-SL-RPIZ` platform together with
 :adi:`AD-SWIOT1L-SL` boards can be applied in:
 
 - **Thermal management** - automatically controlling fans in enclosures or test setups
