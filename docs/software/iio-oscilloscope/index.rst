@@ -29,7 +29,7 @@ Linux
 +++++
 
 To build on an embedded target (e.g. aarch64), we recommend using the
-:ref:`Kuiper Linux Update scripts <kuiper update>`.
+:git-linux_image_ADI-scripts:`Kuiper Linux Update script <adi_update_tools.sh>`.
 This is a tried/proven method that does everything in a quick script.
 
 To build on a development host (e.g. x86 laptop or desktop) do the following:

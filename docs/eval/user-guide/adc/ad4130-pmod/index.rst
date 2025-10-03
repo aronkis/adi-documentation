@@ -162,14 +162,15 @@ Loading Image on SD Card
 In order to boot the Raspberry Pi and control the **EVAL-AD4130-8-PMDZ**, you
 will need to install ADI Kuiper Linux on an SD card. Complete instructions,
 including where to download the SD card image, how to write it to the SD card,
-and how to configure the system are provided on the :ref:`kuiper`.
+and how to configure the system are provided on the 
+:external+adi-kuiper-gen:doc:`Kuiper <index>`.
 
 Configuring the SD Card
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Follow the configuration procedure under **Configuring the SD Card for
-Raspberry Pi Projects** at :ref:`kuiper sdcard`, substituting the
-following lines in **config.txt**:
+Raspberry Pi Projects** at :external+adi-kuiper-gen:doc:`Kuiper <index>`, 
+substituting the following lines in **config.txt**:
 
 ::
 

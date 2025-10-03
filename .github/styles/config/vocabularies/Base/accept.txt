@@ -1,9 +1,13 @@
 ADI|adi
 LTspice
 [Dd]octools
+[Kk]uiper
+[Xx]ilinx
+no-OS
 
 [Tt]octree
 [Dd]ocname
+[Dd]evicetree
 
 PDO(s)?
 LED(s)?
@@ -23,14 +27,23 @@ LED(s)?
 [Bb]ootloader
 [Ww]alkthrough
 [Aa]cquire
+[Mm]inimize
+[Oo]btain
+[Ll]oopback
+[Aa]dditional
 
 Tx
 Rx
 MIMO(s)?
 Doherty
+PCIe
+Agilent
+Stratix
+APIs
 
 ns
 dBm
+Gbps
 
 [Oo]vercurrent
 [Oo]vervoltage
@@ -39,6 +52,7 @@ dBm
 [Pp]inout
 [Dd]atasheet
 [Hh]owever
+[Vv]arious
 
 # Passiv allow
 is rated

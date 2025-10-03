@@ -40,8 +40,7 @@ should be. If you have any questions, feel free to
    #. :ref:`Quick Start Guides <adrv9026 quickstart>`
 
       #. :ref:`Linux on ZCU102 <adrv9026 quickstart zynqmp>`
-      #. :ref:`Configure a pre-existing SD Card <kuiper sdcard>`
-      #. :ref:`Update the old card you received with your hardware <kuiper update>`
+      #. Configure an SD Card with :external+adi-kuiper-gen:doc:`Kuiper <index>`
 
    #. Linux Applications
 
