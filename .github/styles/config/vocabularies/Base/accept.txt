@@ -4,6 +4,7 @@ LTspice
 [Kk]uiper
 [Xx]ilinx
 no-OS
+Digilent
 
 [Tt]octree
 [Dd]ocname
@@ -11,6 +12,9 @@ no-OS
 
 PDO(s)?
 LED(s)?
+FET(s)?
+PSE(s)?
+Pmod(s)?
 
 [Ee]valuate
 [Pp]reloaded
@@ -20,7 +24,7 @@ LED(s)?
 [Mm]ultiple
 [Uu]ltrafast
 [Uu]ltralow
-[Mm]icrocontroller
+[Mm]icrocontroller(s)?
 [Oo]vertemperature
 [Mm]onitor
 [Pp]urchase
@@ -31,19 +35,38 @@ LED(s)?
 [Oo]btain
 [Ll]oopback
 [Aa]dditional
+[Hh]ighspeed
+[Dd]efconfig
+[Ss]etpoint
+[Pp]assthrough
+[Bb]aremetal
 
 Tx
 Rx
 MIMO(s)?
+PLC(s)?
+DCS(s)?
+PAC(s)?
 Doherty
 PCIe
 Agilent
 Stratix
+Virtex
+MicroBlaze
+Versal
 APIs
+DAC(s)?
+ADC(s)?
+PWM(s)?
+HMI(s)?
+Profibus
+Ethernet
+Zener
 
 ns
 dBm
 Gbps
+kbps
 
 [Oo]vercurrent
 [Oo]vervoltage
@@ -53,9 +76,14 @@ Gbps
 [Dd]atasheet
 [Hh]owever
 [Vv]arious
+[Mm]ultiband
+[Ww]ideband
+[Tt]ransmit
 
 # Passiv allow
 is rated
 is kept
 are highlighted
+are prefixed
 be adjusted
+in order to
