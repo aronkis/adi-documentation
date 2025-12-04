@@ -196,7 +196,7 @@ System Setup
 **Hardware**
 
 - :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>` Circuit Evaluation Board
-- Raspberry Pi Model 3B (or higher)
+- Raspberry Pi Model 4B+ (or higher)
 - Micro-SD Card for Raspberry Pi
 - 10BASE-T1L media converter, either:
 
