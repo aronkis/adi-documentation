@@ -96,7 +96,7 @@ System Setup
 
 - Power Source, either:
   
-  - :adi:`EVAL-CN0591-RPIZ <CN0591>` 2-port 10BASE-T1L w/SPoE PSE Development Platform
+  - :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>` 2-port 10BASE-T1L w/SPoE PSE Development Platform
   
     - Raspberry Pi Model 3B (or higher)
     - Micro-SD Card for Raspberry Pi
@@ -111,7 +111,7 @@ Block Diagram
 Setup with SPoE via PSE 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The :adi:`EVAL-CN0591-RPIZ <CN0591>` 2-port 10BASE-T1L w/SPoE PSE Development Platform
+The :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>` 2-port 10BASE-T1L w/SPoE PSE Development Platform
 provides a complete solution for powering the :adi:`AD-APARDSPOE-SL <AD-APARDSPOE-SL>` evaluation board
 and the :adi:`AD-APARD32690-SL <AD-APARD32690-SL>` platform board via SPoE.
 
@@ -122,7 +122,7 @@ and the :adi:`AD-APARD32690-SL <AD-APARD32690-SL>` platform board via SPoE.
 Basic Operation
 ~~~~~~~~~~~~~~~
 
-.. figure:: apard-pfwd-setup.png
+.. figure:: apard-spoe-setup.png
 
    Complete Evaluation Setup
 
@@ -144,8 +144,8 @@ and ping the :adi:`AD-APARD32690-SL <AD-APARD32690-SL>`:
 
    * Set the output of the PSE or DC power supply to either 24V (Class 12) or
      55V (Class 14), depending on the settings of **JP1** and **JP2** on the AD-APARDSPOE-SL board.
-   * Using a PROFIBUS cable, connect **P1** on the CN0591 evaluation board to **P1** on the :adi:`AD-APARD32690-SL <AD-APARD32690-SL>` evaluation board.
-   * Using a PROFIBUS cable, connect **P2** on the CN0591 evaluation board to **P2** on the :adi:`AD-T1LUSB2.0-EBZ <ad-t1lusb20-ebz>` evaluation board.
+   * Using a PROFIBUS cable, connect **P1** on the AD-RPI-T1LPSE-SL evaluation board to **P1** on the :adi:`AD-APARD32690-SL <AD-APARD32690-SL>` evaluation board.
+   * Using a PROFIBUS cable, connect **P2** on the AD-RPI-T1LPSE-SL evaluation board to **P2** on the :adi:`AD-T1LUSB2.0-EBZ <ad-t1lusb20-ebz>` evaluation board.
 
 #. Upload the :git-no-OS:`AD-APARD32690-SL TCP Echo Server Example <projects/apard32690/src/examples/tcp_echo_server_example>`
    to the :adi:`AD-APARD32690-SL <AD-APARD32690-SL>` platform board using the :adi:`MAX32625PICO <MAX32625PICO>` programmer.
@@ -156,7 +156,7 @@ and ping the :adi:`AD-APARD32690-SL <AD-APARD32690-SL>`:
    with the new IP address.
 
 #. Update the IP address of the Raspberry Pi's Ethernet Interface depending on which port of the
-   :adi:`EVAL-CN0591-RPIZ <CN0591>` you are using (**ETH1** / **ETH2**).
+   :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>` you are using (**ETH1** / **ETH2**).
 
    .. warning::
         
@@ -191,16 +191,16 @@ and ping the :adi:`AD-APARD32690-SL <AD-APARD32690-SL>`:
          IP address: 192.168.90.zzz
          Subnet mask: 255.255.0.0
 
-     where **zzz** is a number between 1 and 254, currently unused in the network (for example, 10 cannot be used, since it is used by the CN0591).
+     where **zzz** is a number between 1 and 254, currently unused in the network (for example, 10 cannot be used, since it is used by the AD-RPI-T1LPSE-SL).
    * Click on **OK** to save the changes and close the dialog boxes.
 
 #. Wait for the **DS3** LED on the :adi:`AD-APARD32690-SL <AD-APARD32690-SL>` evaluation board
-   and the **DS1** LED on the :adi:`EVAL-CN0591-RPIZ <CN0591>`
+   and the **DS1** LED on the :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>`
    evaluation board to turn on and start blinking at the same time.
    This indicates that a 10BASE-T1L link has been established.
 
 #. Now you can ping the device to see if the connection is working properly.
-   Open a terminal on your host PC connect to the CN0591 through SSH:
+   Open a terminal on your host PC connect to the AD-RPI-T1LPSE-SL through SSH:
  
    ::
 
@@ -218,7 +218,7 @@ and ping the :adi:`AD-APARD32690-SL <AD-APARD32690-SL>`:
       $ping 192.168.97.50
 
    .. figure:: 
-      apard-pfwd-result.png
+      apard-spoe-result.png
 
       Result
 
