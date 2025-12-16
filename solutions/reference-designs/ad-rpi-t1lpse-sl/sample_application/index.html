@@ -353,8 +353,10 @@ Content on this topic
 <li class="toctree-l3"><a class="reference internal" href="../../eval-ad9081/prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l3"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-12-15-1" id="toctree-collapse-12-15-1"/><div class="collapse"><a class="reference internal" href="../../eval-ad9081/quickstart/index.html">Quick start guides</a><label for="toctree-collapse-12-15-1"><div class="icon"></div></label></div><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../eval-ad9081/quickstart/a10soc.html">On A10SoC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../eval-ad9081/quickstart/versal.html">On VCK190</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../eval-ad9081/quickstart/zynqmp.html">On ZCU102</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../eval-ad9081/quickstart/vck190.html">On VCK190</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../eval-ad9081/quickstart/zc706.html">On ZC706</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../eval-ad9081/quickstart/vcu118.html">On VCU118</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../eval-ad9081/quickstart/zcu102.html">On ZCU102</a></li>
 </ul>
 </li>
 </ul>
@@ -439,6 +441,10 @@ Content on this topic
 <p class="caption" role="heading"><span class="caption-text">Learning</span></p>
 <ul>
 <li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-14" id="toctree-collapse-14"/><div class="collapse"><a class="reference internal" href="../../../../learning/index.html">Learning! Tutorials, Workshops, Etc</a><label for="toctree-collapse-14"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-14-1" id="toctree-collapse-14-1"/><div class="collapse"><a class="reference internal" href="../../../../learning/demo_hp_analog_meets_ai/index.html">DEMO High-Performance Analog Meets AI</a><label for="toctree-collapse-14-1"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../learning/demo_hp_analog_meets_ai/software/index.html">Software Configuration and Setup</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../learning/tutorial_prec_adc/index.html">Precision ADC Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../learning/converter_connectivity_tutorial/index.html">Converter Connectivity Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../learning/sw_infrastructure/index.html">Software Infrastructure for designing with ADCs, DACs, and Sensors</a></li>
@@ -481,25 +487,26 @@ Content on this topic
             
   <section id="temperature-controller-application">
 <h1>Temperature Controller Application<a class="headerlink" href="#temperature-controller-application" title="Link to this heading"></a></h1>
-<p>This sample application demonstrates a basic Temperature Controller using the <a class="icon adi reference external" href="https://www.analog.com/AD-AD-RPI-T1LPSE-SL-RPIZ" target="_blank">AD-AD-RPI-T1LPSE-SL-RPIZ</a>
-board, two <a class="icon adi reference external" href="https://www.analog.com/AD-SWIOT1L-SL" target="_blank">AD-SWIOT1L-SL</a> boards, a Raspberry Pi, a fan actuator and a temperature
-sensor. The system reads temperature data and adjusts fan speed (via SWIOT1L output)
-based on configurable thresholds and hysteresis.</p>
+<p>This sample application demonstrates a basic Temperature Controller using the
+<a class="icon adi reference external" href="https://www.analog.com/AD-AD-RPI-T1LPSE-SL-RPIZ" target="_blank">AD-AD-RPI-T1LPSE-SL-RPIZ</a> board, two <a class="icon adi reference external" href="https://www.analog.com/AD-SWIOT1L-SL" target="_blank">AD-SWIOT1L-SL</a> boards, a
+Raspberry Pi, a fan actuator and a temperature sensor. The system reads
+temperature data and adjusts fan speed (via SWIOT1L output) based on
+configurable thresholds and hysteresis.</p>
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Python 3.8 or newer (3.8–3.11 tested with pyadi-iio).
-Ensure that a compatible version is installed on your system before continuing.
-Older versions (&lt;3.8) may not work reliably with pyadi-iio.</p></li>
+<li><p>Python 3.8 or newer (3.8–3.11 tested with pyadi-iio). Ensure that a
+compatible version is installed on your system before continuing. Older
+versions (&lt;3.8) may not work reliably with pyadi-iio.</p></li>
 <li><p>Git command-line tools installed.</p></li>
-<li><p>Raspberry Pi with <a class="icon adi reference external" href="https://www.analog.com/Kuiper 2" target="_blank">Kuiper 2</a> image installed.
-Follow the instructions in the <a class="icon link reference external" href="https://github.com/analogdevicesinc/adi-kuiper-gen/releases" target="_blank">Kuiper 2 User Guide</a>
-to prepare the Raspberry Pi.</p></li>
-<li><p>Ensure that the first two <strong>Software Setup</strong> steps described in <a class="reference internal" href="../index.html#software-setup"><span class="std std-ref">Software Setup</span></a>
-(<em>Downloading and Flashing the Micro-SD Card</em> and <em>Configuring the Micro-SD Card</em>)
-are performed <strong>with the Kuiper 2 image</strong>, not with previous Kuiper releases.
-These steps must be redone after flashing Kuiper 2 to ensure proper compatibility
-before continuing.</p></li>
+<li><p>Raspberry Pi with <a class="icon adi reference external" href="https://www.analog.com/Kuiper 2" target="_blank">Kuiper 2</a> image installed. Follow the instructions in
+the <a class="icon link reference external" href="https://analogdevicesinc.github.io/adi-kuiper-gen/index.html" target="_blank" title="(in Kuiper latest)"><span>ADI Kuiper Linux</span></a> documentation to prepare the
+Raspberry Pi.</p></li>
+<li><p>Ensure that the first two <strong>Software Setup</strong> steps described in
+<a class="reference internal" href="../index.html#software-setup"><span class="std std-ref">Software Setup</span></a> (<em>Downloading and Flashing the Micro-SD Card</em> and
+<em>Configuring the Micro-SD Card</em>) are performed <strong>with the Kuiper 2 image</strong>,
+not with previous Kuiper releases. These steps must be redone after flashing
+Kuiper 2 to ensure proper compatibility before continuing.</p></li>
 </ul>
 </section>
 <section id="hardware-setup">
@@ -522,21 +529,24 @@ before continuing.</p></li>
 </ul>
 <p><strong>Setup Procedure</strong></p>
 <ol class="arabic">
-<li><p>Connect the <a class="icon adi reference external" href="https://www.analog.com/AD-AD-RPI-T1LPSE-SL-RPIZ" target="_blank">AD-AD-RPI-T1LPSE-SL-RPIZ</a> board to the Raspberry Pi via the 40-pin header</p></li>
-<li><p>Connect the two <a class="icon adi reference external" href="https://www.analog.com/AD-SWIOT1L-SL" target="_blank">AD-SWIOT1L-SL</a> boards to the <a class="icon adi reference external" href="https://www.analog.com/AD-AD-RPI-T1LPSE-SL-RPIZ" target="_blank">AD-AD-RPI-T1LPSE-SL-RPIZ</a> board via the T1L connectors</p></li>
-<li><p>Connect the first <a class="icon adi reference external" href="https://www.analog.com/AD-SWIOT1L-SL" target="_blank">AD-SWIOT1L-SL</a> board to the <a class="icon adi reference external" href="https://www.analog.com/TMP01" target="_blank">TMP01</a> temperature sensor</p>
-<p>The first SWIOT1L-SL board is used to both power the TMP01 sensor and measure its
-analog output voltage (VPTAT), which encodes the temperature.</p>
+<li><p>Connect the <a class="icon adi reference external" href="https://www.analog.com/AD-AD-RPI-T1LPSE-SL-RPIZ" target="_blank">AD-AD-RPI-T1LPSE-SL-RPIZ</a> board to the Raspberry Pi via the
+40-pin header</p></li>
+<li><p>Connect the two <a class="icon adi reference external" href="https://www.analog.com/AD-SWIOT1L-SL" target="_blank">AD-SWIOT1L-SL</a> boards to the
+<a class="icon adi reference external" href="https://www.analog.com/AD-AD-RPI-T1LPSE-SL-RPIZ" target="_blank">AD-AD-RPI-T1LPSE-SL-RPIZ</a> board via the T1L connectors</p></li>
+<li><p>Connect the first <a class="icon adi reference external" href="https://www.analog.com/AD-SWIOT1L-SL" target="_blank">AD-SWIOT1L-SL</a> board to the <a class="icon adi reference external" href="https://www.analog.com/TMP01" target="_blank">TMP01</a> temperature
+sensor</p>
+<p>The first SWIOT1L-SL board is used to both power the TMP01 sensor and
+measure its analog output voltage (VPTAT), which encodes the temperature.</p>
 <ul class="simple">
-<li><p><strong>Channel 3 (CH3)</strong> is configured as a <strong>Voltage Output</strong> and provides the sensor
-supply voltage. Connect:</p>
+<li><p><strong>Channel 3 (CH3)</strong> is configured as a <strong>Voltage Output</strong> and provides
+the sensor supply voltage. Connect:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">CH3</span> <span class="pre">SWIO</span></code> → <code class="docutils literal notranslate"><span class="pre">TMP01</span> <span class="pre">V+</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CH3</span> <span class="pre">GND</span></code> → <code class="docutils literal notranslate"><span class="pre">TMP01</span> <span class="pre">GND</span></code></p></li>
 </ul>
 </li>
-<li><p><strong>Channel 4 (CH4)</strong> is configured as a <strong>Voltage Input</strong> to measure the TMP01
-analog output. Connect:</p>
+<li><p><strong>Channel 4 (CH4)</strong> is configured as a <strong>Voltage Input</strong> to measure the
+TMP01 analog output. Connect:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">CH4</span> <span class="pre">SWIO</span></code> → <code class="docutils literal notranslate"><span class="pre">TMP01</span> <span class="pre">VOUT</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CH4</span> <span class="pre">GND</span></code> → <code class="docutils literal notranslate"><span class="pre">TMP01</span> <span class="pre">GND</span></code></p></li>
@@ -545,15 +555,18 @@ analog output. Connect:</p>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>CH3 provides a regulated 5 V supply to power the TMP01, while CH4 is configured as a
-high-impedance voltage input with a 0–5 V range to measure the TMP01 VOUT signal.
+<p>CH3 provides a regulated 5 V supply to power the TMP01, while CH4 is
+configured as a
+high-impedance voltage input with a 0–5 V range to measure the TMP01 VOUT
+signal.
 Both channels must share the same ground reference with the sensor.</p>
 </div>
 </li>
 <li><p>Connect the second <a class="icon adi reference external" href="https://www.analog.com/AD-SWIOT1L-SL" target="_blank">AD-SWIOT1L-SL</a> board to the fan actuator</p>
 <p>The second SWIOT1L-SL board drives the fan according to the control loop.</p>
 <ul class="simple">
-<li><p>The fan is powered directly from channel 0, configured as a <strong>Voltage Output</strong>:</p>
+<li><p>The fan is powered directly from channel 0, configured as a
+<strong>Voltage Output</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">CH0</span> <span class="pre">SWIO</span></code> → <code class="docutils literal notranslate"><span class="pre">Fan</span> <span class="pre">+</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CH0</span> <span class="pre">GND</span></code> → <code class="docutils literal notranslate"><span class="pre">Fan</span> <span class="pre">−</span></code></p></li>
@@ -624,7 +637,8 @@ Both channels must share the same ground reference with the sensor.</p>
 <a class="icon link reference external" href="https://analogdevicesinc.github.io/documentation/solutions/reference-designs/ad-swiot1l-sl/software-guide/index.html#updating-the-ad-swiot1l-sl-firmware" target="_blank">Updating the AD-SWIOT1L-SL firmware</a>.</p></li>
 <li><p>Repeat the process for <strong>both boards</strong>.</p></li>
 <li><p>Use the firmware images provided in the <a class="icon link reference external" href="https://github.com/analogdevicesinc/pyadi-iio/tree/swiot/examples/rpi_t1lpse/host_setup" target="_blank">pyadi-iio</a> repository,
-under <code class="docutils literal notranslate"><span class="pre">examples/rpi_t1lpse/host_setup/config/firmware</span></code>. These images configure the boards with static IP addresses:</p>
+under <code class="docutils literal notranslate"><span class="pre">examples/rpi_t1lpse/host_setup/config/firmware</span></code>. These images
+configure the boards with static IP addresses:</p>
 <ul class="simple">
 <li><p>The first board will have the <code class="docutils literal notranslate"><span class="pre">192.168.97.40</span></code> IP address</p></li>
 <li><p>The second board will have the <code class="docutils literal notranslate"><span class="pre">192.168.97.41</span></code> IP address</p></li>
@@ -657,8 +671,10 @@ under <code class="docutils literal notranslate"><span class="pre">examples/rpi_
 <h3>Network Setup<a class="headerlink" href="#network-setup" title="Link to this heading"></a></h3>
 <p>The SWIOT1L boards use static IP addresses. You can configure them in two ways:</p>
 <ul class="simple">
-<li><p><strong>Manual static IP</strong> — follow the steps on the AD-RPI-T1LPSE-SL main page under <a class="reference internal" href="../index.html#setting-up-static-ip"><span class="std std-ref">Setting Up a Static IP</span></a>.</p></li>
-<li><p><strong>NetworkManager profiles</strong> — use the provided connection profiles and steps below (recommended).</p></li>
+<li><p><strong>Manual static IP</strong> — follow the steps on the AD-RPI-T1LPSE-SL main page
+under <a class="reference internal" href="../index.html#setting-up-static-ip"><span class="std std-ref">Setting Up a Static IP</span></a>.</p></li>
+<li><p><strong>NetworkManager profiles</strong> — use the provided connection profiles and steps
+below (recommended).</p></li>
 </ul>
 <ol class="arabic">
 <li><p>From the project folder, navigate to the <code class="docutils literal notranslate"><span class="pre">host_setup</span></code> directory.</p></li>
@@ -687,13 +703,19 @@ under <code class="docutils literal notranslate"><span class="pre">examples/rpi_
 <div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~$
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/etc/NetworkManager/system-connections/Wired<span class="se">\ </span>connection<span class="se">\ </span><span class="m">2</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/etc/NetworkManager/system-connections/Wired<span class="se">\ </span>connection<span class="se">\</span>
+</pre></div>
+</div>
+<div class="clear-left"></div></div><div><div class="no-select highlight-text notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 <div class="clear-left"></div></div><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~$
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/etc/NetworkManager/system-connections/Wired<span class="se">\ </span>connection<span class="se">\ </span><span class="m">3</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/etc/NetworkManager/system-connections/Wired<span class="se">\ </span>connection<span class="se">\</span>
+</pre></div>
+</div>
+<div class="clear-left"></div></div><div><div class="no-select highlight-text notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 <div class="clear-left"></div></div></div><figure class="align-center" id="id4">
@@ -728,20 +750,27 @@ under <code class="docutils literal notranslate"><span class="pre">examples/rpi_
 </figure>
 </li>
 </ol>
-<p>For full host setup details (including the NetworkManager profiles and context), see the README here:
+<p>For full host setup details (including the NetworkManager profiles and context),
+see the README here:
 <a class="icon link reference external" href="https://github.com/analogdevicesinc/pyadi-iio/blob/swiot/examples/rpi_t1lpse/host_setup/README.md" target="_blank">pyadi-iio host_setup README</a>.</p>
 </section>
 <section id="application-execution">
 <h3>Application Execution<a class="headerlink" href="#application-execution" title="Link to this heading"></a></h3>
-<p>When executed, the demo continuously reads the temperature from the <a class="icon adi reference external" href="https://www.analog.com/TMP01" target="_blank">TMP01</a> sensor
-and compares it against the configured thresholds. The fan is automatically turned <strong>ON</strong>
-once the temperature rises above <code class="docutils literal notranslate"><span class="pre">TEMP_ON</span></code> (default 27 °C) and turned <strong>OFF</strong> once the
-temperature falls below <code class="docutils literal notranslate"><span class="pre">TEMP_OFF</span></code> (default 26 °C). This hysteresis prevents rapid
+<p>When executed, the demo continuously reads the temperature from the <a class="icon adi reference external" href="https://www.analog.com/TMP01" target="_blank">TMP01</a>
+sensor
+and compares it against the configured thresholds. The fan is automatically
+turned <strong>ON</strong>
+once the temperature rises above <code class="docutils literal notranslate"><span class="pre">TEMP_ON</span></code> (default 27 °C) and turned <strong>OFF</strong>
+once the
+temperature falls below <code class="docutils literal notranslate"><span class="pre">TEMP_OFF</span></code> (default 26 °C). This hysteresis prevents
+rapid
 switching when the temperature hovers around the threshold.</p>
-<p>During runtime, the application prints sensor readings and fan state in the console,
+<p>During runtime, the application prints sensor readings and fan state in the
+console,
 and displays two plots:</p>
 <ul class="simple">
-<li><p><strong>Temperature vs Time</strong> — TMP01 and ADT75 temperature measurements with ON/OFF thresholds.</p></li>
+<li><p><strong>Temperature vs Time</strong> — TMP01 and ADT75 temperature measurements with ON/OFF
+thresholds.</p></li>
 <li><p><strong>Fan State vs Time</strong> — graphical representation of when the fan is active.</p></li>
 </ul>
 <p>Run the Temperature Controller example:</p>
@@ -775,11 +804,14 @@ and displays two plots:</p>
 </div></blockquote>
 <section id="use-cases">
 <h4>Use Cases<a class="headerlink" href="#use-cases" title="Link to this heading"></a></h4>
-<p>This demo illustrates how the <a class="icon adi reference external" href="https://www.analog.com/AD-AD-RPI-T1LPSE-SL-RPIZ" target="_blank">AD-AD-RPI-T1LPSE-SL-RPIZ</a> platform together with
+<p>This demo illustrates how the <a class="icon adi reference external" href="https://www.analog.com/AD-AD-RPI-T1LPSE-SL-RPIZ" target="_blank">AD-AD-RPI-T1LPSE-SL-RPIZ</a> platform together
+with
 <a class="icon adi reference external" href="https://www.analog.com/AD-SWIOT1L-SL" target="_blank">AD-SWIOT1L-SL</a> boards can be applied in:</p>
 <ul class="simple">
-<li><p><strong>Thermal management</strong> - automatically controlling fans in enclosures or test setups</p></li>
-<li><p><strong>Process monitoring</strong> - maintaining temperature ranges in small-scale industrial or lab equipment</p></li>
+<li><p><strong>Thermal management</strong> - automatically controlling fans in enclosures or test
+setups</p></li>
+<li><p><strong>Process monitoring</strong> - maintaining temperature ranges in small-scale
+industrial or lab equipment</p></li>
 <li><p><strong>Educational examples</strong> - demonstrating closed-loop control</p></li>
 </ul>
 </section>

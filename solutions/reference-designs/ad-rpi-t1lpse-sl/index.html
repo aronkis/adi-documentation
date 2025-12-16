@@ -376,8 +376,10 @@ Content on this topic
 <li class="toctree-l3"><a class="reference internal" href="../eval-ad9081/prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l3"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-12-15-1" id="toctree-collapse-12-15-1"/><div class="collapse"><a class="reference internal" href="../eval-ad9081/quickstart/index.html">Quick start guides</a><label for="toctree-collapse-12-15-1"><div class="icon"></div></label></div><ul>
 <li class="toctree-l4"><a class="reference internal" href="../eval-ad9081/quickstart/a10soc.html">On A10SoC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../eval-ad9081/quickstart/versal.html">On VCK190</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../eval-ad9081/quickstart/zynqmp.html">On ZCU102</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../eval-ad9081/quickstart/vck190.html">On VCK190</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../eval-ad9081/quickstart/zc706.html">On ZC706</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../eval-ad9081/quickstart/vcu118.html">On VCU118</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../eval-ad9081/quickstart/zcu102.html">On ZCU102</a></li>
 </ul>
 </li>
 </ul>
@@ -462,6 +464,10 @@ Content on this topic
 <p class="caption" role="heading"><span class="caption-text">Learning</span></p>
 <ul>
 <li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-14" id="toctree-collapse-14"/><div class="collapse"><a class="reference internal" href="../../../learning/index.html">Learning! Tutorials, Workshops, Etc</a><label for="toctree-collapse-14"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-14-1" id="toctree-collapse-14-1"/><div class="collapse"><a class="reference internal" href="../../../learning/demo_hp_analog_meets_ai/index.html">DEMO High-Performance Analog Meets AI</a><label for="toctree-collapse-14-1"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../learning/demo_hp_analog_meets_ai/software/index.html">Software Configuration and Setup</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../learning/tutorial_prec_adc/index.html">Precision ADC Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../learning/converter_connectivity_tutorial/index.html">Converter Connectivity Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../learning/sw_infrastructure/index.html">Software Infrastructure for designing with ADCs, DACs, and Sensors</a></li>
@@ -515,17 +521,19 @@ Content on this topic
 <p><span class="caption-number">Figure 1 </span><span class="caption-text">AD-RPI-T1LPSE-SL Board</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>The <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> is a 10BASE-T1L MAC/PHY interface with Single
-Pair Power over Ethernet (SPoE), designed for developing field devices and applications
-on the Raspberry Pi platform. It functions as Power Sourcing Equipment (PSE),
-capable of delivering power to other devices over a 10BASE-T1L network.</p>
-<p>The board can be powered via USB-C (<em>M1</em>, up to 20V) or through a Pluggable Terminal
-Block (<em>P21</em>, up to 60V). A synchronous step-down DC-DC converter supplies a
-regulated 5V to the Raspberry Pi.</p>
-<p>The system supports SPoE Class 10–12 (nominal 24V) and Class 13–14 (nominal 55V),
-enabling flexible power configurations for various industrial and embedded applications.</p>
-<p>Designed for use on the Raspberry Pi platform, the AD-RPI-T1LPSE-SL hardware features a
-40-pin GPIO header and uses an extended version of the standard HAT.</p>
+<p>The <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> is a 10BASE-T1L MAC/PHY
+interface with Single Pair Power over Ethernet (SPoE), designed for developing
+field devices and applications on the Raspberry Pi platform. It functions as
+Power Sourcing Equipment (PSE), capable of delivering power to other devices
+over a 10BASE-T1L network.</p>
+<p>The board can be powered via USB-C (<em>M1</em>, up to 20V) or through a Pluggable
+Terminal Block (<em>P21</em>, up to 60V). A synchronous step-down DC-DC converter
+supplies a regulated 5V to the Raspberry Pi.</p>
+<p>The system supports SPoE Class 10–12 (nominal 24V) and Class 13–14 (nominal
+55V), enabling flexible power configurations for various industrial and
+embedded applications.</p>
+<p>Designed for use on the Raspberry Pi platform, the AD-RPI-T1LPSE-SL hardware
+features a 40-pin GPIO header and uses an extended version of the standard HAT.</p>
 </section>
 <section id="evaluation-board-hardware">
 <h3>Evaluation Board Hardware<a class="headerlink" href="#evaluation-board-hardware" title="Link to this heading"></a></h3>
@@ -546,16 +554,18 @@ enabling flexible power configurations for various industrial and embedded appli
 <p><span class="caption-number">Figure 3 </span><span class="caption-text">10BASE-T1L Ports</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>The <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> evaluation board features two 10BASE-T1L ports,
-allowing connection to up to two PDs. Each port supports independent control of
-power sourcing and data transmission.</p>
-<p><em>P1</em> and  <em>P2</em> are 3-pin terminal blocks designed for twisted pair cables, with optional shielding.
-These ports deliver class-dependent DC voltage to connected PDs and transmit AC-coupled
-data signals for 10BASE-T1L communication. Both ports include protection against overvoltage
-and electrostatic discharge (ESD) events.</p>
-<p>When the board is powered via USB-C, the default output voltage is 24V, generated
-by the <a class="icon adi reference external" href="https://www.analog.com/LT3757A" target="_blank">LT3757A</a> flyback boost converter, suitable for SPoE Classes 10–12. To enable
-SPoE Classes 13–14, which require 54V, switch <em>S3</em> to activate the higher voltage output.</p>
+<p>The <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> evaluation board features two
+10BASE-T1L ports, allowing connection to up to two PDs. Each port supports
+independent control of power sourcing and data transmission.</p>
+<p><em>P1</em> and  <em>P2</em> are 3-pin terminal blocks designed for twisted pair cables, with
+optional shielding. These ports deliver class-dependent DC voltage to connected
+PDs and transmit AC-coupled data signals for 10BASE-T1L communication. Both
+ports include protection against overvoltage and electrostatic discharge (ESD)
+events.</p>
+<p>When the board is powered via USB-C, the default output voltage is 24V,
+generated by the <a class="icon adi reference external" href="https://www.analog.com/LT3757A" target="_blank">LT3757A</a> flyback boost converter, suitable for SPoE
+Classes 10–12. To enable SPoE Classes 13–14, which require 54V, switch <em>S3</em> to
+activate the higher voltage output.</p>
 <figure class="align-default" id="id6">
 <a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad-rpi-t1lpse-sl/ad-rpi-t1lpse-sl-s3-switch.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad-rpi-t1lpse-sl/ad-rpi-t1lpse-sl-s3-switch.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad-rpi-t1lpse-sl/ad-rpi-t1lpse-sl-s3-switch.png" style="width: 350px;" />
 </a>
@@ -564,10 +574,10 @@ SPoE Classes 13–14, which require 54V, switch <em>S3</em> to activate the high
 </figcaption>
 </figure>
 <p>The USB-C uses the <a class="icon adi reference external" href="https://www.analog.com/MAX77958" target="_blank">MAX77958</a> standalone USB Power Delivery
-(PD) controller, which can be programmed using the <strong>P49</strong> header.
-When power is supplied via the terminal block <strong>P21</strong>, the voltage can be set
-to 24V or 55V using the customers power supply.
-The supply port can be selected via the <strong>S2</strong> switch.</p>
+(PD) controller, which can be programmed using the <strong>P49</strong> header. When power
+is supplied via the terminal block <strong>P21</strong>, the voltage can be set to 24V or
+55V using the customers power supply. The supply port can be selected via the
+<strong>S2</strong> switch.</p>
 <p>In either of the cases, to power the Raspberry Pi, 5V is generated using the
 <a class="icon adi reference external" href="https://www.analog.com/MAX17573" target="_blank">MAX17573</a>.</p>
 </section>
@@ -576,18 +586,19 @@ The supply port can be selected via the <strong>S2</strong> switch.</p>
 <p>The onboard <a class="icon adi reference external" href="https://www.analog.com/ADIN2111" target="_blank">ADIN2111</a> PHY provides the 10BASE-T1L connection to the host
 platform board. The <a class="icon adi reference external" href="https://www.analog.com/ADIN2111" target="_blank">ADIN2111</a> is connected to the Raspberry Pi using the
 SPI0 port of the Raspberry Pi.</p>
-<p>The <a class="icon adi reference external" href="https://www.analog.com/ADIN2111" target="_blank">ADIN2111</a> features selectable peak-to-peak transmit voltage levels of either 1.1V or 2.4V.
-These levels can be configured by adjusting the P6 and P4 solder jumpers for PHY1 and PHY2, respectively:</p>
+<p>The <a class="icon adi reference external" href="https://www.analog.com/ADIN2111" target="_blank">ADIN2111</a> features selectable peak-to-peak transmit voltage levels of
+either 1.1V or 2.4V. These levels can be configured by adjusting the P6 and P4
+solder jumpers for PHY1 and PHY2, respectively:</p>
 <ul class="simple">
 <li><p>Disconnected: 2.4V</p></li>
 <li><p>Shorted: 1.1V</p></li>
 </ul>
-<p>The generic SPI protocol is half duplex. Therefore, it is not possible
-to write frame data into the MAC_TX register and read from the
-MAC_RX register at the same time. To achieve full duplex transmission on
-Ethernet at 10 Mbps, OPEN Alliance SPI must be used.
-To select which SPI protocol to use, the <strong>JP1</strong> (located on the bottom of the
-board) solder jumper should be configured as follows:</p>
+<p>The generic SPI protocol is half duplex. Therefore, it is not possible to write
+frame data into the MAC_TX register and read from the MAC_RX register at the
+same time. To achieve full duplex transmission on Ethernet at 10 Mbps, OPEN
+Alliance SPI must be used. To select which SPI protocol to use, the <strong>JP1</strong>
+(located on the bottom of the board) solder jumper should be configured as
+follows:</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <tbody>
@@ -604,9 +615,11 @@ board) solder jumper should be configured as follows:</p>
 </table>
 </div>
 <p>The <a class="icon adi reference external" href="https://www.analog.com/ADIN2111" target="_blank">ADIN2111</a> supports software power-down functionality for each port
-independently after power-up or reset. To enable this feature:
-- For PHY1, short the P8 jumper.
-- For PHY2, configure the JP2 solder jumper as follows:</p>
+independently after power-up or reset. To enable this feature:</p>
+<ul class="simple">
+<li><p>For PHY1, short the P8 jumper.</p></li>
+<li><p>For PHY2, configure the JP2 solder jumper as follows:</p></li>
+</ul>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <tbody>
@@ -627,13 +640,12 @@ independently after power-up or reset. To enable this feature:
 <h5>LTC4296<a class="headerlink" href="#ltc4296" title="Link to this heading"></a></h5>
 <p>The <a class="icon adi reference external" href="https://www.analog.com/LTC4296-1" target="_blank">LTC4296</a> is a five port, single-pair power over Ethernet
 (SPoE), power sourcing equipment (PSE) controller. The LTC4296-1 is designed
-for interoperability with powered devices (PDs) in 24 V or 54 V systems.
-PD classification via the serial communication classification protocol (SCCP)
-and maintain full voltage signature (MFVS) ensure full operating voltage is
-only applied to the cable when a PD is present. PD initiated sleep and wake-up
-are supported.
-Telemetry, status, and software control features are accessed via SPI bus
-interface with packet error code (PEC) protection.</p>
+for interoperability with powered devices (PDs) in 24 V or 54 V systems. PD
+classification via the serial communication classification protocol (SCCP) and
+maintain full voltage signature (MFVS) ensure full operating voltage is only
+applied to the cable when a PD is present. PD initiated sleep and wake-up are
+supported. Telemetry, status, and software control features are accessed via
+SPI bus interface with packet error code (PEC) protection.</p>
 <p>The LTC4296 is directly powered from the <a class="icon adi reference external" href="https://www.analog.com/LT3757" target="_blank">LT3757A</a> flyback boost
 converter or from the 24V or 55V power supply connected to the <strong>P21</strong> terminal
 block.</p>
@@ -709,7 +721,8 @@ specific resistor changes are required:</p>
 <li><p>For PORT1, replace R19 or R20 with 0.4Ω, 1/10W resistors.</p></li>
 <li><p>For PORT2, replace R53 or R54 with 0.4Ω, 1/10W resistors.</p></li>
 </ul>
-<p>The complete power requirements for the SPoE classes are shown in the table below:</p>
+<p>The complete power requirements for the SPoE classes are shown in the table
+below:</p>
 <div class="table-wrapper docutils container" id="id10">
 <table class="docutils align-default" id="id10">
 <caption><span class="caption-number">Table 3 </span><span class="caption-text">SPoE PSE Power Class Requirements</span><a class="headerlink" href="#id10" title="Link to this table"></a></caption>
@@ -790,12 +803,12 @@ specific resistor changes are required:</p>
 <p><span class="caption-number">Figure 6 </span><span class="caption-text">AD-RPI-T1LPSE-SL Secondary Side</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>The secondary side of the <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> evaluation board
-features a Raspberry Pi compatible 40-pin GPIO header, which is used to
+<p>The secondary side of the <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> evaluation
+board features a Raspberry Pi compatible 40-pin GPIO header, which is used to
 connect the board to the Raspberry Pi and the serial communication and
-classification protocol (SCCP) drivers.
-The USB-C uses a standalone USB Power Delivery (PD) controller, can be
-configured using the following jumper configurations:</p>
+classification protocol (SCCP) drivers. The USB-C uses a standalone USB Power
+Delivery (PD) controller, can be configured using the following jumper
+configurations:</p>
 <div class="table-wrapper docutils container" id="id12">
 <table class="docutils align-default" id="id12">
 <caption><span class="caption-number">Table 4 </span><span class="caption-text">USB-C Power Delivery Controller Configuration</span><a class="headerlink" href="#id12" title="Link to this table"></a></caption>
@@ -840,18 +853,21 @@ configured using the following jumper configurations:</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Although the PD supports 5V input, we do not recommend using it because the <a class="icon adi reference external" href="https://www.analog.com/MAX17573" target="_blank">MAX17573</a>
-requires a voltage higher than 5V to reliably generate a stable 5V output for the Raspberry Pi.</p>
+<p>Although the PD supports 5V input, we do not recommend using it because the
+<a class="icon adi reference external" href="https://www.analog.com/MAX17573" target="_blank">MAX17573</a> requires a voltage higher than 5V to reliably generate a
+stable 5V output for the Raspberry Pi.</p>
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Using a 9V power source is not recommended for Class 14 operation without external active cooling.
-The boost converter generates significant heat at this voltage, which could potentially damage the
-Raspberry Pi or the <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> evaluation board.</p>
+<p>Using a 9V power source is not recommended for Class 14 operation without
+external active cooling. The boost converter generates significant heat at
+this voltage, which could potentially damage the Raspberry Pi or the
+<a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> evaluation board.</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>A power supply of at least 15V is recommended to help mitigate excess heat and prevent potential damage to the system.</p>
+<p>A power supply of at least 15V is recommended to help mitigate excess heat
+and prevent potential damage to the system.</p>
 </div>
 </section>
 </section>
@@ -866,17 +882,17 @@ Raspberry Pi or the <a class="icon adi reference external" href="https://www.ana
 <li><p>10BASE-T1L media converter, either:</p>
 <ul>
 <li><p><a class="icon adi reference external" href="https://www.analog.com/eval-adin1100" target="_blank">EVAL-ADIN1100EBZ</a> Product Evaluation Board</p></li>
-<li><p><a class="icon adi reference external" href="https://www.analog.com/ad-t1lusb20-ebz" target="_blank">AD-T1LUSB2.0-EBZ</a> USB2.0 to 10BASE-T1L Interface Board</p></li>
+<li><p><a class="icon adi reference external" href="https://www.analog.com/ad-t1lusb20-ebz" target="_blank">AD-T1LUSB2.0-EBZ</a> USB2.0 to 10BASE-T1L
+Interface Board</p></li>
 <li><p>Other 10BASE-T to 10BASE-T1L media converter</p></li>
 </ul>
 </li>
-<li><dl class="simple">
-<dt>Power Source Options:</dt><dd><ul>
+<li><p>Power Source Options:</p>
+<ul>
 <li><p>USB-C Input: Powered via a DC power supply using a USB-C connector.</p></li>
-<li><p>External DC Supply: Any external DC power source with an output of either 24V or 55V.</p></li>
+<li><p>External DC Supply: Any external DC power source with an output of
+either 24V or 55V.</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 <li><p>Host Windows, Linux, or Mac computer</p></li>
 </ul>
@@ -915,8 +931,8 @@ write it to the micro-SD card, and how to configure the system are provided at
 <section id="configuring-the-micro-sd-card">
 <h5>Configuring the Micro-SD Card<a class="headerlink" href="#configuring-the-micro-sd-card" title="Link to this heading"></a></h5>
 <p>The Linux kernel requires a matching device tree overlay to identify the
-devices on the AD-RPI-T1LPSE-SL. The overlay table is included with the <a class="reference internal" href="../../../linux/kuiper/index.html#kuiper"><span class="std std-ref">Kuiper</span></a>
-and simply needs to be enabled.</p>
+devices on the AD-RPI-T1LPSE-SL. The overlay table is included with the
+<a class="reference internal" href="../../../linux/kuiper/index.html#kuiper"><span class="std std-ref">Kuiper</span></a> and simply needs to be enabled.</p>
 <p>To do this, follow the Hardware Configuration procedure under <strong>Configuring
 the SD Card for Raspberry Pi Projects</strong> in the <a class="reference internal" href="../../../linux/kuiper/index.html#kuiper"><span class="std std-ref">Kuiper</span></a> page.
 Enable the AD-RPI-T1LPSE-SL overlay by adding the following line to <em>config.txt</em>
@@ -928,7 +944,8 @@ for class 12:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dtoverlay</span><span class="o">=</span><span class="n">rpi</span><span class="o">-</span><span class="n">t1lpse</span><span class="o">-</span><span class="n">class14</span>
 </pre></div>
 </div>
-<p>Save the changes and reboot the system by entering the following command in the console:</p>
+<p>Save the changes and reboot the system by entering the following command in the
+console:</p>
 <div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~$
 </pre></div>
 </div>
@@ -940,10 +957,10 @@ for class 12:</p>
 </section>
 <section id="setting-up-a-static-ip">
 <span id="setting-up-static-ip"></span><h3>Setting Up a Static IP<a class="headerlink" href="#setting-up-a-static-ip" title="Link to this heading"></a></h3>
-<p>To set up a static IP address for the AD-RPI-T1LPSE-SL, the user has to modify the IPv4
-address of the chosen network interface.
-This can be done by right-clicking in the top right corner the network icon
-and selecting Wireless &amp; Wired Network Settings.</p>
+<p>To set up a static IP address for the AD-RPI-T1LPSE-SL, the user has to modify
+the IPv4 address of the chosen network interface. This can be done by
+right-clicking in the top right corner the network icon and selecting Wireless
+&amp; Wired Network Settings.</p>
 <figure class="align-default" id="id14">
 <a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad-rpi-t1lpse-sl/ad-rpi-t1lpse-sl-static-ip-location.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad-rpi-t1lpse-sl/ad-rpi-t1lpse-sl-static-ip-location.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad-rpi-t1lpse-sl/ad-rpi-t1lpse-sl-static-ip-location.png" style="width: 400px;" />
 </a>
@@ -989,8 +1006,8 @@ following command in a terminal:</p>
 <p><span class="caption-number">Figure 11 </span><span class="caption-text">Setting eth0 up</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>If everything was done correctly the interface should be up and running with the
-static IP address set. To verify this, enter the following command in the
+<p>If everything was done correctly the interface should be up and running with
+the static IP address set. To verify this, enter the following command in the
 console, the next to the <strong>inet</strong> field the static IP address should be shown:</p>
 <div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~$
 </pre></div>
@@ -1014,19 +1031,23 @@ console, the next to the <strong>inet</strong> field the static IP address shoul
 </figcaption>
 </figure>
 <p>To establish a 10BASE-T1L connection to a Raspberry Pi using the
-<a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> evaluation board and ping the Raspberry Pi
-follow the below procedure:</p>
+<a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> evaluation board and ping the
+Raspberry Pi follow the below procedure:</p>
 <ol class="arabic">
-<li><p>Ensure that the jumpers and switches of the <a class="icon adi reference external" href="https://www.analog.com/eval-adin1100" target="_blank">EVAL-ADIN1100EBZ</a> are configured to the default settings.</p></li>
+<li><p>Ensure that the jumpers and switches of the
+<a class="icon adi reference external" href="https://www.analog.com/eval-adin1100" target="_blank">EVAL-ADIN1100EBZ</a> are configured to the default
+settings.</p></li>
 <li><p>Insert the micro-SD card into its slot on the Raspberry Pi.</p></li>
-<li><p>Connect the <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> circuit evaluation board to the Raspberry Pi GPIO header.</p></li>
+<li><p>Connect the <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> circuit evaluation
+board to the Raspberry Pi GPIO header.</p></li>
 <li><p>Using a twisted-pair cable, connect <strong>P2</strong> on the
 <a class="icon adi reference external" href="https://www.analog.com/ad-t1lusb20-ebz" target="_blank">AD-T1LUSB2.0-EBZ</a> USB2.0 to 10BASE-T1L Interface
 to the <strong>P2</strong> terminal block on the <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a></p></li>
 <li><p>Using a USB-C cable, connect <strong>P1</strong> on the
 <a class="icon adi reference external" href="https://www.analog.com/ad-t1lusb20-ebz" target="_blank">AD-T1LUSB2.0-EBZ</a> evaluation board to a USB port on
 the computer.</p></li>
-<li><p><em>Operation with USB-C DC Power Supply: (Skip to step 7 if using a the P21 terminal block)</em></p>
+<li><p><em>Operation with USB-C DC Power Supply: (Skip to step 7 if using a the P21
+terminal block)</em></p>
 <ul class="simple">
 <li><p>Set the <strong>S3</strong> switch to supply to either 24V (Class 12) or
 55V (Class 14), depending on the overlay added to the <em>config.txt</em>.</p></li>
@@ -1035,30 +1056,33 @@ the computer.</p></li>
 </li>
 <li><p><em>Operation with external DC Power Supply (Using the P21 terminal block):</em></p>
 <ul class="simple">
-<li><p>Using wires, connect the <strong>P21</strong> terminal block on the <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a></p></li>
+<li><p>Using wires, connect the <strong>P21</strong> terminal block on the
+<a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a></p></li>
 <li><p>Set the <strong>S2</strong> switch towards the <strong>Terminal Block</strong>.</p></li>
 </ul>
 </li>
-<li><p>Wait for the <strong>DS1</strong> LED on the <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> circuit
-evaluation board and the <strong>DS1</strong>, <strong>DS2</strong> LEDs on the
-<a class="icon adi reference external" href="https://www.analog.com/EVAL-ADIN1100" target="_blank">EVAL-ADIN1100EBZ</a> evaluation board to turn on and
-start blinking at the same time. This indicates that a 10BASE-T1L link has
-been established.</p></li>
+<li><p>Wait for the <strong>DS1</strong> LED on the
+<a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> circuit evaluation board and
+the <strong>DS1</strong>, <strong>DS2</strong> LEDs on the <a class="icon adi reference external" href="https://www.analog.com/EVAL-ADIN1100" target="_blank">EVAL-ADIN1100EBZ</a>
+evaluation board to turn on and start blinking at the same time. This
+indicates that a 10BASE-T1L link has been established.</p></li>
 <li><p>On the host PC, change the IP address of the AD-T1LUSB2.0-EBZ:</p>
-<ul>
-<li><p>From the start menu open the <strong>Control Panel</strong> and click on <strong>Network and Internet</strong></p></li>
-<li><dl>
-<dt>Click on <strong>View network status and tasks</strong></dt><dd><p>You should see two networks.</p>
-<figure class="align-default" id="id20">
+<ul class="simple">
+<li><p>From the start menu open the <strong>Control Panel</strong> and click on <strong>Network
+and Internet</strong></p></li>
+<li><p>Click on <strong>View network status and tasks</strong></p></li>
+</ul>
+<p>You should see two networks.</p>
+<blockquote>
+<div><figure class="align-default" id="id20">
 <a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad-rpi-t1lpse-sl/ad-t1lusb2-network.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad-rpi-t1lpse-sl/ad-t1lusb2-network.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad-rpi-t1lpse-sl/ad-t1lusb2-network.png" style="width: 400px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">Figure 14 </span><span class="caption-text">Network Connections</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-</dd>
-</dl>
-</li>
+</div></blockquote>
+<ul>
 <li><p>Click on the <strong>Connections: Ethernet</strong> and click on <strong>Properties</strong></p></li>
 <li><p>Select <strong>Internet Protocol Version 4 (TCP/IPv4)</strong> and click on
 <strong>Properties</strong></p></li>
@@ -1068,7 +1092,9 @@ address</strong> and <strong>Subnet mask</strong>:</p>
 <span class="n">Subnet</span> <span class="n">mask</span><span class="p">:</span> <span class="mf">255.255.0.0</span>
 </pre></div>
 </div>
-<p>where <strong>zzz</strong> is a number between 1 and 254, currently unused in the network (for example, 10 cannot be used, since it is used by the AD-RPI-T1LPSE-SL).</p>
+<p>where <strong>zzz</strong> is a number between 1 and 254, currently unused in the
+network (for example, 10 cannot be used, since it is used by the
+AD-RPI-T1LPSE-SL).</p>
 </li>
 <li><p>Click on <strong>OK</strong> to save the changes and close the dialog boxes.</p></li>
 </ul>
@@ -1118,7 +1144,8 @@ address</strong> and <strong>Subnet mask</strong>:</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Receive software update notifications, documentation updates, view the latest
-videos, and more when you <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL?&amp;v=RevC" target="_blank">register</a> your hardware.</p>
+videos, and more when you <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL?&amp;v=RevC" target="_blank">register</a> your
+hardware.</p>
 </div>
 </section>
 <section id="sample-application">
@@ -1136,7 +1163,8 @@ videos, and more when you <a class="icon adi reference external" href="https://w
 </section>
 <section id="help-and-support">
 <h3>Help and Support<a class="headerlink" href="#help-and-support" title="Link to this heading"></a></h3>
-<p>For questions and more information about this product, connect with us through the Analog Devices <a class="icon ez reference external" href="https://ez.analog.com/" target="_blank">EngineerZone</a> .</p>
+<p>For questions and more information about this product, connect with us through
+the Analog Devices <a class="icon ez reference external" href="https://ez.analog.com/" target="_blank">EngineerZone</a> .</p>
 </section>
 </section>
 </section>

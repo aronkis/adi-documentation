@@ -9,16 +9,16 @@ Minimalist 8-channel, 24-Bit, sigma-delta ADC with PGA and FIFO SPI PMOD board
 Overview
 --------
 
-The :adi:`EVAL-AD4130-8-PMDZ` is a compact, low-cost,
-Pmod-compatible evaluation board for the :adi:`AD4130` ultra low power, high precision, measurement
-solution for low bandwidth battery operated applications. The fully
-integrated analog front end (AFE) includes a multiplexer for up
-to 16 single-ended or eight differential inputs, programmable gain
-amplifier (PGA), 24-bit sigma-delta (Σ-Δ) analog-to-digital converter
-(ADC), on-chip reference and oscillator, selectable filter options,
-smart sequencer, sensor biasing and excitation options, diagnostics, and newly added features to improve the battery-operated
-lifetime (more than 5 years on a coin cell), that is, a first in, first out
-(FIFO) buffer and duty cycling.
+The :adi:`EVAL-AD4130-8-PMDZ` is a compact, low-cost, Pmod-compatible
+evaluation board for the :adi:`AD4130` ultra low power, high precision,
+measurement solution for low bandwidth battery operated applications. The fully
+integrated analog front end (AFE) includes a multiplexer for up to 16
+single-ended or eight differential inputs, programmable gain amplifier (PGA),
+24-bit sigma-delta (Σ-Δ) analog-to-digital converter (ADC), on-chip reference
+and oscillator, selectable filter options, smart sequencer, sensor biasing and
+excitation options, diagnostics, and newly added features to improve the
+battery-operated lifetime (more than 5 years on a coin cell), that is, a first
+in, first out (FIFO) buffer and duty cycling.
 
 - Smart transmitters
 - Wireless battery and harvester powered sensor nodes
@@ -71,63 +71,64 @@ which have an SPI interface. It provides flexibility to add interrupts, general
 purpose I/O, resets, and other digitally controlled functions.
 
 .. csv-table:: PMOD Pinout
-    :file: ad4130-pmod-pinout.csv
+   :file: ad4130-pmod-pinout.csv
 
 AD4130 Interrupt Pins
 ^^^^^^^^^^^^^^^^^^^^^
 
-The EVAL-AD4130-8-PMDZ features three interrupt pins that can be used as external 
-indicators for user-defined events. These PMOD interrupt pins are internally
-connected to the single interrupt output of the AD4130, and can be configured 
-via software to signal either a Data Ready or FIFO Interrupt condition.
+The EVAL-AD4130-8-PMDZ features three interrupt pins that can be used as
+external indicators for user-defined events. These PMOD interrupt pins are
+internally connected to the single interrupt output of the AD4130, and can be
+configured via software to signal either a Data Ready or FIFO Interrupt
+condition.
 
 These interrupt signals are accessible through the SPI PMOD header. For detailed
-information on individual status flags, their meanings, and how to configure 
-the chip to generate specific interrupts, please refer to the :adi:`AD4130`` 
+information on individual status flags, their meanings, and how to configure
+the chip to generate specific interrupts, please refer to the :adi:`AD4130`
 data sheet.
 
 Power Supply Considerations and Configuration
 ---------------------------------------------
 
-When using the EVAL-AD4130-8-PMDZ board, the 3.3V power supply is provided 
-directly by the host platform to which it is connected. Most PMOD-compatible 
-host boards can supply at least 100 mA, which is more than sufficient for the 
+When using the EVAL-AD4130-8-PMDZ board, the 3.3V power supply is provided
+directly by the host platform to which it is connected. Most PMOD-compatible
+host boards can supply at least 100 mA, which is more than sufficient for the
 power requirements of the EVAL-AD4130-8-PMDZ.
 
 Device Driver and Software Support
 ----------------------------------
 
-Two device drivers and corresponding software solutions are available for the 
+Two device drivers and corresponding software solutions are available for the
 EVAL-AD4130-8-PMDZ:
 
 **AD4130 no-OS Driver**
 
-   * The :git-no-OS:`AD4130 no-OS driver <main:drivers/afe/ad413x>` is used
+   * The :git-no-OS:`AD4130 no-OS driver <drivers/afe/ad413x>` is used
      in bare-metal applications, typically running on low-power, embedded
      microcontrollers.
 
-   * The :git-no-OS:`AD4130 no-OS example project <main:projects/ad413x>`
+   * The :git-no-OS:`AD4130 no-OS example project <projects/ad413x>`
      uses the AD4130 no-OS driver and has several configuration options:
 
-.. ADMONITION:: Download
+.. admonition:: Download
 
-   A zip file containing prebuilt programming files for the no-OS example project,
-   targeting platforms below are available at:
-   :git-no-OS:`EVAL-AD4130-8-PMDZ.zip <releases/download/last_commit/eval-ad4130-8-pmdz.zip+>`.
+   A zip file containing prebuilt programming files for the no-OS example
+   project, targeting platforms below are available at:
+   :git-no-OS:`ad413x.zip <releases/download/last_commit/ad413x.zip+>`.
 
    More details are provided in the platform-specific sections below.
 
 **AD4130 Linux Driver**
 
-* The :git-linux:`AD4130 Linux driver <main:drivers/iio/adc/ad4130.c>` is used in
-  applications running the Linux operating system, typically on larger processors
-  and SoC devices.
+* The :git-linux:`AD4130 Linux driver <drivers/iio/adc/ad4130.c>` is
+  used in applications running the Linux operating system, typically on
+  larger processors and SoC devices.
 * The AD4130 Linux driver uses the Industrial Input/Output (IIO) framework,
-  greatly simplifying the development of application code via the cross-platform
-  Libiio library, which is written in C and includes bindings for Python, MATLAB,
-  C#, and other languages. Application code can run directly on the platform
-  board, communicating with the device over the local backend, or from a remote
-  host over the network or USB backends.
+  greatly simplifying the development of application code via the
+  cross-platform Libiio library, which is written in C and includes bindings
+  for Python, MATLAB, C#, and other languages. Application code can run
+  directly on the platform board, communicating with the device over the
+  local backend, or from a remote host over the network or USB backends.
 
 System Setup Using Raspberry Pi
 -------------------------------
@@ -141,11 +142,12 @@ The following is a list of items needed in order to replicate this demo.
 
 -  **Hardware**
 
-   -  :adi:`EVAL-AD4130-8-PMDZ <AD4130>`
+   -  :adi:`EVAL-AD4130-8`
    -  :adi:`PMOD to Raspberry Pi Adapter (PMD-RPI-INTZ) <PMD-RPI-INTZ>`
    -  Raspberry PI Zero, Zero W, 3B+, or 4
    -  16GB (or larger) Class 10 (or faster) micro-SD card
-   -  5Vdc, 2.5A power supply with micro USB connector (USB-C power supply for Raspberry Pi 4)
+   -  5Vdc, 2.5A power supply with micro USB connector (USB-C power supply
+      for Raspberry Pi 4)
    -  User interface setup (choose one):
 
       -  HDMI monitor, keyboard, mouse plugged directly into Raspberry Pi
@@ -162,14 +164,14 @@ Loading Image on SD Card
 In order to boot the Raspberry Pi and control the **EVAL-AD4130-8-PMDZ**, you
 will need to install ADI Kuiper Linux on an SD card. Complete instructions,
 including where to download the SD card image, how to write it to the SD card,
-and how to configure the system are provided on the 
+and how to configure the system are provided on the
 :external+adi-kuiper-gen:doc:`Kuiper <index>`.
 
 Configuring the SD Card
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Follow the configuration procedure under **Configuring the SD Card for
-Raspberry Pi Projects** at :external+adi-kuiper-gen:doc:`Kuiper <index>`, 
+Raspberry Pi Projects** at :external+adi-kuiper-gen:doc:`Kuiper <index>`,
 substituting the following lines in **config.txt**:
 
 ::
@@ -187,23 +189,24 @@ To set up the circuit for evaluation, consider the following steps:
    .. image:: interposer.png
       :width: 500px
 
-#. Attach the EVAL-AD4130-8-PMDZ to the Raspberry Pi Interposer Board via Port P1.
+#. Attach the EVAL-AD4130-8-PMDZ to the Raspberry Pi Interposer Board via Port
+P1.
 
-#. Flash the SD card with the appropriate ADI Kuiper Linux image. Insert the 
+#. Flash the SD card with the appropriate ADI Kuiper Linux image. Insert the
 flashed SD card into the Raspberry Pi's SD card slot.
 
-#. Use an HDMI cable to connect the Raspberry Pi to a monitor via 
+#. Use an HDMI cable to connect the Raspberry Pi to a monitor via
 the mini-HDMI connector.
 
 #. Plug in a USB keyboard and mouse into the Raspberry Pi's USB ports.
 
-#. Power the Raspberry Pi by connecting a 5V power supply through the micro-USB 
+#. Power the Raspberry Pi by connecting a 5V power supply through the micro-USB
 connector. The final setup should look similar to the picture below.
 
    .. image:: eval-ad4130-8-pmdz_overall_setup.png
       :width: 600px
 
-Application Software 
+Application Software
 --------------------
 
 The Libiio is a library used for interfacing with IIO devices and is required
@@ -259,7 +262,8 @@ being used. The :ref:`libiio iio_attr` command reads and writes IIO attributes.
 
    $iio_attr [OPTION]...
 
-To look at the context attributes on the Raspberry Pi, enter the following command on the terminal:
+To look at the context attributes on the Raspberry Pi, enter the following
+command on the terminal:
 
 .. shell::
 
@@ -290,8 +294,9 @@ Download and install the latest version of IIO Oscilloscope from:
 
 Once done with the installation or an update of the latest Scopy,
 open the application. The user needs to supply a URI which will be used in the
-context creation and the instructions can be seen from the previous section. 
-Click and **+** icon to add a device and enter the URI of your device and then click verify.
+context creation and the instructions can be seen from the previous section.
+Click and **+** icon to add a device and enter the URI of your device and then
+click verify.
 
 .. image:: ad4130-scopy-setup.png
    :width: 600px
@@ -301,22 +306,22 @@ After this click on add device and then connect!
 .. image:: ad4130-scopy-connected.png
    :width: 600px
 
-You can now go to the *Register map* section and check again the 0X05 register's 
+You can now go to the *Register map* section and check again the 0X05 register's
 value.
 
 Data Logger
 ^^^^^^^^^^^
-To view ADC readings, navigate to the Data Logger tab on the left side of the 
-application. Enable the voltage18 to voltage19 channel and click Run. You should 
-observe a stable 2.5V signal, which corresponds to the internal reference 
+To view ADC readings, navigate to the Data Logger tab on the left side of the
+application. Enable the voltage18 to voltage19 channel and click Run. You should
+observe a stable 2.5V signal, which corresponds to the internal reference
 voltage of the ADC.
 
 .. image:: ad4130-scopy-reference.png
    :width: 600px
 
-Additionally, you can enable the voltage16 to voltage19 channel to visualize 
-measurements from the internal temperature sensor. By placing your finger on 
-the ADC, you'll notice an increase in the voltage reading, indicating a rise in 
+Additionally, you can enable the voltage16 to voltage19 channel to visualize
+measurements from the internal temperature sensor. By placing your finger on
+the ADC, you'll notice an increase in the voltage reading, indicating a rise in
 temperature detected by the sensor.
 
 .. image:: ad4130-scopy-temperature.png
@@ -372,7 +377,8 @@ Schematic, PCB Layout, Bill of Materials
 
 .. ADMONITION:: Download
 
-   :download:`EVAL-AD4130-8-PMDZ Design & Integration Files <eval-ad4130-8-pmdz-DesignSupport.zip>`
+   :download:`EVAL-AD4130-8-PMDZ Design & Integration Files
+   <eval-ad4130-8-pmdz-DesignSupport.zip>`
 
    * Schematics
    * Bill of Materials
@@ -385,7 +391,7 @@ Additional Information
 ----------------------
 
 -  :ref:`pyadi-iio`
--  `Scopy <https://analogdevicesinc.github.io/scopy/index.html>`__
+-  :external+scopy:doc:`index`
 -  :ref:`kuiper`
 
 Hardware Registration
@@ -394,6 +400,6 @@ Hardware Registration
 .. tip::
 
    Receive software update notifications, documentation updates, view the
-   latest videos, and more when you register your hardware.
+   latest videos, and more when you
    `Register <https://my.analog.com/en/app/registration/hardware/eval-ad4130-8-pmdz?&v=Rev%20B>`__
    to receive all these great benefits and more!

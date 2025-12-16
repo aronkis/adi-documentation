@@ -371,8 +371,10 @@ Content on this topic
 <li class="toctree-l3"><a class="reference internal" href="../eval-ad9081/prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l3"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-12-15-1" id="toctree-collapse-12-15-1"/><div class="collapse"><a class="reference internal" href="../eval-ad9081/quickstart/index.html">Quick start guides</a><label for="toctree-collapse-12-15-1"><div class="icon"></div></label></div><ul>
 <li class="toctree-l4"><a class="reference internal" href="../eval-ad9081/quickstart/a10soc.html">On A10SoC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../eval-ad9081/quickstart/versal.html">On VCK190</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../eval-ad9081/quickstart/zynqmp.html">On ZCU102</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../eval-ad9081/quickstart/vck190.html">On VCK190</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../eval-ad9081/quickstart/zc706.html">On ZC706</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../eval-ad9081/quickstart/vcu118.html">On VCU118</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../eval-ad9081/quickstart/zcu102.html">On ZCU102</a></li>
 </ul>
 </li>
 </ul>
@@ -457,6 +459,10 @@ Content on this topic
 <p class="caption" role="heading"><span class="caption-text">Learning</span></p>
 <ul>
 <li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-14" id="toctree-collapse-14"/><div class="collapse"><a class="reference internal" href="../../../learning/index.html">Learning! Tutorials, Workshops, Etc</a><label for="toctree-collapse-14"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-14-1" id="toctree-collapse-14-1"/><div class="collapse"><a class="reference internal" href="../../../learning/demo_hp_analog_meets_ai/index.html">DEMO High-Performance Analog Meets AI</a><label for="toctree-collapse-14-1"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../learning/demo_hp_analog_meets_ai/software/index.html">Software Configuration and Setup</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../learning/tutorial_prec_adc/index.html">Precision ADC Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../learning/converter_connectivity_tutorial/index.html">Converter Connectivity Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../learning/sw_infrastructure/index.html">Software Infrastructure for designing with ADCs, DACs, and Sensors</a></li>
@@ -503,16 +509,16 @@ Content on this topic
 <h2>Minimalist 8-channel, 24-Bit, sigma-delta ADC with PGA and FIFO SPI PMOD board<a class="headerlink" href="#minimalist-8-channel-24-bit-sigma-delta-adc-with-pga-and-fifo-spi-pmod-board" title="Link to this heading"></a></h2>
 <section id="overview">
 <h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
-<p>The <a class="icon adi reference external" href="https://www.analog.com/EVAL-AD4130-8-PMDZ" target="_blank">EVAL-AD4130-8-PMDZ</a> is a compact, low-cost,
-Pmod-compatible evaluation board for the <a class="icon adi reference external" href="https://www.analog.com/AD4130" target="_blank">AD4130</a> ultra low power, high precision, measurement
-solution for low bandwidth battery operated applications. The fully
-integrated analog front end (AFE) includes a multiplexer for up
-to 16 single-ended or eight differential inputs, programmable gain
-amplifier (PGA), 24-bit sigma-delta (Σ-Δ) analog-to-digital converter
-(ADC), on-chip reference and oscillator, selectable filter options,
-smart sequencer, sensor biasing and excitation options, diagnostics, and newly added features to improve the battery-operated
-lifetime (more than 5 years on a coin cell), that is, a first in, first out
-(FIFO) buffer and duty cycling.</p>
+<p>The <a class="icon adi reference external" href="https://www.analog.com/EVAL-AD4130-8-PMDZ" target="_blank">EVAL-AD4130-8-PMDZ</a> is a compact, low-cost, Pmod-compatible
+evaluation board for the <a class="icon adi reference external" href="https://www.analog.com/AD4130" target="_blank">AD4130</a> ultra low power, high precision,
+measurement solution for low bandwidth battery operated applications. The fully
+integrated analog front end (AFE) includes a multiplexer for up to 16
+single-ended or eight differential inputs, programmable gain amplifier (PGA),
+24-bit sigma-delta (Σ-Δ) analog-to-digital converter (ADC), on-chip reference
+and oscillator, selectable filter options, smart sequencer, sensor biasing and
+excitation options, diagnostics, and newly added features to improve the
+battery-operated lifetime (more than 5 years on a coin cell), that is, a first
+in, first out (FIFO) buffer and duty cycling.</p>
 <ul class="simple">
 <li><p>Smart transmitters</p></li>
 <li><p>Wireless battery and harvester powered sensor nodes</p></li>
@@ -622,13 +628,14 @@ purpose I/O, resets, and other digitally controlled functions.</p>
 </section>
 <section id="ad4130-interrupt-pins">
 <h4>AD4130 Interrupt Pins<a class="headerlink" href="#ad4130-interrupt-pins" title="Link to this heading"></a></h4>
-<p>The EVAL-AD4130-8-PMDZ features three interrupt pins that can be used as external
-indicators for user-defined events. These PMOD interrupt pins are internally
-connected to the single interrupt output of the AD4130, and can be configured
-via software to signal either a Data Ready or FIFO Interrupt condition.</p>
+<p>The EVAL-AD4130-8-PMDZ features three interrupt pins that can be used as
+external indicators for user-defined events. These PMOD interrupt pins are
+internally connected to the single interrupt output of the AD4130, and can be
+configured via software to signal either a Data Ready or FIFO Interrupt
+condition.</p>
 <p>These interrupt signals are accessible through the SPI PMOD header. For detailed
 information on individual status flags, their meanings, and how to configure
-the chip to generate specific interrupts, please refer to the <a class="icon adi reference external" href="https://www.analog.com/AD4130`" target="_blank">AD4130`</a>
+the chip to generate specific interrupts, please refer to the <a class="icon adi reference external" href="https://www.analog.com/AD4130" target="_blank">AD4130</a>
 data sheet.</p>
 </section>
 </section>
@@ -655,22 +662,22 @@ uses the AD4130 no-OS driver and has several configuration options:</p></li>
 </div></blockquote>
 <div class="admonition-download admonition">
 <p class="admonition-title">Download</p>
-<p>A zip file containing prebuilt programming files for the no-OS example project,
-targeting platforms below are available at:
-<a class="icon git reference external" href="https://github.com/analogdevicesinc/no-OS/releases/download/last_commit/eval-ad4130-8-pmdz.zip" target="_blank">EVAL-AD4130-8-PMDZ.zip</a>.</p>
+<p>A zip file containing prebuilt programming files for the no-OS example
+project, targeting platforms below are available at:
+<a class="icon git reference external" href="https://github.com/analogdevicesinc/no-OS/releases/download/last_commit/ad413x.zip" target="_blank">ad413x.zip</a>.</p>
 <p>More details are provided in the platform-specific sections below.</p>
 </div>
 <p><strong>AD4130 Linux Driver</strong></p>
 <ul class="simple">
-<li><p>The <a class="icon git reference external" href="https://github.com/analogdevicesinc/linux/tree/main/drivers/iio/adc/ad4130.c" target="_blank">AD4130 Linux driver</a> is used in
-applications running the Linux operating system, typically on larger processors
-and SoC devices.</p></li>
+<li><p>The <a class="icon git reference external" href="https://github.com/analogdevicesinc/linux/tree/main/drivers/iio/adc/ad4130.c" target="_blank">AD4130 Linux driver</a> is
+used in applications running the Linux operating system, typically on
+larger processors and SoC devices.</p></li>
 <li><p>The AD4130 Linux driver uses the Industrial Input/Output (IIO) framework,
-greatly simplifying the development of application code via the cross-platform
-Libiio library, which is written in C and includes bindings for Python, MATLAB,
-C#, and other languages. Application code can run directly on the platform
-board, communicating with the device over the local backend, or from a remote
-host over the network or USB backends.</p></li>
+greatly simplifying the development of application code via the
+cross-platform Libiio library, which is written in C and includes bindings
+for Python, MATLAB, C#, and other languages. Application code can run
+directly on the platform board, communicating with the device over the
+local backend, or from a remote host over the network or USB backends.</p></li>
 </ul>
 </section>
 <section id="system-setup-using-raspberry-pi">
@@ -682,11 +689,12 @@ host over the network or USB backends.</p></li>
 <ul class="simple">
 <li><p><strong>Hardware</strong></p>
 <ul>
-<li><p><a class="icon adi reference external" href="https://www.analog.com/AD4130" target="_blank">EVAL-AD4130-8-PMDZ</a></p></li>
+<li><p><a class="icon adi reference external" href="https://www.analog.com/EVAL-AD4130-8" target="_blank">EVAL-AD4130-8</a></p></li>
 <li><p><a class="icon adi reference external" href="https://www.analog.com/PMD-RPI-INTZ" target="_blank">PMOD to Raspberry Pi Adapter (PMD-RPI-INTZ)</a></p></li>
 <li><p>Raspberry PI Zero, Zero W, 3B+, or 4</p></li>
 <li><p>16GB (or larger) Class 10 (or faster) micro-SD card</p></li>
-<li><p>5Vdc, 2.5A power supply with micro USB connector (USB-C power supply for Raspberry Pi 4)</p></li>
+<li><p>5Vdc, 2.5A power supply with micro USB connector (USB-C power supply
+for Raspberry Pi 4)</p></li>
 <li><p>User interface setup (choose one):</p>
 <ul>
 <li><p>HDMI monitor, keyboard, mouse plugged directly into Raspberry Pi</p></li>
@@ -728,8 +736,9 @@ male header GPIO pin connector of the <strong>Raspberry Pi</strong> as shown bel
 <a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/interposer.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/interposer.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/interposer.png" style="width: 500px;" />
 </a>
 </li>
-<li><p>Attach the EVAL-AD4130-8-PMDZ to the Raspberry Pi Interposer Board via Port P1.</p></li>
 </ol>
+<p>#. Attach the EVAL-AD4130-8-PMDZ to the Raspberry Pi Interposer Board via Port
+P1.</p>
 <p>#. Flash the SD card with the appropriate ADI Kuiper Linux image. Insert the
 flashed SD card into the Raspberry Pi’s SD card slot.</p>
 <p>#. Use an HDMI cable to connect the Raspberry Pi to a monitor via
@@ -799,7 +808,8 @@ being used. The <a class="reference internal" href="../../../software/libiio/cli
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iio_attr<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...
 </pre></div>
 </div>
-<div class="clear-left"></div></div></div><p>To look at the context attributes on the Raspberry Pi, enter the following command on the terminal:</p>
+<div class="clear-left"></div></div></div><p>To look at the context attributes on the Raspberry Pi, enter the following
+command on the terminal:</p>
 <div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>~$
 </pre></div>
 </div>
@@ -833,7 +843,8 @@ Windows machine, enter the following code on the terminal:</p>
 <p>Once done with the installation or an update of the latest Scopy,
 open the application. The user needs to supply a URI which will be used in the
 context creation and the instructions can be seen from the previous section.
-Click and <strong>+</strong> icon to add a device and enter the URI of your device and then click verify.</p>
+Click and <strong>+</strong> icon to add a device and enter the URI of your device and then
+click verify.</p>
 <a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-scopy-setup.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-scopy-setup.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-scopy-setup.png" style="width: 600px;" />
 </a>
 <p>After this click on add device and then connect!</p>
@@ -921,7 +932,7 @@ Example</a></p>
 <h3>Additional Information<a class="headerlink" href="#additional-information" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../../software/pyadi-iio/index.html#pyadi-iio"><span class="std std-ref">PyADI-IIO</span></a></p></li>
-<li><p><a class="icon link reference external" href="https://analogdevicesinc.github.io/scopy/index.html" target="_blank">Scopy</a></p></li>
+<li><p><a class="icon link reference external" href="https://analogdevicesinc.github.io/scopy/index.html" target="_blank" title="(in Scopy main)"><span>Scopy</span></a></p></li>
 <li><p><a class="reference internal" href="../../../linux/kuiper/index.html#kuiper"><span class="std std-ref">Kuiper</span></a></p></li>
 </ul>
 </section>
@@ -930,7 +941,7 @@ Example</a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Receive software update notifications, documentation updates, view the
-latest videos, and more when you register your hardware.
+latest videos, and more when you
 <a class="icon link reference external" href="https://my.analog.com/en/app/registration/hardware/eval-ad4130-8-pmdz?&amp;v=Rev%20B" target="_blank">Register</a>
 to receive all these great benefits and more!</p>
 </div>

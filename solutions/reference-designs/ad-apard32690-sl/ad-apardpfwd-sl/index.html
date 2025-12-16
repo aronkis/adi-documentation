@@ -365,8 +365,10 @@ Content on this topic
 <li class="toctree-l3"><a class="reference internal" href="../../eval-ad9081/prerequisites.html">Prerequisites</a></li>
 <li class="toctree-l3"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-12-15-1" id="toctree-collapse-12-15-1"/><div class="collapse"><a class="reference internal" href="../../eval-ad9081/quickstart/index.html">Quick start guides</a><label for="toctree-collapse-12-15-1"><div class="icon"></div></label></div><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../eval-ad9081/quickstart/a10soc.html">On A10SoC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../eval-ad9081/quickstart/versal.html">On VCK190</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../eval-ad9081/quickstart/zynqmp.html">On ZCU102</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../eval-ad9081/quickstart/vck190.html">On VCK190</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../eval-ad9081/quickstart/zc706.html">On ZC706</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../eval-ad9081/quickstart/vcu118.html">On VCU118</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../eval-ad9081/quickstart/zcu102.html">On ZCU102</a></li>
 </ul>
 </li>
 </ul>
@@ -451,6 +453,10 @@ Content on this topic
 <p class="caption" role="heading"><span class="caption-text">Learning</span></p>
 <ul>
 <li class="toctree-l1"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-14" id="toctree-collapse-14"/><div class="collapse"><a class="reference internal" href="../../../../learning/index.html">Learning! Tutorials, Workshops, Etc</a><label for="toctree-collapse-14"><div class="icon"></div></label></div><ul>
+<li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-14-1" id="toctree-collapse-14-1"/><div class="collapse"><a class="reference internal" href="../../../../learning/demo_hp_analog_meets_ai/index.html">DEMO High-Performance Analog Meets AI</a><label for="toctree-collapse-14-1"><div class="icon"></div></label></div><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../learning/demo_hp_analog_meets_ai/software/index.html">Software Configuration and Setup</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../learning/tutorial_prec_adc/index.html">Precision ADC Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../learning/converter_connectivity_tutorial/index.html">Converter Connectivity Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../learning/sw_infrastructure/index.html">Software Infrastructure for designing with ADCs, DACs, and Sensors</a></li>
@@ -514,7 +520,8 @@ Class 13-14 (55 V nominal) are supported.</p>
 the <a class="icon adi reference external" href="https://www.analog.com/AD-APARDPFWD-SL" target="_blank">AD-APARDPFWD-SL</a> hardware features Arduino Mega
 Form-factor headers, and two 10BASE-T1L ports for connecting to a
 10BASE-T1L Power Sourcing Equipment (PSE) such as the
-<a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> 2-port 10BASE-T1L w/SPoE PSE Development
+<a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> 2-port 10BASE-T1L w/SPoE PSE
+Development
 Platform.</p>
 <p>To allow board stacking and development of field device applications using
 Arduino shields, the <a class="icon adi reference external" href="https://www.analog.com/AD-APARDPFWD-SL" target="_blank">AD-APARDPFWD-SL</a> has extra tall
@@ -543,9 +550,12 @@ regulator. The <a class="icon adi reference external" href="https://www.analog.c
 <p>Power is supplied to the <a class="icon adi reference external" href="https://www.analog.com/AD-APARD32690-SL" target="_blank">AD-APARD32690-SL</a> platform
 board via <strong>PIN8</strong> of the <strong>P1</strong> header.</p>
 <p>The onboard <a class="icon adi reference external" href="https://www.analog.com/ADIN2111" target="_blank">ADIN2111</a> PHY provides the 10BASE-T1L connection to the host
-platform board. The <a class="icon adi reference external" href="https://www.analog.com/ADIN2111" target="_blank">ADIN2111</a> is connected to the <a class="icon adi reference external" href="https://www.analog.com/AD-APARD32690-SL" target="_blank">AD-APARD32690-SL</a> platform board via the <strong>P5</strong> and uses the SPI4 port of the
-<a class="icon adi reference external" href="https://www.analog.com/AD-APARD32690-SL" target="_blank">AD-APARD32690-SL</a>.</p>
-<p>The <a class="icon adi reference external" href="https://www.analog.com/ADIN2111" target="_blank">ADIN2111</a> supports selectable peak-to-peak transmit levels of 1.1V or 2.4V for each PHY. To select the desired level, configure the P9 and P10 solder jumpers for PHY1 and PHY2, respectively:</p>
+platform board. The <a class="icon adi reference external" href="https://www.analog.com/ADIN2111" target="_blank">ADIN2111</a> is connected to the
+<a class="icon adi reference external" href="https://www.analog.com/AD-APARD32690-SL" target="_blank">AD-APARD32690-SL</a> platform board via the <strong>P5</strong> and
+uses the SPI4 port of the <a class="icon adi reference external" href="https://www.analog.com/AD-APARD32690-SL" target="_blank">AD-APARD32690-SL</a>.</p>
+<p>The <a class="icon adi reference external" href="https://www.analog.com/ADIN2111" target="_blank">ADIN2111</a> supports selectable peak-to-peak transmit levels of 1.1V or
+2.4V for each PHY. To select the desired level, configure the P9 and P10 solder
+jumpers for PHY1 and PHY2, respectively:</p>
 <ul class="simple">
 <li><p>Disconnected: Sets the transmit level to 2.4V</p></li>
 <li><p>Shorted: Sets the transmit level to 1.1V</p></li>
@@ -575,7 +585,8 @@ configured as follows:</p>
 port independently. To utilize this feature:</p>
 <ul class="simple">
 <li><p>Short jumper P11 to enable the software power-down for PHY1.</p></li>
-<li><p>In order to enable the software power-down for PHY2, configure JP4 solder jumper with the following settings</p></li>
+<li><p>In order to enable the software power-down for PHY2, configure JP4 solder
+jumper with the following settings</p></li>
 </ul>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
@@ -688,14 +699,15 @@ designed to handle the class 15’s power specifications.</p>
 <li><p>10BASE-T1L media converter, either:</p>
 <ul>
 <li><p><a class="icon adi reference external" href="https://www.analog.com/eval-adin1100" target="_blank">EVAL-ADIN1100EBZ</a> Product Evaluation Board</p></li>
-<li><p><a class="icon adi reference external" href="https://www.analog.com/ad-t1lusb20-ebz" target="_blank">AD-T1LUSB2.0-EBZ</a> USB2.0 to 10BASE-T1L Interface Board</p></li>
-<li><p>Other 10BASE-T to 10BASE-T1L media converterBoard</p></li>
+<li><p><a class="icon adi reference external" href="https://www.analog.com/ad-t1lusb20-ebz" target="_blank">AD-T1LUSB2.0-EBZ</a> USB2.0 to 10BASE-T1L
+Interface Board</p></li>
+<li><p>Other 10BASE-T to 10BASE-T1L media converter</p></li>
 </ul>
 </li>
-<li><p>Other 10BASE-T to 10BASE-T1L media converter</p></li>
 <li><p>Power Source, either:</p>
 <ul>
-<li><p><a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> 2-port 10BASE-T1L w/SPoE PSE Development Platform</p>
+<li><p><a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> 2-port 10BASE-T1L w/SPoE
+PSE Development Platform</p>
 <ul>
 <li><p>Raspberry Pi Model 3B (or higher)</p></li>
 <li><p>Micro-SD Card for Raspberry Pi</p></li>
@@ -704,14 +716,15 @@ designed to handle the class 15’s power specifications.</p>
 <li><p>Other 10BASE-T1L Power Coupling Network Board w/ SPoE PSE</p></li>
 </ul>
 </li>
-<li><p><a class="icon adi reference external" href="https://www.analog.com/MAX32625PICO" target="_blank">MAX32625PICO</a> or any other similar programmer supporting
-the SWD interface</p></li>
+<li><p><a class="icon adi reference external" href="https://www.analog.com/MAX32625PICO" target="_blank">MAX32625PICO</a> or any other similar programmer
+supporting the SWD interface</p></li>
 </ul>
 <section id="block-diagram">
 <h4>Block Diagram<a class="headerlink" href="#block-diagram" title="Link to this heading"></a></h4>
 <section id="setup-with-spoe-via-pse">
 <h5>Setup with SPoE via PSE<a class="headerlink" href="#setup-with-spoe-via-pse" title="Link to this heading"></a></h5>
-<p>The <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> 2-port 10BASE-T1L w/SPoE PSE Development
+<p>The <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> 2-port 10BASE-T1L w/SPoE PSE
+Development
 Platform provides a complete solution for powering the
 <a class="icon adi reference external" href="https://www.analog.com/AD-APARDPFWD-SL" target="_blank">AD-APARDPFWD-SL</a> evaluation board and the
 <a class="icon adi reference external" href="https://www.analog.com/AD-APARD32690-SL" target="_blank">AD-APARD32690-SL</a> platform board via SPoE.</p>
@@ -736,45 +749,57 @@ Platform provides a complete solution for powering the
 <a class="icon adi reference external" href="https://www.analog.com/AD-APARDPFWD-SL" target="_blank">AD-APARDPFWD-SL</a> evaluation board
 and ping the <a class="icon adi reference external" href="https://www.analog.com/AD-APARD32690-SL" target="_blank">AD-APARD32690-SL</a>:</p>
 <ol class="arabic">
-<li><p>Ensure that the jumpers and switches of the <a class="icon adi reference external" href="https://www.analog.com/AD-APARDPFWD-SL" target="_blank">AD-APARDPFWD-SL</a> are configured to the default settings.</p></li>
-<li><p>Connect the <a class="icon adi reference external" href="https://www.analog.com/AD-APARDPFWD-SL" target="_blank">AD-APARDPFWD-SL</a> circuit evaluation board to the
-<a class="icon adi reference external" href="https://www.analog.com/AD-APARD32690-SL" target="_blank">AD-APARD32690-SL</a> Arduino headers.</p></li>
+<li><p>Ensure that the jumpers and switches of the
+<a class="icon adi reference external" href="https://www.analog.com/AD-APARDPFWD-SL" target="_blank">AD-APARDPFWD-SL</a> are configured to the default settings.</p></li>
+<li><p>Connect the <a class="icon adi reference external" href="https://www.analog.com/AD-APARDPFWD-SL" target="_blank">AD-APARDPFWD-SL</a> circuit evaluation
+board to the <a class="icon adi reference external" href="https://www.analog.com/AD-APARD32690-SL" target="_blank">AD-APARD32690-SL</a> Arduino headers.</p></li>
 <li><p>Using a USB-C cable, connect <strong>P1</strong> on the
 <a class="icon adi reference external" href="https://www.analog.com/ad-t1lusb20-ebz" target="_blank">AD-T1LUSB2.0-EBZ</a> evaluation board to a USB port on
 the computer.</p></li>
 <li><p>Operation with SPoE PSE:</p>
 <ul class="simple">
 <li><p>Set the output of the PSE or DC power supply to either 24V (Class 12) or
-55V (Class 14), depending on the settings of <strong>JP1</strong> and <strong>JP2</strong> on the AD-APARDPFWD-SL board.</p></li>
-<li><p>Using a PROFIBUS cable, connect <strong>P1</strong> on the AD-RPI-T1LPSE-SL evaluation board to <strong>P7</strong> on the <a class="icon adi reference external" href="https://www.analog.com/AD-APARDPFWD-SL" target="_blank">AD-APARDPFWD-SL</a> evaluation board.</p></li>
-<li><p>Using a PROFIBUS cable, connect <strong>P2</strong> on the AD-RPI-T1LPSE-SL evaluation board to <strong>P2</strong> on the <a class="icon adi reference external" href="https://www.analog.com/ad-t1lusb20-ebz" target="_blank">AD-T1LUSB2.0-EBZ</a> evaluation board.</p></li>
+55V (Class 14), depending on the settings of <strong>JP1</strong> and <strong>JP2</strong> on the
+AD-APARDPFWD-SL board.</p></li>
+<li><p>Using a PROFIBUS cable, connect <strong>P1</strong> on the AD-RPI-T1LPSE-SL
+evaluation board to <strong>P7</strong> on the
+<a class="icon adi reference external" href="https://www.analog.com/AD-APARDPFWD-SL" target="_blank">AD-APARDPFWD-SL</a> evaluation board.</p></li>
+<li><p>Using a PROFIBUS cable, connect <strong>P2</strong> on the AD-RPI-T1LPSE-SL
+evaluation board to <strong>P2</strong> on the
+<a class="icon adi reference external" href="https://www.analog.com/ad-t1lusb20-ebz" target="_blank">AD-T1LUSB2.0-EBZ</a> evaluation board.</p></li>
 </ul>
 </li>
 <li><p>Upload the <a class="icon git reference external" href="https://github.com/analogdevicesinc/no-OS/tree/main/projects/ASWPF/src/examples/adin2111_example/" target="_blank">AD-APARD32690-SL ADIN2111 Example</a>
-to the <a class="icon adi reference external" href="https://www.analog.com/AD-APARD32690-SL" target="_blank">AD-APARD32690-SL</a> platform board using the <a class="icon adi reference external" href="https://www.analog.com/MAX32625PICO" target="_blank">MAX32625PICO</a> programmer.</p></li>
-<li><p>By default the <a class="icon adi reference external" href="https://www.analog.com/AD-APARD32690-SL" target="_blank">AD-APARD32690-SL</a> has 192.168.97.40 as its IP address.
-If you are using a different IP address, make sure to update the
+to the <a class="icon adi reference external" href="https://www.analog.com/AD-APARD32690-SL" target="_blank">AD-APARD32690-SL</a> platform board using the
+<a class="icon adi reference external" href="https://www.analog.com/MAX32625PICO" target="_blank">MAX32625PICO</a> programmer.</p></li>
+<li><p>By default the <a class="icon adi reference external" href="https://www.analog.com/AD-APARD32690-SL" target="_blank">AD-APARD32690-SL</a> has 192.168.97.40
+as its IP address. If you are using a different IP address, make sure to
+update the
 <a class="icon git reference external" href="https://github.com/analogdevicesinc/no-OS/tree/main/projects/ASWPF/src/examples/adin2111_example/" target="_blank">AD-APARD32690-SL ADIN2111 Example</a>
 with the new IP address.</p></li>
-<li><p>Update the IP address of the Raspberry Pi’s Ethernet Interface depending on which port of the
-<a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> you are using (<strong>ETH1</strong> / <strong>ETH2</strong>).</p>
+<li><p>Update the IP address of the Raspberry Pi’s Ethernet Interface depending on
+which port of the <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> you are using
+(<strong>ETH1</strong> / <strong>ETH2</strong>).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>ADD STATIC IP FOR BOTH PORTS
 ETH1 192.168.97.10
 ETH2 192.168.90.10</p>
 </div>
-<p>Save the table and reboot the system by entering the following command in the console:</p>
+<p>Save the table and reboot the system by entering the following command in the
+console:</p>
 <div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~$
 </pre></div>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>reboot
 </pre></div>
 </div>
-<div class="clear-left"></div></div></div><ul>
-<li><p>From the start menu open the <strong>Control Panel</strong> and click on <strong>Network and Internet</strong></p></li>
-<li><dl>
-<dt>Click on <strong>View network status and tasks</strong></dt><dd><p>You should see two networks.</p>
+<div class="clear-left"></div></div></div><ul class="simple">
+<li><p>From the start menu open the <strong>Control Panel</strong> and click on <strong>Network
+and Internet</strong></p></li>
+<li><p>Click on <strong>View network status and tasks</strong></p></li>
+</ul>
+<p>You should see two networks.</p>
 <figure class="align-default" id="id8">
 <a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad-apard32690-sl/ad-apardpfwd-sl/ad-t1lusb2-network.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad-apard32690-sl/ad-apardpfwd-sl/ad-t1lusb2-network.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad-apard32690-sl/ad-apardpfwd-sl/ad-t1lusb2-network.png" style="width: 400px;" />
 </a>
@@ -782,9 +807,7 @@ ETH2 192.168.90.10</p>
 <p><span class="caption-number">Figure 7 </span><span class="caption-text">Network Connections</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-</dd>
-</dl>
-</li>
+<ul>
 <li><p>Click on the <strong>Connections: Ethernet</strong> and click on <strong>Properties</strong></p></li>
 <li><p>Select <strong>Internet Protocol Version 4 (TCP/IPv4)</strong> and click on
 <strong>Properties</strong></p></li>
@@ -794,22 +817,26 @@ address</strong> and <strong>Subnet mask</strong>:</p>
 <span class="n">Subnet</span> <span class="n">mask</span><span class="p">:</span> <span class="mf">255.255.0.0</span>
 </pre></div>
 </div>
-<p>where <strong>zzz</strong> is a number between 1 and 254, currently unused in the network (for example, 10 cannot be used, since it is used by the AD-RPI-T1LPSE-SL).</p>
+<p>where <strong>zzz</strong> is a number between 1 and 254, currently unused in the
+network (for example, 10 cannot be used, since it is used by the
+AD-RPI-T1LPSE-SL).</p>
 </li>
 <li><p>Click on <strong>OK</strong> to save the changes and close the dialog boxes.</p></li>
 </ul>
 </li>
-<li><p>Wait for the <strong>DS1</strong> LED on the <a class="icon adi reference external" href="https://www.analog.com/AD-APARDPFWD-SL" target="_blank">AD-APARDPFWD-SL</a> evaluation board
-and the <strong>DS1</strong> LED on the <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a>
-evaluation board to turn on and start blinking at the same time.
-This indicates that a 10BASE-T1L link has been established.</p></li>
+<li><p>Wait for the <strong>DS1</strong> LED on the
+<a class="icon adi reference external" href="https://www.analog.com/AD-APARDPFWD-SL" target="_blank">AD-APARDPFWD-SL</a> evaluation board and the <strong>DS1</strong>
+LED on the <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> evaluation board to
+turn on and start blinking at the same time. This indicates that a
+10BASE-T1L link has been established.</p></li>
 <li><p>Now you can ping the device to see if the connection is working properly.
 Open a terminal on your host PC connect to the AD-RPI-T1LPSE-SL through SSH:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">analog</span><span class="o">@</span><span class="mf">192.168.90.10</span>
 </pre></div>
 </div>
 <p>Enter the password <strong>analog</strong> when prompted.</p>
-<p>You can now ping the <a class="icon adi reference external" href="https://www.analog.com/AD-APARD32690-SL" target="_blank">AD-APARD32690-SL</a> platform board using the following command:</p>
+<p>You can now ping the <a class="icon adi reference external" href="https://www.analog.com/AD-APARD32690-SL" target="_blank">AD-APARD32690-SL</a> platform
+board using the following command:</p>
 <div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~$
 </pre></div>
 </div>
@@ -830,7 +857,8 @@ Open a terminal on your host PC connect to the AD-RPI-T1LPSE-SL through SSH:</p>
 <h3>Schematic, PCB Layout, Bill of Materials<a class="headerlink" href="#schematic-pcb-layout-bill-of-materials" title="Link to this heading"></a></h3>
 <div class="admonition-download admonition">
 <p class="admonition-title">Download</p>
-<p><a class="icon reference download external" download="" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad-apard32690-sl/ad-apardpfwd-sl/AD-APARDPFWD-SL-DesignSupport.zip"><code class="xref download docutils literal notranslate"><span class="pre">AD-APARDPFWD-SL</span> <span class="pre">Design</span> <span class="pre">&amp;</span> <span class="pre">Integration</span> <span class="pre">Files</span></code></a></p>
+<p><a class="icon reference download external" download="" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad-apard32690-sl/ad-apardpfwd-sl/AD-APARDPFWD-SL-DesignSupport.zip"><code class="xref download docutils literal notranslate"><span class="pre">AD-APARDPFWD-SL</span> <span class="pre">Design</span> <span class="pre">&amp;</span> <span class="pre">Integration</span>
+<span class="pre">Files</span></code></a></p>
 <ul class="simple">
 <li><p>Schematics</p></li>
 <li><p>PCB Layout</p></li>
@@ -852,12 +880,14 @@ Open a terminal on your host PC connect to the AD-RPI-T1LPSE-SL through SSH:</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Receive software update notifications, documentation updates, view the latest
-videos, and more when you <a class="icon adi reference external" href="https://www.analog.com/AD-APARDPFWD-SL?&amp;v=RevB" target="_blank">register</a> your hardware.</p>
+videos, and more when you <a class="icon adi reference external" href="https://www.analog.com/AD-APARDPFWD-SL?&amp;v=RevB" target="_blank">register</a> your
+hardware.</p>
 </div>
 </section>
 <section id="help-and-support">
 <h3>Help and Support<a class="headerlink" href="#help-and-support" title="Link to this heading"></a></h3>
-<p>For questions and more information about this product, connect with us through the Analog Devices <a class="icon ez reference external" href="https://ez.analog.com/" target="_blank">EngineerZone</a> .</p>
+<p>For questions and more information about this product, connect with us through
+the Analog Devices <a class="icon ez reference external" href="https://ez.analog.com/" target="_blank">EngineerZone</a> .</p>
 </section>
 </section>
 </section>
