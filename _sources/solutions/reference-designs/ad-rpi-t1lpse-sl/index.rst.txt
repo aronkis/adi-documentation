@@ -245,17 +245,30 @@ Setup with DC Power Supply with USB-C or other DC Power Supply
 Software Setup
 ~~~~~~~~~~~~~~
 
-Downloading and Flashing the Micro-SD Card
+Building and Flashing the Micro-SD Card
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To use the :adi:`AD-RPI-T1LPSE-SL <AD-RPI-T1LPSE-SL>` with the Raspberry Pi, the
-micro-SD card should be preloaded with :ref:`kuiper`, a distribution based on
-Raspbian from the Raspberry Pi Foundation that incorporates Linux drivers for
-ADI products as well as tools and other software products.
+micro-SD card should be preloaded with :ref:`kuiper`, a Linux distribution based on
+Debian, designed specifically for Analog Devices hardware and evaluation boards.
 
-Complete instructions, including where to download the SD card image, how to
-write it to the micro-SD card, and how to configure the system are provided at
-:ref:`kuiper`.
+**Build steps:**
+
+#. :external+adi-kuiper-gen:doc:`Check prerequisites<index>` (Ubuntu 22.04 + Docker for building)
+#. Build your :ref:`kuiper` image:
+
+   .. shell::
+      :user: analog
+      :group: analog
+      :show-user:
+
+      $git clone --depth 1 --branch kuiper-AD-RPI-T1LPSE-SL https://github.com/analogdevicesinc/adi-kuiper-gen
+      $cd adi-kuiper-gen
+      $sudo ./build-docker.sh
+
+   For more details on building the image, please refer to the :external+adi-kuiper-gen:doc:`Quick Start<quick-start>`.
+
+#. :external+adi-kuiper-gen:doc:`Write the built image to the micro-SD card and boot the Raspberry Pi<use-kuiper-image>`.
 
 Configuring the Micro-SD Card
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

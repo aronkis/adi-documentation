@@ -201,15 +201,13 @@ and ping the :adi:`AD-APARD32690-SL <AD-APARD32690-SL>`:
      evaluation board to **P2** on the
      :adi:`AD-T1LUSB2.0-EBZ <ad-t1lusb20-ebz>` evaluation board.
 
-#. Upload the :git-no-OS:`AD-APARD32690-SL ADIN2111 Example <projects/ASWPF/src/examples/adin2111_example/>`
+#. Upload the :git-no-OS:`Apard Communication Example <projects/apardpfwd/src/examples/apard_communication_example>`
    to the :adi:`AD-APARD32690-SL <AD-APARD32690-SL>` platform board using the
    :adi:`MAX32625PICO <MAX32625PICO>` programmer.
 
 #. By default the :adi:`AD-APARD32690-SL <AD-APARD32690-SL>` has 192.168.97.40
    as its IP address. If you are using a different IP address, make sure to
-   update the
-   :git-no-OS:`AD-APARD32690-SL ADIN2111 Example
-   <projects/ASWPF/src/examples/adin2111_example/>`
+   update the :git-no-OS:`Apard Communication Example <projects/apardpfwd/src/examples/apard_communication_example/>`
    with the new IP address.
 
 #. Update the IP address of the Raspberry Pi's Ethernet Interface depending on

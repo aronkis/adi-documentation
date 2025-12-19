@@ -113,7 +113,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#software-setup">Software Setup</a><ul>
-<li><a class="reference internal" href="#downloading-and-flashing-the-micro-sd-card">Downloading and Flashing the Micro-SD Card</a></li>
+<li><a class="reference internal" href="#building-and-flashing-the-micro-sd-card">Building and Flashing the Micro-SD Card</a></li>
 <li><a class="reference internal" href="#configuring-the-micro-sd-card">Configuring the Micro-SD Card</a></li>
 </ul>
 </li>
@@ -914,15 +914,37 @@ either 24V or 55V.</p></li>
 </section>
 <section id="software-setup">
 <span id="id2"></span><h4>Software Setup<a class="headerlink" href="#software-setup" title="Link to this heading"></a></h4>
-<section id="downloading-and-flashing-the-micro-sd-card">
-<h5>Downloading and Flashing the Micro-SD Card<a class="headerlink" href="#downloading-and-flashing-the-micro-sd-card" title="Link to this heading"></a></h5>
+<section id="building-and-flashing-the-micro-sd-card">
+<h5>Building and Flashing the Micro-SD Card<a class="headerlink" href="#building-and-flashing-the-micro-sd-card" title="Link to this heading"></a></h5>
 <p>To use the <a class="icon adi reference external" href="https://www.analog.com/AD-RPI-T1LPSE-SL" target="_blank">AD-RPI-T1LPSE-SL</a> with the Raspberry Pi, the
-micro-SD card should be preloaded with <a class="reference internal" href="../../../linux/kuiper/index.html#kuiper"><span class="std std-ref">Kuiper</span></a>, a distribution based on
-Raspbian from the Raspberry Pi Foundation that incorporates Linux drivers for
-ADI products as well as tools and other software products.</p>
-<p>Complete instructions, including where to download the SD card image, how to
-write it to the micro-SD card, and how to configure the system are provided at
-<a class="reference internal" href="../../../linux/kuiper/index.html#kuiper"><span class="std std-ref">Kuiper</span></a>.</p>
+micro-SD card should be preloaded with <a class="reference internal" href="../../../linux/kuiper/index.html#kuiper"><span class="std std-ref">Kuiper</span></a>, a Linux distribution based on
+Debian, designed specifically for Analog Devices hardware and evaluation boards.</p>
+<p><strong>Build steps:</strong></p>
+<ol class="arabic">
+<li><p><a class="icon link reference external" href="https://analogdevicesinc.github.io/adi-kuiper-gen/index.html" target="_blank" title="(in Kuiper latest)"><span class="xref std std-doc">Check prerequisites</span></a> (Ubuntu 22.04 + Docker for building)</p></li>
+<li><p>Build your <a class="reference internal" href="../../../linux/kuiper/index.html#kuiper"><span class="std std-ref">Kuiper</span></a> image:</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>--branch<span class="w"> </span>kuiper-AD-RPI-T1LPSE-SL<span class="w"> </span>https://github.com/analogdevicesinc/adi-kuiper-gen
+</pre></div>
+</div>
+<div class="clear-left"></div></div><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>adi-kuiper-gen
+</pre></div>
+</div>
+<div class="clear-left"></div></div><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~/adi-kuiper-gen$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>./build-docker.sh
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div><p>For more details on building the image, please refer to the <a class="icon link reference external" href="https://analogdevicesinc.github.io/adi-kuiper-gen/quick-start.html" target="_blank" title="(in Kuiper latest)"><span class="xref std std-doc">Quick Start</span></a>.</p>
+</li>
+<li><p><a class="icon link reference external" href="https://analogdevicesinc.github.io/adi-kuiper-gen/use-kuiper-image.html" target="_blank" title="(in Kuiper latest)"><span class="xref std std-doc">Write the built image to the micro-SD card and boot the Raspberry Pi</span></a>.</p></li>
+</ol>
 </section>
 <section id="configuring-the-micro-sd-card">
 <h5>Configuring the Micro-SD Card<a class="headerlink" href="#configuring-the-micro-sd-card" title="Link to this heading"></a></h5>
