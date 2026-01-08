@@ -372,19 +372,19 @@ More information and useful links
 -  :adi:`AD4130 Product Page <AD4130>`
 -  :git-no-OS:`EVAL-AD4130-8-PMDZ no-OS projects <eval-ad4130-8-pmdz>`
 
-Schematic, PCB Layout, Bill of Materials
-----------------------------------------
+.. Schematic, PCB Layout, Bill of Materials
+.. ----------------------------------------
 
-.. ADMONITION:: Download
+.. .. ADMONITION:: Download
 
-   :download:`EVAL-AD4130-8-PMDZ Design & Integration Files
-   <eval-ad4130-8-pmdz-DesignSupport.zip>`
+..    :download:`EVAL-AD4130-8-PMDZ Design & Integration Files
+..    <eval-ad4130-8-pmdz-DesignSupport.zip>`
 
-   * Schematics
-   * Bill of Materials
-   * Gerber Files
-   * Assembly Files
-   * Allegro Layout File
+..    * Schematics
+..    * Bill of Materials
+..    * Gerber Files
+..    * Assembly Files
+..    * Allegro Layout File
 
 
 Additional Information
