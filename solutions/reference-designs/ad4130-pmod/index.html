@@ -4,17 +4,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="The EVAL-CN0581-EBZ is a standalone USB-C power delivery (PD) module that adds USB-C power sink capability to projects and devices, replacing traditional power jacks. Voltages of 5 V, 9V, 15 V, or 20 V at currents from 0.5 A to 5 A are supported, selected via dual in-line (DIP) switches. A hot-swap surge stopper with ideal diode allows charging of large bulk bypass capacitors, and an enable output enables the downstream load after ramp up is complete, while preventing reverse current during faults. No software control is required for operation; the preloaded firmware configuration reads the DIP switches and sets the power delivery object (PDO) voltage and current modes accordingly. Custom configurations can be optionally programmed via an I2C interface." name="description" />
+<meta content="The EVAL-AD4130-8-PMDZ is a compact, low-cost, Pmod-compatible evaluation board for the AD4130 ultra low power, high precision, measurement solution for low bandwidth battery operated applications. The fully integrated analog front end (AFE) includes a multiplexer for up to 16 single-ended or eight differential inputs, programmable gain amplifier (PGA), 24-bit sigma-delta (Σ-Δ) analog-to-digital converter (ADC), on-chip reference and oscillator, selectable filter options, smart sequencer, sensor biasing and excitation options, diagnostics, and newly added features to improve the battery-operated lifetime (more than 5 years on a coin cell), that is, a first in, first out (FIFO) buffer and duty cycling." name="description" />
 
-    <title>EVAL-CN0581-EBZ &#8212; System Level Documentation  documentation</title>
+    <title>EVAL-AD4130-8-PMDZ &#8212; System Level Documentation  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8e8a900e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/app.min.css?v=5d595293" />
     <script async="async" src="../../../_static/app.umd.js?v=46a18818"></script>
     <link rel="icon" href="../../../_static/icon.svg"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="EVAL-CN0584-EBZ" href="../eval-cn0584-ebz/index.html" />
-    <link rel="prev" title="EVAL-CN0577-FMCZ" href="../eval-cn0577-fmcz/index.html" />
+    <link rel="next" title="ADMV96S-WGBE-EK1" href="../admv96s-wgbe-ek1/index.html" />
+    <link rel="prev" title="Libraries and GUI Tools" href="../ad4062-ardz/tools.html" />
    
   
   
@@ -94,27 +94,35 @@
         </div>
         <nav>
           <ul>
-<li><a class="reference internal" href="#">EVAL-CN0581-EBZ</a><ul>
-<li><a class="reference internal" href="#configurable-usb-c-power-sink-solution">Configurable USB-C Power Sink Solution</a><ul>
+<li><a class="reference internal" href="#">EVAL-AD4130-8-PMDZ</a><ul>
+<li><a class="reference internal" href="#minimalist-8-channel-24-bit-sigma-delta-adc-with-pga-and-fifo-spi-pmod-board">Minimalist 8-channel, 24-Bit, sigma-delta ADC with PGA and FIFO SPI PMOD board</a><ul>
 <li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#features">Features</a></li>
-<li><a class="reference internal" href="#applications">Applications</a></li>
-<li><a class="reference internal" href="#hardware-configuration">Hardware Configuration</a><ul>
-<li><a class="reference internal" href="#board-overview-and-pinout-description">Board Overview and Pinout Description</a></li>
-<li><a class="reference internal" href="#vbus-voltage-and-current-settings">VBUS Voltage and Current Settings</a></li>
-<li><a class="reference internal" href="#i-o-logic-voltage-configuration-jumper">I/O Logic Voltage Configuration (Jumper)</a></li>
-<li><a class="reference internal" href="#led-indicators">LED Indicators</a></li>
+<li><a class="reference internal" href="#input-and-output-connections-and-configurations">Input and Output Connections and Configurations</a><ul>
+<li><a class="reference internal" href="#pmod-processor-connector">Pmod Processor Connector</a></li>
+<li><a class="reference internal" href="#ad4130-interrupt-pins">AD4130 Interrupt Pins</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#system-setup">System Setup</a><ul>
-<li><a class="reference internal" href="#equipment-needed">Equipment Needed</a></li>
-<li><a class="reference internal" href="#getting-started">Getting Started</a></li>
-<li><a class="reference internal" href="#examples-of-different-voltage-and-current-settings">Examples of Different Voltage and Current Settings</a></li>
+<li><a class="reference internal" href="#power-supply-considerations-and-configuration">Power Supply Considerations and Configuration</a></li>
+<li><a class="reference internal" href="#device-driver-and-software-support">Device Driver and Software Support</a></li>
+<li><a class="reference internal" href="#system-setup-using-raspberry-pi">System Setup Using Raspberry Pi</a><ul>
+<li><a class="reference internal" href="#demo-requirements">Demo Requirements</a></li>
+<li><a class="reference internal" href="#loading-image-on-sd-card">Loading Image on SD Card</a></li>
+<li><a class="reference internal" href="#configuring-the-sd-card">Configuring the SD Card</a></li>
+<li><a class="reference internal" href="#setting-up-the-hardware">Setting up the Hardware</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#application-software">Application Software</a><ul>
+<li><a class="reference internal" href="#iio-commands">IIO Commands</a></li>
+<li><a class="reference internal" href="#scopy-2-0">Scopy 2.0</a></li>
+<li><a class="reference internal" href="#data-logger">Data Logger</a></li>
+<li><a class="reference internal" href="#pyadi-iio">PyADI-IIO</a></li>
+<li><a class="reference internal" href="#running-the-example-directly-on-the-rpi">Running the example directly on the RPi</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#more-information-and-useful-links">More information and useful links</a></li>
-<li><a class="reference internal" href="#design-and-integration-files">Design and Integration Files</a></li>
-<li><a class="reference internal" href="#help-and-support">Help and Support</a></li>
+<li><a class="reference internal" href="#schematic-pcb-layout-bill-of-materials">Schematic, PCB Layout, Bill of Materials</a></li>
+<li><a class="reference internal" href="#additional-information">Additional Information</a></li>
+<li><a class="reference internal" href="#hardware-registration">Hardware Registration</a></li>
 </ul>
 </li>
 </ul>
@@ -336,7 +344,7 @@ Content on this topic
 <li class="toctree-l3"><a class="reference internal" href="../ad4062-ardz/tools.html">Libraries and GUI Tools</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../ad4130-pmod/index.html">EVAL-AD4130-8-PMDZ</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">EVAL-AD4130-8-PMDZ</a></li>
 <li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-12-14" id="toctree-collapse-12-14"/><div class="collapse"><a class="reference internal" href="../admv96s-wgbe-ek1/index.html">ADMV96S-WGBE-EK1</a><label for="toctree-collapse-12-14"><div class="icon"></div></label></div><ul>
 <li class="toctree-l3"><a class="reference internal" href="../admv96s-wgbe-ek1/hardware-guide/index.html">Hardware User Guide</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../admv96s-wgbe-ek1/software-guide/index.html">Software User Guide</a></li>
@@ -404,7 +412,7 @@ Content on this topic
 <li class="toctree-l2"><a class="reference internal" href="../eval-cn0565-ardz/index.html">EVAL-CN0565-ARDZ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../eval-cn0575-rpiz/index.html">EVAL-CN0575-RPIZ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../eval-cn0577-fmcz/index.html">EVAL-CN0577-FMCZ</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">EVAL-CN0581-EBZ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../eval-cn0581-ebz/index.html">EVAL-CN0581-EBZ</a></li>
 <li class="toctree-l2"><input class="toctree-collapse" type="checkbox" name="toctree-collapse-12-21" id="toctree-collapse-12-21"/><div class="collapse"><a class="reference internal" href="../eval-cn0584-ebz/index.html">EVAL-CN0584-EBZ</a><label for="toctree-collapse-12-21"><div class="icon"></div></label></div><ul>
 <li class="toctree-l3"><a class="reference internal" href="../eval-cn0584-ebz/digital-template/index.html">Digital Template Model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../eval-cn0584-ebz/matlab-configuration/index.html">MATLAB Configuration</a></li>
@@ -484,611 +492,437 @@ Content on this topic
 </div>
           <div class="body" role="main">
             
-  <section id="eval-cn0581-ebz">
-<h1>EVAL-CN0581-EBZ<a class="headerlink" href="#eval-cn0581-ebz" title="Link to this heading"></a></h1>
-<section id="configurable-usb-c-power-sink-solution">
-<h2>Configurable USB-C Power Sink Solution<a class="headerlink" href="#configurable-usb-c-power-sink-solution" title="Link to this heading"></a></h2>
+  <section id="eval-ad4130-8-pmdz">
+<span id="id1"></span><h1>EVAL-AD4130-8-PMDZ<a class="headerlink" href="#eval-ad4130-8-pmdz" title="Link to this heading"></a></h1>
+<section id="minimalist-8-channel-24-bit-sigma-delta-adc-with-pga-and-fifo-spi-pmod-board">
+<h2>Minimalist 8-channel, 24-Bit, sigma-delta ADC with PGA and FIFO SPI PMOD board<a class="headerlink" href="#minimalist-8-channel-24-bit-sigma-delta-adc-with-pga-and-fifo-spi-pmod-board" title="Link to this heading"></a></h2>
 <section id="overview">
 <h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
-<figure class="align-left" id="id1">
-<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/eval-cn0581-ebz_angle.jpg"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/eval-cn0581-ebz_angle.jpg" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/eval-cn0581-ebz_angle.jpg" style="width: 300px;" />
-</a>
-<figcaption>
-<p><span class="caption-number">Figure 1 </span><span class="caption-text">EVAL-CN0581-EBZ Board</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<p>The <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> is a standalone USB-C power delivery (PD)
-module that adds USB-C power sink capability to projects and devices,
-replacing traditional power jacks. Voltages of 5 V, 9V, 15 V, or 20 V at
-currents from 0.5 A to 5 A are supported, selected via dual in-line (DIP)
-switches. A hot-swap surge stopper with ideal diode allows charging of large
-bulk bypass capacitors, and an enable output enables the downstream load after
-ramp up is complete, while preventing reverse current during faults. No
-software control is required for operation; the preloaded firmware
-configuration reads the DIP switches and sets the power delivery object (PDO)
-voltage and current modes accordingly. Custom configurations can be optionally
-programmed via an I2C interface.</p>
-<figure class="align-default" id="id2">
-<img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/cn0581_simplified_block_diagram.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/cn0581_simplified_block_diagram.png" />
-<figcaption>
-<p><span class="caption-number">Figure 2 </span><span class="caption-text">EVAL-CN0581-EBZ Simplified Block Diagram</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="features">
-<h3>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h3>
+<p>The <a class="icon adi reference external" href="https://www.analog.com/EVAL-AD4130-8-PMDZ" target="_blank">EVAL-AD4130-8-PMDZ</a> is a compact, low-cost, Pmod-compatible
+evaluation board for the <a class="icon adi reference external" href="https://www.analog.com/AD4130" target="_blank">AD4130</a> ultra low power, high precision,
+measurement solution for low bandwidth battery operated applications. The fully
+integrated analog front end (AFE) includes a multiplexer for up to 16
+single-ended or eight differential inputs, programmable gain amplifier (PGA),
+24-bit sigma-delta (Σ-Δ) analog-to-digital converter (ADC), on-chip reference
+and oscillator, selectable filter options, smart sequencer, sensor biasing and
+excitation options, diagnostics, and newly added features to improve the
+battery-operated lifetime (more than 5 years on a coin cell), that is, a first
+in, first out (FIFO) buffer and duty cycling.</p>
 <ul class="simple">
-<li><p>USB Type-C power delivery standalone controller</p></li>
-<li><p>Surge stopper with ideal diode which provides:
-- Overcurrent and short circuit protection
-- Input overvoltage protection
-- Input undervoltage protection
-- Output overvoltage protection
-- Reverse current protection
-- Robust power-up into large bulk capacitors up to 1000 µF
-- Enable output pin</p></li>
-<li><p>On-board DIP switches allowing customization of VBUS voltage and current
-settings</p></li>
-<li><p>Breadboard 2.54 mm pitch pin headers for easy prototyping</p></li>
+<li><p>Smart transmitters</p></li>
+<li><p>Wireless battery and harvester powered sensor nodes</p></li>
+<li><p>Portable instrumentation</p></li>
+<li><p>Temperature measurement: thermocouple, RTD, thermistors</p></li>
+<li><p>Pressure measurement: bridge transducers</p></li>
+<li><p>Healthcare and wearables</p></li>
 </ul>
-</section>
-<section id="applications">
-<h3>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Smart speakers</p></li>
-<li><p>Power tools</p></li>
-<li><p>Wearables</p></li>
-<li><p>Cameras</p></li>
-<li><p>IoT devices</p></li>
-<li><p>VR headset</p></li>
-<li><p>Gaming consoles</p></li>
-<li><p>Drones &amp; robots</p></li>
-</ul>
-</section>
-<section id="hardware-configuration">
-<h3>Hardware Configuration<a class="headerlink" href="#hardware-configuration" title="Link to this heading"></a></h3>
-<section id="board-overview-and-pinout-description">
-<h4>Board Overview and Pinout Description<a class="headerlink" href="#board-overview-and-pinout-description" title="Link to this heading"></a></h4>
-<p>Below photos show the top view (left image) and bottom view (right image) of the
-<a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> and its main components:</p>
-<figure class="align-default" id="id3">
-<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/cn0581_hardware_configuration.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/cn0581_hardware_configuration.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/cn0581_hardware_configuration.png" style="width: 600px;" />
+<p>The AD4130-8 allows users to measure low frequency signals
+with a current consumption of 28.5 μA (gain = 1) and 32.5 μA
+(gain = 128) while continuously converting, and even lower average
+currents when using one of the duty cycling options. The AD4130-8
+can be configured to have 8 differential inputs or 16 single-ended or
+pseudo differential inputs, which connect to a crosspoint multiplex-
+er, where any input pair can become a measurement channel input
+to the PGA and ADC.</p>
+<p>Together with the reduced current consumption, the integration of
+an on-chip FIFO buffer can be used in tandem with the smart
+sequencer, to enable the AD4130-8 to become an autonomous
+measurement system, which allows the microcontroller to sleep for
+extended periods.</p>
+<p>Intelligent interrupt functionality gives the user a greater confidence
+in both error detection and safety. The user can enable an interrupt
+signal to trigger when the samples in the FIFO reach a predefined
+value or when a user programmable threshold is exceeded</p>
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-pmod.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-pmod.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-pmod.png" style="width: 350px;" />
 </a>
-<figcaption>
-<p><span class="caption-number">Figure 3 </span><span class="caption-text">EVAL-CN0581-EBZ Top and Bottom View</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<p>The <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> pinout is described below:</p>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Connectors and
-Pins</p></th>
-<th class="head"><p>Schematic Pin
-Name</p></th>
-<th class="head"><p>On-board
-Silkscreen
-Symbol</p></th>
-<th class="head"><p>Pin Description</p></th>
-</tr>
-</thead>
+</section>
+<section id="input-and-output-connections-and-configurations">
+<h3>Input and Output Connections and Configurations<a class="headerlink" href="#input-and-output-connections-and-configurations" title="Link to this heading"></a></h3>
+<p>The PMOD board is small in size with dimensions approximately 2 cm in width
+by 6.7 cm in length.</p>
+<section id="pmod-processor-connector">
+<h4>Pmod Processor Connector<a class="headerlink" href="#pmod-processor-connector" title="Link to this heading"></a></h4>
+<p>The PMOD interface is a series of standardized digital interfaces for various
+digital communication protocols such as SPI, I2C, and UART. These interface
+types were standardized by Digilent, which is now a division of National
+Instruments. Complete details on the Pmod specification can be found on the
+<a class="icon link reference external" href="https://digilent.com/reference/pmod/start" target="_blank">Digilent Pmod landing page</a>.</p>
+<p>The specific interface used for the EVAL-AD4130-8-PMDZ boards is the extended
+SPI. In general ADI has adopted the extended SPI connector for all PMOD devices
+which have an SPI interface. It provides flexibility to add interrupts, general
+purpose I/O, resets, and other digitally controlled functions.</p>
+<div class="table-wrapper docutils container" id="id2">
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">PMOD Pinout</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
 <tbody>
-<tr class="row-even"><td><p>P12 Pin 1</p></td>
-<td><p>USB_VBUS_RAW</p></td>
-<td><p>RAW</p></td>
-<td><p>Input VBUS</p></td>
+<tr class="row-odd"><td><p>Pin Number</p></td>
+<td><p>Pin Function</p></td>
+<td><p>Mnemonic</p></td>
+<td><p>Pin Number</p></td>
+<td><p>Pin Function</p></td>
+<td><p>Mnemonic</p></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td><p>P11 Pin 2; P12
-Pins 3, 4, 5</p></td>
-<td><p>VBUS_OUT</p></td>
-<td><p>OUT</p></td>
-<td><p>VBUS Output</p></td>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Chip Select</p></td>
+<td><p>CS _N</p></td>
+<td><p>7</p></td>
+<td><p>Interrupt 1</p></td>
+<td><p>INT1</p></td>
+<td></td>
 </tr>
-<tr class="row-even"><td><p>P14 Pin 1; P15
-Pin 2</p></td>
-<td><p>PPVIO</p></td>
-<td><p>VIO</p></td>
-<td><p>I/O Logic
-Voltage</p></td>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Master Out Slave In</p></td>
+<td><p>MOSI</p></td>
+<td><p>8</p></td>
+<td><p>Interrupt 2</p></td>
+<td><p>INT2</p></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td><p>P14 Pin 2</p></td>
-<td><p>USR_INT#</p></td>
-<td><p>INT</p></td>
-<td><p>Interrupt pin of
-MAX77958 PD
-Controller</p></td>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Master In Slave Out</p></td>
+<td><p>MISO</p></td>
+<td><p>9</p></td>
+<td><p>Interrupt 3</p></td>
+<td><p>INT3</p></td>
+<td></td>
 </tr>
-<tr class="row-even"><td><p>P14 Pin 3</p></td>
-<td><p>USR_SDA</p></td>
-<td><p>SDA</p></td>
-<td><p>I2C Serial Data
-of MAX77958 PD
-Controller</p></td>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Serial Clock</p></td>
+<td><p>SCLK</p></td>
+<td><p>10</p></td>
+<td><p>Synchronization Logic Input</p></td>
+<td><p>SYNC_N</p></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td><p>P14 Pin 4</p></td>
-<td><p>USR_SCL</p></td>
-<td><p>SCL</p></td>
-<td><p>I2C Serial Clock
-of MAX77958 PD
-Controller</p></td>
-</tr>
-<tr class="row-even"><td><p>P14 Pin 5</p></td>
-<td><p>PRG_VCIN</p></td>
-<td><p>VCI</p></td>
-<td><p>MTP and <code class="docutils literal notranslate"><span class="pre">Vconn</span></code>
-power supply
-input of
-MAX77958 PD
-Controller</p></td>
-</tr>
-<tr class="row-odd"><td><p>P14 Pin 6</p></td>
-<td><p>ENOUT</p></td>
-<td><p>OEN</p></td>
-<td><p>Open Drain
-Output Enable
-provided by
-LT4364-2 Surge
-Stopper</p></td>
-</tr>
-<tr class="row-even"><td><p>P14 Pin 7</p></td>
-<td><p>USR_OUT_EN</p></td>
-<td><p>IEN</p></td>
-<td><p>External Input
-Enable for
-LTC4364-2 Surge
-Stopper</p></td>
-</tr>
-<tr class="row-odd"><td><p>P11 Pin 1; P12
-Pins 2, 6, 7, 8;
-Pin 14 Pin 4</p></td>
-<td><p>GND</p></td>
-<td><p>GND</p></td>
+<tr class="row-even"><td><p>5</p></td>
 <td><p>Ground</p></td>
+<td><p>GND</p></td>
+<td><p>11</p></td>
+<td><p>Ground</p></td>
+<td><p>GND</p></td>
+<td></td>
 </tr>
-<tr class="row-even"><td><p>P15 Pin 1</p></td>
-<td><p>PP3V3_LDO</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>Internal 3V3 IO
-Voltage - place
-jumper on P15 to
-use internal 3V3</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="vbus-voltage-and-current-settings">
-<h4>VBUS Voltage and Current Settings<a class="headerlink" href="#vbus-voltage-and-current-settings" title="Link to this heading"></a></h4>
-<p>The <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> board includes three dual in-line package
-(DIP) switches for the selection of the minimum VBUS voltage requested from the
-source, Min VBUS (“MINV” on silkscreen), the maximum VBUS voltage requested from
-the source, Max VBUS (“MAXV” on silkscreen), and the maximum current required
-from the source, Operating Current (“CURR” on silkscreen).</p>
-<p>Below is a picture with the top side of <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a>, where
-Min VBUS, Max VBUS, and Operating Current DIP switches are highlighted:</p>
-<figure class="align-default" id="id4">
-<img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/cn0581_dip_switch.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/cn0581_dip_switch.png" />
-<figcaption>
-<p><span class="caption-number">Figure 4 </span><span class="caption-text">EVAL-CN0581-EBZ DIP Switches</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<p>The settings for VBUS Current and Voltage will take place only
-at power-up. Change these settings when the board is powered off or do one
-power cycle if the settings were changed when the board is powered on.</p>
-<p>Here are two tables with all the combinations possible, one for the Operating
-Current DIP switch and one for Min/Max VBUS Voltage DIP switches:</p>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Current Switch States</p></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"><p>Option</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>SW1</strong></p></td>
-<td><p><strong>SW2</strong></p></td>
-<td><p><strong>SW3</strong></p></td>
-<td><p><strong>SW4</strong></p></td>
-<td><p><strong>Operating Current</strong></p></td>
-</tr>
-<tr class="row-odd"><td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>0.5 A</p></td>
-</tr>
-<tr class="row-even"><td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>1 A</p></td>
-</tr>
-<tr class="row-odd"><td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>1.5 A</p></td>
-</tr>
-<tr class="row-even"><td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>2 A</p></td>
-</tr>
-<tr class="row-odd"><td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>2.5 A</p></td>
-</tr>
-<tr class="row-even"><td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>3 A</p></td>
-</tr>
-<tr class="row-odd"><td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>3.5 A</p></td>
-</tr>
-<tr class="row-even"><td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>4 A</p></td>
-</tr>
-<tr class="row-odd"><td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>4.5 A</p></td>
-</tr>
-<tr class="row-even"><td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>5 A</p></td>
-</tr>
-<tr class="row-odd"><td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>5 A</p></td>
-</tr>
-<tr class="row-even"><td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>5 A</p></td>
-</tr>
-<tr class="row-odd"><td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>5 A</p></td>
-</tr>
-<tr class="row-even"><td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>5 A</p></td>
-</tr>
-<tr class="row-odd"><td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>5 A</p></td>
-</tr>
-<tr class="row-even"><td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>5 A</p></td>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Digital Power</p></td>
+<td><p>IOVDD</p></td>
+<td><p>12</p></td>
+<td><p>Digital power</p></td>
+<td><p>IOVDD</p></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Voltage Switch States</p></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"><p>Option</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>SW 1</strong></p></td>
-<td><p><strong>SW 2</strong></p></td>
-<td><p><strong>SW3</strong></p></td>
-<td><p><strong>Min/Max VBUS</strong></p></td>
-</tr>
-<tr class="row-odd"><td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>5 V</p></td>
-</tr>
-<tr class="row-even"><td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>9 V</p></td>
-</tr>
-<tr class="row-odd"><td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>12 V</p></td>
-</tr>
-<tr class="row-even"><td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>15 V</p></td>
-</tr>
-<tr class="row-odd"><td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>OFF</p></td>
-<td><p>20 V</p></td>
-</tr>
-<tr class="row-even"><td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>ON</p></td>
-<td><p>20 V</p></td>
-</tr>
-<tr class="row-odd"><td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>OFF</p></td>
-<td><p>20 V</p></td>
-</tr>
-<tr class="row-even"><td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>ON</p></td>
-<td><p>20 V</p></td>
-</tr>
-</tbody>
-</table>
+</section>
+<section id="ad4130-interrupt-pins">
+<h4>AD4130 Interrupt Pins<a class="headerlink" href="#ad4130-interrupt-pins" title="Link to this heading"></a></h4>
+<p>The EVAL-AD4130-8-PMDZ features three interrupt pins that can be used as
+external indicators for user-defined events. These PMOD interrupt pins are
+internally connected to the single interrupt output of the AD4130, and can be
+configured via software to signal either a Data Ready or FIFO Interrupt
+condition.</p>
+<p>These interrupt signals are accessible through the SPI PMOD header. For detailed
+information on individual status flags, their meanings, and how to configure
+the chip to generate specific interrupts, please refer to the <a class="icon adi reference external" href="https://www.analog.com/AD4130" target="_blank">AD4130</a>
+data sheet.</p>
+</section>
+</section>
+<section id="power-supply-considerations-and-configuration">
+<h3>Power Supply Considerations and Configuration<a class="headerlink" href="#power-supply-considerations-and-configuration" title="Link to this heading"></a></h3>
+<p>When using the EVAL-AD4130-8-PMDZ board, the 3.3V power supply is provided
+directly by the host platform to which it is connected. Most PMOD-compatible
+host boards can supply at least 100 mA, which is more than sufficient for the
+power requirements of the EVAL-AD4130-8-PMDZ.</p>
+</section>
+<section id="device-driver-and-software-support">
+<h3>Device Driver and Software Support<a class="headerlink" href="#device-driver-and-software-support" title="Link to this heading"></a></h3>
+<p>Two device drivers and corresponding software solutions are available for the
+EVAL-AD4130-8-PMDZ:</p>
+<p><strong>AD4130 no-OS Driver</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The <a class="icon git reference external" href="https://github.com/analogdevicesinc/no-OS/tree/main/drivers/afe/ad413x" target="_blank">AD4130 no-OS driver</a> is used
+in bare-metal applications, typically running on low-power, embedded
+microcontrollers.</p></li>
+<li><p>The <a class="icon git reference external" href="https://github.com/analogdevicesinc/no-OS/tree/main/projects/ad413x" target="_blank">AD4130 no-OS example project</a>
+uses the AD4130 no-OS driver and has several configuration options:</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition-download admonition">
+<p class="admonition-title">Download</p>
+<p>A zip file containing prebuilt programming files for the no-OS example
+project, targeting platforms below are available at:
+<a class="icon git reference external" href="https://github.com/analogdevicesinc/no-OS/releases/download/last_commit/ad413x.zip" target="_blank">ad413x.zip</a>.</p>
+<p>More details are provided in the platform-specific sections below.</p>
 </div>
-<p>For the input power supply, any USB Type-C charger can be used. The fixed PDOs
-stated by PD 3.0 that can be selected by <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> are:</p>
+<p><strong>AD4130 Linux Driver</strong></p>
 <ul class="simple">
-<li><p>5V at 3A</p></li>
-<li><p>9V at 3A</p></li>
-<li><p>12V at 3A</p></li>
-<li><p>15V at 3A</p></li>
-<li><p>20V at 5A</p></li>
-</ul>
-<p>Note that not all power sources provide these exact combinations of
-voltages and currents. For example, a high-power laptop charger may provide 20 V
-at 6.5A (above the official USB-C standard), 5V at only 1A (below the
-standard), and no support for 9V or 12V, as compared to a general-purpose 45 W
-adapter which may provide 5V, 9V, 12V, and 15V at 3A (adheres to the USB-C
-standard) and 20 V at 2.25 A (below the standard).&lt;/note&gt;</p>
-<dl class="simple">
-<dt>To request a valid PDO, the following conditions must be satisfied by at least</dt><dd><p>one available PDO from the source:</p>
-</dd>
-</dl>
-<ul class="simple">
-<li><p>Source PDO Voltage must be <strong>less or equal than</strong> Max VBUS setting</p></li>
-<li><p>Source PDO Voltage must be <strong>higher or equal than</strong> Min VBUS setting</p></li>
-<li><p>Source PDO Current must be <strong>higher or equal than</strong> Operating Current setting</p></li>
-<li><p>If 2 or more PDOs meet all these three conditions, the PDO with the highest
-power (Voltage × Current) will be chosen.</p></li>
-</ul>
-<p>If at least one of the above conditions is not satisfied,
-<a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> will function as described below depending on
-the chosen settings:</p>
-<ul class="simple">
-<li><p>If Min VBUS &gt; Max VBUS, VBUS_OUT (the output power pin of
-<a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a>) defaults to 5V/3A requirements.</p></li>
-<li><p>If Min VBUS &lt; Max VBUS, the on-board surge stopper is kept closed and VBUS_OUT
-= 0 V (the output of the board is disconnected from the VBUS line).</p></li>
+<li><p>The <a class="icon git reference external" href="https://github.com/analogdevicesinc/linux/tree/main/drivers/iio/adc/ad4130.c" target="_blank">AD4130 Linux driver</a> is
+used in applications running the Linux operating system, typically on
+larger processors and SoC devices.</p></li>
+<li><p>The AD4130 Linux driver uses the Industrial Input/Output (IIO) framework,
+greatly simplifying the development of application code via the
+cross-platform Libiio library, which is written in C and includes bindings
+for Python, MATLAB, C#, and other languages. Application code can run
+directly on the platform board, communicating with the device over the
+local backend, or from a remote host over the network or USB backends.</p></li>
 </ul>
 </section>
-<section id="i-o-logic-voltage-configuration-jumper">
-<h4>I/O Logic Voltage Configuration (Jumper)<a class="headerlink" href="#i-o-logic-voltage-configuration-jumper" title="Link to this heading"></a></h4>
-<p>In order for the board to function, it needs an I/O logic supply voltage between
-3.3 V and 5 V. The <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> has an on-board
-<a class="icon adi reference external" href="https://www.analog.com/ADP7142" target="_blank">ADP7142</a> low dropout regulator, which can be used by placing
-the one row and two pins jumper provided on P15. If another I/O logic supply
-voltage needs to be used (between 3.3 V and 5 V), it can be added on P14 -&gt; Pin
-1 or on P15 -&gt; Pin 2 (do not place the jumper on P15 in this case).</p>
-</section>
-<section id="led-indicators">
-<h4>LED Indicators<a class="headerlink" href="#led-indicators" title="Link to this heading"></a></h4>
-<p>On the <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a>, there are two LEDs indicating the power
-at the input and the output. LED DS1 (if on) indicates that power at
-USB_VBUS_RAW (input) is present; and LED DS2 (if on) indicates that power at
-VBUS_OUT (output) is present. After powering the board, if a fault behavior is
-present or if the settings on the DIP switches are out of range, the surge
-stopper is kept closed and LED DS2 is turned off.</p>
-</section>
-</section>
-<section id="system-setup">
-<h3>System Setup<a class="headerlink" href="#system-setup" title="Link to this heading"></a></h3>
-<p>The <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> can be easily tested using just a
-multimeter and a Type-C charger. A block diagram with a setup example is
-provided in the figure below. For this setup, check if cable supports powers
-wanted to be tested. To support all settings, make sure the cable is rated for 5
-A, 20 V.</p>
-<figure class="align-default" id="id5">
-<img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/test_setup.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/test_setup.png" />
-<figcaption>
-<p><span class="caption-number">Figure 5 </span><span class="caption-text">Test Setup Example with EVAL-CN0581-EBZ</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<p>To evaluate the <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a>, use the internal 3.3 V logic
-voltage by placing a 2.54 mm pitch jumper with one row and two pins on P15
-connector. If an external logic voltage is needed, it can be provided on PPVIO
-pin (between 3.3V and 5V).</p>
-<section id="equipment-needed">
-<h4>Equipment Needed<a class="headerlink" href="#equipment-needed" title="Link to this heading"></a></h4>
+<section id="system-setup-using-raspberry-pi">
+<h3>System Setup Using Raspberry Pi<a class="headerlink" href="#system-setup-using-raspberry-pi" title="Link to this heading"></a></h3>
+<p>The EVAL-AD4130-8-PMDZ can be used with a Raspberry Pi.</p>
+<section id="demo-requirements">
+<h4>Demo Requirements<a class="headerlink" href="#demo-requirements" title="Link to this heading"></a></h4>
+<p>The following is a list of items needed in order to replicate this demo.</p>
 <ul class="simple">
-<li><p><a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> circuit evaluation board</p></li>
-<li><p>USB-C power charger (preferred with 100 W capability)</p></li>
-<li><p>USB Type-C cable (rated for 20 V and 5 A)</p></li>
-<li><p>Any device that accepts the available power</p></li>
-<li><p>A voltmeter or multimeter</p></li>
+<li><p><strong>Hardware</strong></p>
+<ul>
+<li><p><a class="icon adi reference external" href="https://www.analog.com/EVAL-AD4130-8" target="_blank">EVAL-AD4130-8</a></p></li>
+<li><p><a class="icon adi reference external" href="https://www.analog.com/PMD-RPI-INTZ" target="_blank">PMOD to Raspberry Pi Adapter (PMD-RPI-INTZ)</a></p></li>
+<li><p>Raspberry PI Zero, Zero W, 3B+, or 4</p></li>
+<li><p>16GB (or larger) Class 10 (or faster) micro-SD card</p></li>
+<li><p>5Vdc, 2.5A power supply with micro USB connector (USB-C power supply
+for Raspberry Pi 4)</p></li>
+<li><p>User interface setup (choose one):</p>
+<ul>
+<li><p>HDMI monitor, keyboard, mouse plugged directly into Raspberry Pi</p></li>
+<li><p>Host Windows/Linux/Mac computer on the same network as Raspberry Pi</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Software</strong></p>
+<ul>
+<li><p><a class="icon dokuwiki reference external" href="https://wiki.analog.com/resources/tools-software/linux-software/adi-kuiper_images/release_notes" target="_blank">Kuiper Linux Image</a></p></li>
+</ul>
+</li>
 </ul>
 </section>
-<section id="getting-started">
-<h4>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h4>
-<ol class="arabic simple">
-<li><p>Choose the settings for the Min and Max VBUS and Operating Current and place
-the two-pin jumper provided on P15 connector for selecting the onboard 3.3V
-I/O logic voltage. Settings must be selected before the board is powered on.</p></li>
-<li><p>Connect the <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> output (P11 output connector or
-P14 pin header) to the device you want to power.</p></li>
-<li><p>Connect the <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> to a USB-C charger that can
-provide the Output Settings selected at 1.</p></li>
-<li><p>Measure the output of <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> with the
-voltmeter/multimeter between VBUS_OUT and GND (see pinout description).</p></li>
+<section id="loading-image-on-sd-card">
+<h4>Loading Image on SD Card<a class="headerlink" href="#loading-image-on-sd-card" title="Link to this heading"></a></h4>
+<p>In order to boot the Raspberry Pi and control the <strong>EVAL-AD4130-8-PMDZ</strong>, you
+will need to install ADI Kuiper Linux on an SD card. Complete instructions,
+including where to download the SD card image, how to write it to the SD card,
+and how to configure the system are provided on the
+<a class="icon link reference external" href="https://analogdevicesinc.github.io/adi-kuiper-gen/index.html" target="_blank" title="(in Kuiper latest)"><span class="xref std std-doc">Kuiper</span></a>.</p>
+</section>
+<section id="configuring-the-sd-card">
+<h4>Configuring the SD Card<a class="headerlink" href="#configuring-the-sd-card" title="Link to this heading"></a></h4>
+<p>Follow the configuration procedure under <strong>Configuring the SD Card for
+Raspberry Pi Projects</strong> at <a class="icon link reference external" href="https://analogdevicesinc.github.io/adi-kuiper-gen/index.html" target="_blank" title="(in Kuiper latest)"><span class="xref std std-doc">Kuiper</span></a>,
+substituting the following lines in <strong>config.txt</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dtoverlay</span><span class="o">=</span><span class="n">rpi</span><span class="o">-</span><span class="n">ad4130</span>
+</pre></div>
+</div>
+</section>
+<section id="setting-up-the-hardware">
+<h4>Setting up the Hardware<a class="headerlink" href="#setting-up-the-hardware" title="Link to this heading"></a></h4>
+<p>To set up the circuit for evaluation, consider the following steps:</p>
+<ol class="arabic">
+<li><p>Connect the <strong>P9</strong> of the <strong>PMOD to Raspberry Pi Interposer</strong> board at the
+male header GPIO pin connector of the <strong>Raspberry Pi</strong> as shown below.</p>
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/interposer.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/interposer.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/interposer.png" style="width: 500px;" />
+</a>
+</li>
 </ol>
+<p>#. Attach the EVAL-AD4130-8-PMDZ to the Raspberry Pi Interposer Board via Port
+P1.</p>
+<p>#. Flash the SD card with the appropriate ADI Kuiper Linux image. Insert the
+flashed SD card into the Raspberry Pi’s SD card slot.</p>
+<p>#. Use an HDMI cable to connect the Raspberry Pi to a monitor via
+the mini-HDMI connector.</p>
+<ol class="arabic simple">
+<li><p>Plug in a USB keyboard and mouse into the Raspberry Pi’s USB ports.</p></li>
+</ol>
+<p>#. Power the Raspberry Pi by connecting a 5V power supply through the micro-USB
+connector. The final setup should look similar to the picture below.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/eval-ad4130-8-pmdz_overall_setup.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/eval-ad4130-8-pmdz_overall_setup.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/eval-ad4130-8-pmdz_overall_setup.png" style="width: 600px;" />
+</a>
+</div></blockquote>
 </section>
-<section id="examples-of-different-voltage-and-current-settings">
-<h4>Examples of Different Voltage and Current Settings<a class="headerlink" href="#examples-of-different-voltage-and-current-settings" title="Link to this heading"></a></h4>
-<p>To obtain the desired set power, the first step is to select a USB-C charger
-that can provide the desired PDO. In the table below are shown the fixed PDOs of
-a 96W USB-C power charger.</p>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Power Delivery Object (PDO)</p></th>
-<th class="head"></th>
-<th class="head"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Voltage (V)</strong></p></td>
-<td><p><strong>Current (A)</strong></p></td>
-<td><p><strong>Power (W)</strong></p></td>
-</tr>
-<tr class="row-odd"><td><p>5.2</p></td>
-<td><p>3</p></td>
-<td><p>15.6</p></td>
-</tr>
-<tr class="row-even"><td><p>9</p></td>
-<td><p>3</p></td>
-<td><p>27</p></td>
-</tr>
-<tr class="row-odd"><td><p>15</p></td>
-<td><p>3</p></td>
-<td><p>45</p></td>
-</tr>
-<tr class="row-even"><td><p>20.5</p></td>
-<td><p>4.7</p></td>
-<td><p>96.35</p></td>
-</tr>
-</tbody>
-</table>
+</section>
+<section id="application-software">
+<h3>Application Software<a class="headerlink" href="#application-software" title="Link to this heading"></a></h3>
+<p>The Libiio is a library used for interfacing with IIO devices and is required
+to be installed on your computer.</p>
+<div class="admonition-download admonition">
+<p class="admonition-title">Download</p>
+<p>Download and install the latest <a class="icon git reference external" href="https://github.com/analogdevicesinc/libiio/releases" target="_blank">Libiio package</a> on
+your machine.</p>
 </div>
-<p>The following examples consist of different settings of Min VBUS, Max VBUS,
-and Operating Current, using the <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> and the
-power adapter with the PDOs described in the table above.</p>
-<p><strong>Example 1</strong></p>
-<figure class="align-left">
-<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/example_1.jpg"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/example_1.jpg" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/example_1.jpg" style="width: 400px;" />
+<p>To be able to connect your device, the software must be able to create a
+context. The context creation in the software depends on the backend used to
+connect to the device as well as the platform where the EVAL-AD4130-8-PMDZ is
+attached. The user needs to supply a <strong>URI</strong> which will be used in
+the context creation.</p>
+<p>The <a class="reference internal" href="../../../software/libiio/cli.html#libiio-iio-info"><span class="std std-ref">iio_info</span></a> command is a part of the libIIO package that reports
+all IIO attributes.</p>
+<p>Upon installation, simply enter the command on the terminal command line to
+access it.</p>
+<p>For RPI Direct Local Access:</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>~$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iio_info
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div><p>For Windows machine connected to Raspberry Pi:</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>~$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iio_info<span class="w"> </span>-u<span class="w"> </span>ip:&lt;ip<span class="w"> </span>address<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>ip&gt;
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div><p>For example, if your Raspberry Pi has the IP address 192.168.1.7, then enter:</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>~$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iio_info<span class="w"> </span>-u<span class="w"> </span>ip:192.168.1.7
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do note that the Windows machine and the RPI board should be connected to
+the same network in order for the machine to detect the device.</p>
+</div>
+<section id="iio-commands">
+<h4>IIO Commands<a class="headerlink" href="#iio-commands" title="Link to this heading"></a></h4>
+<p>There are different commands that can be used to manage and control the device
+being used. The <a class="reference internal" href="../../../software/libiio/cli.html#libiio-iio-attr"><span class="std std-ref">iio_attr</span></a> command reads and writes IIO attributes.</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>~$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iio_attr<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div><p>To look at the context attributes on the Raspberry Pi, enter the following
+command on the terminal:</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>~$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>iio_attr<span class="w"> </span>-C
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div><p>The <a class="reference internal" href="../../../software/libiio/cli.html#libiio-iio-reg"><span class="std std-ref">iio_reg</span></a> command reads or writes SPI or I2C registers in an
+IIO device. This is generally not needed for end applications, but can be
+useful in debugging drivers. Note that you need to specify a context using the
+<em>-u</em> qualifier when you are not directly accessing the device via RPI or when
+you are using the ADICUP3029 platform.</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>~$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iio_reg<span class="w"> </span>-u<span class="w"> </span>&lt;context&gt;<span class="w"> </span>&lt;device&gt;<span class="w"> </span>&lt;register&gt;<span class="w"> </span><span class="o">[</span>&lt;value&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div><p>To read the device ID (register = 0x05) of an AD4130 interfaced via RPI from a
+Windows machine, enter the following code on the terminal:</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>~$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iio_reg<span class="w"> </span>-u<span class="w"> </span>ip:&lt;ip<span class="w"> </span>address&gt;<span class="w"> </span>ad4130<span class="w"> </span>0x05
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div></section>
+<section id="scopy-2-0">
+<h4>Scopy 2.0<a class="headerlink" href="#scopy-2-0" title="Link to this heading"></a></h4>
+<p>Download and install the latest version of IIO Oscilloscope from:
+<a class="icon git reference external" href="https://github.com/analogdevicesinc/scopy/releases" target="_blank">Scopy Installers</a>.</p>
+<p>Once done with the installation or an update of the latest Scopy,
+open the application. The user needs to supply a URI which will be used in the
+context creation and the instructions can be seen from the previous section.
+Click and <strong>+</strong> icon to add a device and enter the URI of your device and then
+click verify.</p>
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-scopy-setup.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-scopy-setup.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-scopy-setup.png" style="width: 600px;" />
 </a>
-</figure>
-<p><em>Settings:</em></p>
-<p>Operating Current = OFF | OFF | OFF | OFF —&gt; 0.5A</p>
-<p>Min VBUS = OFF | OFF | OFF —&gt; 5V</p>
-<p>Max VBUS = OFF | OFF | OFF —&gt; 5V</p>
-<p>After powering on <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a>:</p>
-<p>Surge Stopper : ON</p>
-<p>Input DS1 LED : ON (Input voltage present)</p>
-<p>Output DS2 LED : ON (Output voltage present)</p>
-<p>Measured Output Voltage: 5.2V</p>
-<p>In this example, <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> selects 5.2V/3A because
-the 96 W charger has 5.2V available (falls in the 5V fixed supply output
-range [PDO Voltage * 0.95; PDO Voltage * 1.05]) and the operating current
-requested (0.5A) is less than the maximum value provided by the charger at
-5.2V (0.5A &lt; 3A).</p>
-<p><strong>Example 2</strong></p>
-<figure class="align-left">
-<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/example_2.jpg"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/example_2.jpg" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/example_2.jpg" style="width: 400px;" />
+<p>After this click on add device and then connect!</p>
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-scopy-connected.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-scopy-connected.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-scopy-connected.png" style="width: 600px;" />
 </a>
-</figure>
-<p><em>Settings:</em></p>
-<p>Operating Current = OFF | ON | OFF | ON —&gt; 3A</p>
-<p>Min VBUS = OFF | OFF | ON —&gt; 9V</p>
-<p>Max VBUS = OFF | ON | OFF —&gt; 12V</p>
-<p>After powering on <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a>:</p>
-<p>Surge Stopper : ON</p>
-<p>Input DS1 LED : ON (Input voltage present)</p>
-<p>Output DS2 LED : ON (Output voltage present)</p>
-<p>Measured Output Voltage: 9V</p>
-<p>Here <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> selects 9V/3A because this is the
-maximum output power that the charger can provide between 9V and 12V. Also,
-the operating current requested can be provided by the charger (3A).</p>
-<p><strong>Example 3</strong></p>
-<figure class="align-left">
-<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/example_3.jpg"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/example_3.jpg" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/example_3.jpg" style="width: 400px;" />
+<p>You can now go to the <em>Register map</em> section and check again the 0X05 register’s
+value.</p>
+</section>
+<section id="data-logger">
+<h4>Data Logger<a class="headerlink" href="#data-logger" title="Link to this heading"></a></h4>
+<p>To view ADC readings, navigate to the Data Logger tab on the left side of the
+application. Enable the voltage18 to voltage19 channel and click Run. You should
+observe a stable 2.5V signal, which corresponds to the internal reference
+voltage of the ADC.</p>
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-scopy-reference.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-scopy-reference.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-scopy-reference.png" style="width: 600px;" />
 </a>
-</figure>
-<p><em>Settings:</em></p>
-<p>Operating Current = OFF | ON | ON | OFF —&gt; 3.5A</p>
-<p>Min VBUS = OFF | ON | ON —&gt; 15V</p>
-<p>Max VBUS = OFF | ON | ON —&gt; 15V</p>
-<p>After powering on <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a>:</p>
-<p>Surge Stopper : OFF</p>
-<p>Input DS1 LED : ON (Input voltage present)</p>
-<p>Output DS2 LED : OFF (Output voltage absent, = 0V)</p>
-<p>Measured Output Voltage: 0V</p>
-<p>With these settings, <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> keeps the surge stopper
-closed and the output is 0 V because the operating current requested (3.5A)
-is greater than what the charger can provide at 15A (3A).</p>
-<p><strong>Example 4</strong></p>
-<figure class="align-left">
-<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/example_4.jpg"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/example_4.jpg" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/example_4.jpg" style="width: 400px;" />
+<p>Additionally, you can enable the voltage16 to voltage19 channel to visualize
+measurements from the internal temperature sensor. By placing your finger on
+the ADC, you’ll notice an increase in the voltage reading, indicating a rise in
+temperature detected by the sensor.</p>
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-scopy-temperature.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-scopy-temperature.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-scopy-temperature.png" style="width: 600px;" />
 </a>
-</figure>
-<p><em>Settings:</em></p>
-<p>Operating Current = OFF | OFF | ON | OFF —&gt; 1.5A</p>
-<p>Min VBUS = ON | OFF | OFF —&gt; 20V</p>
-<p>Max VBUS = OFF | ON | OFF —&gt; 12V</p>
-<p>After powering on <a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a>:</p>
-<p>Surge Stopper : ON</p>
-<p>Input DS1 LED : ON (Input voltage present)</p>
-<p>Output DS2 LED : ON (Output voltage present)</p>
-<p>Measured Output Voltage: 5.2V</p>
-<p><a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">EVAL-CN0581-EBZ</a> defaults to 5V/3A PDO because the selected
-Min VBUS (20V) is greater than Max VBUS (12V).</p>
+</section>
+<section id="pyadi-iio">
+<h4>PyADI-IIO<a class="headerlink" href="#pyadi-iio" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../../software/pyadi-iio/index.html#pyadi-iio"><span class="std std-ref">PyADI-IIO</span></a> is a python abstraction module for ADI hardware with IIO
+drivers to make them easier to use. This module provides device-specific APIs
+built on top of the current libIIO python bindings. These interfaces try to
+match the driver naming as much as possible without the need to understand the
+complexities of libIIO and IIO.</p>
+<p>Follow the step-by-step procedure on how to install, configure, and set up
+PYADI-IIO and install the necessary packages/modules needed by referring to
+this <a class="reference internal" href="../../../software/pyadi-iio/index.html#pyadi-iio"><span class="std std-ref">link</span></a>.</p>
+</section>
+<section id="running-the-example-directly-on-the-rpi">
+<h4>Running the example directly on the RPi<a class="headerlink" href="#running-the-example-directly-on-the-rpi" title="Link to this heading"></a></h4>
+<p>After installing and configuring PYADI-IIO in your machine, you are now ready
+to run python script examples. In our case, run the <strong>ad4130_example.py</strong>
+found in the examples folder.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Github link for the python sample script: <a class="icon git reference external" href="https://github.com/analogdevicesinc/pyadi-iio/tree/main/examples/ad4130_example.py" target="_blank">AD4130 Python
+Example</a></p>
+</div>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@pi:~$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;path-to-pyadi-iio&gt;/pyadi-iio/examples/
+</pre></div>
+</div>
+<div class="clear-left"></div></div><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@pi:~/&lt;path-to-pyadi-iio&gt;/pyadi-iio/examples$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>python<span class="w"> </span>ad4130_example.py
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div><p>Press enter and you will get these readings.</p>
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-pyadi-example.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-pyadi-example.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/ad4130-pmod/ad4130-pyadi-example.png" style="width: 600px;" />
+</a>
 </section>
 </section>
 <section id="more-information-and-useful-links">
 <h3>More information and useful links<a class="headerlink" href="#more-information-and-useful-links" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p><a class="icon adi reference external" href="https://www.analog.com/CN0581" target="_blank">CN0581 Circuit Note</a></p></li>
-<li><p><a class="icon adi reference external" href="https://www.analog.com/MAX77958" target="_blank">MAX77958 Product Page</a></p></li>
-<li><p><a class="icon adi reference external" href="https://www.analog.com/LTC4364" target="_blank">LTC4364 Product Page</a></p></li>
-<li><p><a class="icon adi reference external" href="https://www.analog.com/MAX4701" target="_blank">MAX4701 Product Page</a></p></li>
-<li><p><a class="icon adi reference external" href="https://www.analog.com/ADP7142" target="_blank">ADP7142 Product Page</a></p></li>
+<li><p><a class="icon adi reference external" href="https://www.analog.com/eval-ad4130-8-pmdz" target="_blank">EVAL-AD4130-8-PMDZ Product Page</a></p></li>
+<li><p><a class="icon adi reference external" href="https://www.analog.com/AD4130" target="_blank">AD4130 Product Page</a></p></li>
+<li><p><a class="icon git reference external" href="https://github.com/analogdevicesinc/no-OS/tree/main/eval-ad4130-8-pmdz" target="_blank">EVAL-AD4130-8-PMDZ no-OS projects</a></p></li>
 </ul>
 </section>
-<section id="design-and-integration-files">
-<h3>Design and Integration Files<a class="headerlink" href="#design-and-integration-files" title="Link to this heading"></a></h3>
-<div class="admonition-download admonition">
-<p class="admonition-title">Download</p>
-<p><a class="icon reference download external" download="" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/solutions/reference-designs/eval-cn0581-ebz/CN0581-designsupport.zip"><code class="xref download docutils literal notranslate"><span class="pre">EVAL-CN0581-EBZ</span> <span class="pre">Design</span> <span class="pre">&amp;</span> <span class="pre">Integration</span> <span class="pre">Files</span></code></a></p>
+<section id="schematic-pcb-layout-bill-of-materials">
+<h3>Schematic, PCB Layout, Bill of Materials<a class="headerlink" href="#schematic-pcb-layout-bill-of-materials" title="Link to this heading"></a></h3>
+</section>
+<section id="additional-information">
+<h3>Additional Information<a class="headerlink" href="#additional-information" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Schematics</p></li>
-<li><p>PCB Layout</p></li>
-<li><p>Bill of Materials</p></li>
-<li><p>Allegro Project</p></li>
-<li><p>LTspice Simulation File</p></li>
+<li><p><a class="reference internal" href="../../../software/pyadi-iio/index.html#pyadi-iio"><span class="std std-ref">PyADI-IIO</span></a></p></li>
+<li><p><a class="icon link reference external" href="https://analogdevicesinc.github.io/scopy/index.html" target="_blank" title="(in Scopy main)"><span>Scopy</span></a></p></li>
+<li><p><a class="reference internal" href="../../../linux/kuiper/index.html#kuiper"><span class="std std-ref">Kuiper</span></a></p></li>
 </ul>
-</div>
 </section>
-<section id="help-and-support">
-<h3>Help and Support<a class="headerlink" href="#help-and-support" title="Link to this heading"></a></h3>
-<p>For questions and more information about this product, connect with us through
-the Analog Devices <a class="icon ez reference external" href="https://ez.analog.com/" target="_blank">EngineerZone</a>.</p>
+<section id="hardware-registration">
+<h3>Hardware Registration<a class="headerlink" href="#hardware-registration" title="Link to this heading"></a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Receive software update notifications, documentation updates, view the
+latest videos, and more when you
+<a class="icon link reference external" href="https://my.analog.com/en/app/registration/hardware/eval-ad4130-8-pmdz?&amp;v=Rev%20B" target="_blank">Register</a>
+to receive all these great benefits and more!</p>
+</div>
 </section>
 </section>
 </section>
@@ -1097,8 +931,8 @@ the Analog Devices <a class="icon ez reference external" href="https://ez.analog
           </div>
               <div class="related">
                 &nbsp;
-    <a href="../eval-cn0577-fmcz/index.html" title="Previous document (Alt+Shift+LeftArrow)" class="prev">EVAL-CN0577-FMCZ</a>
-    <a href="../eval-cn0584-ebz/index.html" title="Next document (Alt+Shift+RightArrow)" class="next">EVAL-CN0584-EBZ</a>
+    <a href="../ad4062-ardz/tools.html" title="Previous document (Alt+Shift+LeftArrow)" class="prev">Libraries and GUI Tools</a>
+    <a href="../admv96s-wgbe-ek1/index.html" title="Next document (Alt+Shift+RightArrow)" class="next">ADMV96S-WGBE-EK1</a>
               </div>
           
         </div>
