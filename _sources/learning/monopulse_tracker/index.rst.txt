@@ -134,7 +134,7 @@ SD Card Configuration
   :dokuwiki:`Updating the Firmware <university/tools/pluto/users/firmware>`, and
   the following files should be copied to a flash drive:
 
-    :download:`runme0.sh`
+    :download:`pluto_script.zip`
 
   For additional information please visit
   :dokuwiki:`USB OTG <university/tools/pluto/devs/usb_otg>`.
