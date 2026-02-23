@@ -119,20 +119,20 @@ SD Card Configuration
 
 - For the Jupiter SDR platform, begin by writing the image to an SD card the
   same way as for the ADRV9009-ZU11EG, then copy the files from the following zip
-  to the /boot partition of the SD card:
+  to the boot partition of the SD card:
 
     :download:`jupiter_mcs_sync.zip`
 
 - For the :adi:`AD-SYNCHRONA14-EBZ <ad-synchrona14-ebz>`, the SD card should be
   flashed as before and the files from the following zip should be copied to the
-  /boot partition of the SD Card:
+  boot partition of the SD Card:
 
     :download:`synchrona_jupiter_mcs.zip`
 
 - Lastly, for the :adi:`ADALM-PLUTO <adalm-pluto>`, the firmware should be 
   updated for which you can find the instructions here: 
   :dokuwiki:`Updating the Firmware <university/tools/pluto/users/firmware>`, and
-  the following files should be copied to a flash drive:
+  the files from the following zip should be copied to a flash drive:
 
     :download:`pluto_script.zip`
 
