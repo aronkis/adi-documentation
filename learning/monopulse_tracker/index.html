@@ -98,7 +98,10 @@
 <li><a class="reference internal" href="#resources">Resources</a></li>
 <li><a class="reference internal" href="#block-diagram">Block diagram</a></li>
 <li><a class="reference internal" href="#demo-description">Demo description</a></li>
+<li><a class="reference internal" href="#but-what-is-monopulse-tracking">But what is Monopulse Tracking?</a></li>
 <li><a class="reference internal" href="#required-hardware">Required Hardware</a></li>
+<li><a class="reference internal" href="#sd-card-configuration">SD Card Configuration</a></li>
+<li><a class="reference internal" href="#results">Results</a></li>
 </ul>
 </li>
 </ul>
@@ -546,7 +549,7 @@ of adaptive, high‑performance RF solutions.</p>
 <section id="resources">
 <h2>Resources<a class="headerlink" href="#resources" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Holohub: <a class="icon git reference external" href="https://github.com/analogdevicesinc/holohub/tree/main/HOLOHUB_PROJECT_FOLDER_PLACEHOLDER" target="_blank">Jupiter Holohub Project</a></p></li>
+<li><p>Holohub: <a class="icon git reference external" href="https://github.com/analogdevicesinc/holohub/tree/afpop/jupiter_monopulse_tracker" target="_blank">Jupiter Holohub Project</a></p></li>
 <li><p>Matlab: <a class="icon git reference external" href="https://github.com/analogdevicesinc/matlab/tree/main/MATLAB_REPOSITORY_FOLDER_PLACEHOLDER" target="_blank">Talise Matlab Project</a></p></li>
 <li><p>Hardware:</p>
 <ul>
@@ -561,27 +564,83 @@ of adaptive, high‑performance RF solutions.</p>
 </section>
 <section id="block-diagram">
 <h2>Block diagram<a class="headerlink" href="#block-diagram" title="Link to this heading"></a></h2>
-<figure class="align-center">
+<figure class="align-center" id="id2">
 <img alt="../../_images/demo_block_diagram2.svg" src="../../_images/demo_block_diagram2.svg" />
+<figcaption>
+<p><span class="caption-number">Figure 1 </span><span class="caption-text">Demo Block Diagram</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
 </figure>
 </section>
 <section id="demo-description">
 <h2>Demo description<a class="headerlink" href="#demo-description" title="Link to this heading"></a></h2>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<ul class="simple">
-<li><p>Add description of the demo here</p></li>
+<p>This demo illustrates the implementation of a monopulse tracking system using
+ADI’s DataX ™, showcasing the platform independecies and scalability of our
+systems. The demo consists of two main systems: the transmitter and the receiver
+system.</p>
+<p>The transmitter system is using an <a class="icon adi reference external" href="https://www.analog.com/adalm-pluto" target="_blank">ADALM-PLUTO</a> to
+generate an RF signal, which is then transmitted through a wideband vivaldi
+antenna.</p>
+<p>The receiver system showcases two separate platform to showcase the capabilities
+of DataX ™, and the ease of scaling and prototyping across different platforms.</p>
+<p>The first receiver system is based on the <a class="icon adi reference external" href="https://www.analog.com/ad-jupiter-ebz" target="_blank">AD-JUPITER-EBZ</a>,
+which is a versatile software-defined platform based on <a class="icon adi reference external" href="https://www.analog.com/adrv9002" target="_blank">ADRV9002</a>
+and Xilinx Zynq UltraScale+ MPSoC. ADRV9002 is a new generation RF transceiver
+that has dual-channel transmitters, dual-channel receivers covering 30 MHz to
+6 GHz frequency range with very good RF linearity performance and a set of
+advanced features like fast profiles switching, flexible power vs performance
+configuration, fast frequency hopping, multi-chip synchronization and DPD for
+narrow and wide band waveform. This demo heavily depends on the multi-chip
+synchronization (MCS) capabilities of the ADRV9002, which allows the usage of
+two <a class="icon adi reference external" href="https://www.analog.com/ad-jupiter-ebz" target="_blank">AD-JUPITER-EBZ</a>, synchronized using the
+<a class="icon adi reference external" href="https://www.analog.com/ad-synchrona14-ebz" target="_blank">AD-SYNCHRONA14-EBZ</a> to create a 4-channel receiver
+system.
+The second receiver system is based on the <a class="icon adi reference external" href="https://www.analog.com/adrv9009-zu11eg" target="_blank">ADRV9009-ZU11EG RF-SOM</a>,
+is a highly integrated RF System-On-Module(RF-SOM) based on the <a class="icon adi reference external" href="https://www.analog.com/adrv9009" target="_blank">ADRV9009</a>
+and Xilinx Zynq UltraScale+ MPSoC. The RF-SOM is a platform for evaluation and
+prototyping. To use the RF-SOM a carrier board is required, the
+<a class="icon adi reference external" href="https://www.analog.com/adrv2crr-fmc" target="_blank">ADRV2CRR-FMC</a> board is designed for this purpose.</p>
+<p>As for the software, the demo is implemented using Holohub and Matlab. The
+Holohub implementation is running on the Jupiter platform, while the Matlab
+implementation is running on the RF-SOM platform. Both implementations are using
+DataX ™, which allows for easy prototyping and scaling across different
+platforms.</p>
+</section>
+<section id="but-what-is-monopulse-tracking">
+<h2>But what is Monopulse Tracking?<a class="headerlink" href="#but-what-is-monopulse-tracking" title="Link to this heading"></a></h2>
+<p>The name refers to its ability to extract range and direction from a single
+signal pulse.
+The method uses two simultaneous beams, the <strong>SUM</strong> and <strong>DELTA</strong> beams, to
+compare the received signal’s amplitude  and phase, enabling precise angle
+estimation. This technique is widely used in radar and communication systems for
+accurate target tracking and direction finding.</p>
+<figure class="align-center" id="id3">
+<img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/monopulse_tracker/monopulse_visual.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/monopulse_tracker/monopulse_visual.png" />
+<figcaption>
+<p><span class="caption-number">Figure 2 </span><span class="caption-text">Monopulse Tracking Concept</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The <strong>SUM</strong> beam captures the total signal strength, while the <strong>DELTA</strong> beam
+measures the difference in signal strength between the two halfs of the antenna
+array. The <strong>SUM</strong> beam has a maximum when pointed directly towards the
+transmitter, while the <strong>DELTA</strong> beam can be:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Δ ≈ 0, when the signal arrives from mechanical boresight</p></li>
+<li><p>Δ &gt; 0, when the signal arrives from the left of the mechanical  boresight</p></li>
+<li><p>Δ &lt; 0, when the signal arrives from the right of the mechanical boresight</p></li>
 </ul>
-</div>
+</div></blockquote>
+<p>Correlating the <strong>SUM</strong> and <strong>DELTA</strong> beams results and error, which is the
+difference between the actual angle of arrival and the electrical boresight. By
+calculating the phase difference of this error signal, the system can estimate
+the angle of arrival of the incoming signal with high precision, even in
+environments with significant noise and interference.</p>
+<p>After the angle of arrival is estimated, the phased array can be electrically
+steered to point towards the transmitter, by adjusting the phase of the signals
+received by each antenna element.</p>
 </section>
 <section id="required-hardware">
 <h2>Required Hardware<a class="headerlink" href="#required-hardware" title="Link to this heading"></a></h2>
-<div class="admonition-todo admonition" id="id2">
-<p class="admonition-title">Todo</p>
-<ul class="simple">
-<li><p>Add complete the hardware table</p></li>
-</ul>
-</div>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <tbody>
@@ -590,33 +649,89 @@ of adaptive, high‑performance RF solutions.</p>
 <td><p>Quantity</p></td>
 <td><p>Notes</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>AD-SYNCHRONA14-EBZ</p></td>
+<td><p>The main clock source for the AD-JUPITER-EBZs.</p></td>
+<td><p>1</p></td>
+<td><p>Sources the reference clock and the Multi-chip Synchronization signals.</p></td>
+</tr>
+<tr class="row-odd"><td><p>AD-JUPITER-EBZ</p></td>
+<td><p>The platform for the Holoscan implementation.</p></td>
+<td><p>2</p></td>
+<td><p>Samples the incoming signals and performs the digital signal processing.</p></td>
+</tr>
+<tr class="row-even"><td><p>ADRV9009-ZU11EG RF-SOM</p></td>
+<td><p>The platform for the Matlab implementation.</p></td>
+<td><p>1</p></td>
+<td><p>Samples the incoming signals and performs the digital signal processing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ADRV2CRR-FMC</p></td>
+<td><p>The carrier board for the RF-SOM.</p></td>
+<td><p>1</p></td>
+<td><p>Provides the necessary interfaces and power for the ADRV9009-ZU11EG RF-SOM.</p></td>
+</tr>
+<tr class="row-even"><td><p>ADALM-PLUTO</p></td>
+<td><p>The transmitter platform.</p></td>
+<td><p>1</p></td>
+<td><p>Generates the transmitted RF signal.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="admonition-todo admonition" id="id3">
+</section>
+<section id="sd-card-configuration">
+<h2>SD Card Configuration<a class="headerlink" href="#sd-card-configuration" title="Link to this heading"></a></h2>
+<ul>
+<li><p>For the <a class="icon adi reference external" href="https://www.analog.com/adrv9009-zu11eg" target="_blank">ADRV9009-ZU11EG RF-SOM</a> platform, the boot
+files are generated using the Using Kuiper Image:</p>
+<p><a class="icon link reference external" href="https://analogdevicesinc.github.io/adi-kuiper-gen/use-kuiper-image.html#use-kuiper-image" target="_blank" title="(in Kuiper latest)"><span class="xref std std-ref">Writing the Image to an SD Card</span></a></p>
+</li>
+<li><p>For the Jupiter SDR platform, begin by writing the image to an SD card the
+same way as for the ADRV9009-ZU11EG, then copy the files from the following zip
+to the /boot partition of the SD card:</p>
+<blockquote>
+<div><p><a class="icon reference download external" download="" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/monopulse_tracker/jupiter_mcs_sync.zip"><code class="xref download docutils literal notranslate"><span class="pre">jupiter_mcs_sync.zip</span></code></a></p>
+</div></blockquote>
+</li>
+<li><p>For the <a class="icon adi reference external" href="https://www.analog.com/ad-synchrona14-ebz" target="_blank">AD-SYNCHRONA14-EBZ</a>, the SD card should be
+flashed as before and the files from the following zip should be copied to the
+/boot partition of the SD Card:</p>
+<blockquote>
+<div><p><a class="icon reference download external" download="" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/monopulse_tracker/synchrona_jupiter_mcs.zip"><code class="xref download docutils literal notranslate"><span class="pre">synchrona_jupiter_mcs.zip</span></code></a></p>
+</div></blockquote>
+</li>
+<li><p>Lastly, for the <a class="icon adi reference external" href="https://www.analog.com/adalm-pluto" target="_blank">ADALM-PLUTO</a>, the firmware should be
+updated for which you can find the instructions here:
+<a class="icon dokuwiki reference external" href="https://wiki.analog.com/university/tools/pluto/users/firmware" target="_blank">Updating the Firmware</a>, and
+the following files should be copied to a flash drive:</p>
+<blockquote>
+<div><p><code class="xref download docutils literal notranslate"><span class="pre">runme0.sh</span></code></p>
+</div></blockquote>
+<p>For additional information please visit
+<a class="icon dokuwiki reference external" href="https://wiki.analog.com/university/tools/pluto/devs/usb_otg" target="_blank">USB OTG</a>.</p>
+</li>
+</ul>
+</section>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Link to this heading"></a></h2>
+<p>Here are presented the plotted results of the demo. On the X axis the angle of
+arrival is presented, while on the Y axis the time is presented, to make a
+waterfall type of plot.</p>
+<figure class="align-center" id="id4">
+<img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/monopulse_tracker/results_holoscan.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/monopulse_tracker/results_holoscan.png" />
+<figcaption>
+<p><span class="caption-number">Figure 3 </span><span class="caption-text">Holohub implementation results</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id5">
+<img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/monopulse_tracker/results_matlab.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/monopulse_tracker/results_matlab.png" />
+<figcaption>
+<p><span class="caption-number">Figure 4 </span><span class="caption-text">Matlab implementation results</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
-<li><p>Add explanation of how the system works</p></li>
-<li><p>Build steps for both systems</p></li>
-<li><p>Git access for the demo code</p></li>
-<li><p>Results</p></li>
+<li><p>Matlab code</p></li>
 <li><p>Images with setup?</p></li>
 </ul>
 </div>
