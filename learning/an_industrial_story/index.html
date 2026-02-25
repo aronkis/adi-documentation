@@ -99,6 +99,15 @@
 <li><a class="reference internal" href="#block-diagram">Block diagram</a></li>
 <li><a class="reference internal" href="#demo-description">Demo description</a></li>
 <li><a class="reference internal" href="#required-hardware">Required Hardware</a></li>
+<li><a class="reference internal" href="#building-steps">Building steps</a><ul>
+<li><a class="reference internal" href="#raspberry-pi">Raspberry Pi</a><ul>
+<li><a class="reference internal" href="#configuring-the-micro-sd-card">Configuring the Micro-SD Card</a></li>
+<li><a class="reference internal" href="#setting-up-a-static-ip">Setting Up a Static IP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#results">Results</a></li>
 </ul>
 </li>
 </ul>
@@ -635,11 +644,118 @@ DataX™ in enabling data acquisition across mixed vendor compute platforms.</p>
 </tbody>
 </table>
 </div>
+</section>
+<section id="building-steps">
+<h2>Building steps<a class="headerlink" href="#building-steps" title="Link to this heading"></a></h2>
+<section id="raspberry-pi">
+<h3>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Link to this heading"></a></h3>
+<section id="configuring-the-micro-sd-card">
+<h4>Configuring the Micro-SD Card<a class="headerlink" href="#configuring-the-micro-sd-card" title="Link to this heading"></a></h4>
+<p>The Linux kernel requires a matching device tree overlay to identify the
+devices on the AD-RPI-T1LPSE-SL. The overlay table is included with the
+<a class="reference internal" href="../../linux/kuiper/index.html#kuiper"><span class="std std-ref">Kuiper</span></a> and simply needs to be enabled.</p>
+<p>To do this, follow the Hardware Configuration procedure under <strong>Configuring
+the SD Card for Raspberry Pi Projects</strong> in the <a class="reference internal" href="../../linux/kuiper/index.html#kuiper"><span class="std std-ref">Kuiper</span></a> page.
+Enable the AD-RPI-T1LPSE-SL overlay by adding the following line to <em>config.txt</em>
+for class 12:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dtoverlay</span><span class="o">=</span><span class="n">rpi</span><span class="o">-</span><span class="n">t1lpse</span><span class="o">-</span><span class="n">class12</span>
+</pre></div>
+</div>
+<p>or for class 14:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dtoverlay</span><span class="o">=</span><span class="n">rpi</span><span class="o">-</span><span class="n">t1lpse</span><span class="o">-</span><span class="n">class14</span>
+</pre></div>
+</div>
+<p>Save the changes and reboot the system by entering the following command in the
+console:</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>reboot
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div></section>
+<section id="setting-up-a-static-ip">
+<h4>Setting Up a Static IP<a class="headerlink" href="#setting-up-a-static-ip" title="Link to this heading"></a></h4>
+<p>To set up a static IP address for the AD-RPI-T1LPSE-SL, the user has to modify
+the IPv4 address of the chosen network interface. This can be done by
+right-clicking in the top right corner the network icon and selecting Wireless
+&amp; Wired Network Settings.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ad-rpi-t1lpse-sl-static-ip-location.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ad-rpi-t1lpse-sl-static-ip-location.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ad-rpi-t1lpse-sl-static-ip-location.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 1 </span><span class="caption-text">Network Settings Location</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Next to the <strong>interface</strong> field select the wanted interface (e.g. <strong>eth1 /
+eth2</strong>) and type in the chosen IP address as shown below:</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ad-rpi-t1lpse-sl-static-ip-set-ip.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ad-rpi-t1lpse-sl-static-ip-set-ip.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ad-rpi-t1lpse-sl-static-ip-set-ip.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 2 </span><span class="caption-text">Static IP Address Configuration</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The next set is to reset the ip link, which can be done by entering the
+following command in a terminal:</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>eth0<span class="w"> </span>down
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div><figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ad-rpi-t1lpse-sl-static-ip-set-eth0-down.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ad-rpi-t1lpse-sl-static-ip-set-eth0-down.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ad-rpi-t1lpse-sl-static-ip-set-eth0-down.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 3 </span><span class="caption-text">Setting eth0 down</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Next, set the interface up again by entering the following command:</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>eth0<span class="w"> </span>up
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div><figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ad-rpi-t1lpse-sl-static-ip-set-eth0-up.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ad-rpi-t1lpse-sl-static-ip-set-eth0-up.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ad-rpi-t1lpse-sl-static-ip-set-eth0-up.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 4 </span><span class="caption-text">Setting eth0 up</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>If everything was done correctly the interface should be up and running with
+the static IP address set. To verify this, enter the following command in the
+console, the next to the <strong>inet</strong> field the static IP address should be shown:</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ip<span class="w"> </span>a
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div><figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ad-rpi-t1lpse-sl-static-ip-result.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ad-rpi-t1lpse-sl-static-ip-result.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ad-rpi-t1lpse-sl-static-ip-result.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 5 </span><span class="caption-text">Static IP Address Result</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id7">
+<img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-result-placeholder.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-result-placeholder.png" />
+<figcaption>
+<p><span class="caption-number">Figure 6 </span><span class="caption-text">Results on the AD-APARD32690-SL using Zephyr RTOS</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 <div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
 <li><p>Build steps for both systems</p></li>
-<li><p>Setup instructions for the Raspberry</p></li>
 <li><p>Scopy results</p></li>
 </ul>
 </div>
