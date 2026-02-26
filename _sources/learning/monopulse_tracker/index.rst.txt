@@ -12,7 +12,8 @@ of adaptive, high‑performance RF solutions.
 Resources
 --------------------------------------------------------------------------------
 - Holohub: :git-holohub:`Jupiter Holohub Project <afpop:jupiter_monopulse_tracker>`
-- Matlab: :git-matlab:`Talise Matlab Project <MATLAB_REPOSITORY_FOLDER_PLACEHOLDER>`
+- Matlab:
+  `Talise Matlab Project <https://github.com/analogdevicesinc/TransceiverToolbox/tree/master/trx_examples/streaming/adrv9009/ADRV9009ZU11EG_Monopulse_Tracking_Example.m>`_
 - Hardware:
 
   - :adi:`AD-SYNCHRONA14-EBZ <ad-synchrona14-ebz>`
@@ -21,11 +22,11 @@ Resources
   - :adi:`ADRV2CRR-FMC <adrv2crr-fmc>`
   - :adi:`ADALM-PLUTO <adalm-pluto>`
 
-
 Required Software
 --------------------------------------------------------------------------------
 - :git-holohub:`Holohub <tree/main+>`
 - `Matlab <https://www.mathworks.com/products/matlab.html>`_
+
    - With `Transceiver Toolbox <https://github.com/analogdevicesinc/TransceiverToolbox>`_
      add-on installed using the add-on explorer in Matlab.
 
