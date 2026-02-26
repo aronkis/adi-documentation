@@ -70,103 +70,13 @@ Building steps
 
 Raspberry Pi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Configuring the Micro-SD Card
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Linux kernel requires a matching device tree overlay to identify the
-devices on the AD-RPI-T1LPSE-SL. The overlay table is included with the
-:ref:`kuiper` and simply needs to be enabled.
+For detailed instructions on configuring the Raspberry Pi with the
+:adi:`AD-RPI-T1LPSE-SL <ad-rpi-t1lpse-sl>`, please refer to the
+:ref:`ad-rpi-t1lpse-sl` documentation:
 
-To do this, follow the Hardware Configuration procedure under **Configuring
-the SD Card for Raspberry Pi Projects** in the :ref:`kuiper` page.
-Enable the AD-RPI-T1LPSE-SL overlay by adding the following line to *config.txt*
-for class 12:
-
-::
-
-   dtoverlay=rpi-t1lpse-class12
-
-or for class 14:
-
-::
-
-   dtoverlay=rpi-t1lpse-class14
-
-Save the changes and reboot the system by entering the following command in the
-console:
-
-.. shell::
-   :user: analog
-   :group: analog
-   :show-user:
-
-   $sudo reboot
-
-Setting Up a Static IP
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To set up a static IP address for the AD-RPI-T1LPSE-SL, the user has to modify
-the IPv4 address of the chosen network interface. This can be done by
-right-clicking in the top right corner the network icon and selecting Wireless
-& Wired Network Settings.
-
-.. figure:: ad-rpi-t1lpse-sl-static-ip-location.png
-   :width: 400 px
-
-   Network Settings Location
-
-Next to the **interface** field select the wanted interface (e.g. **eth1 /
-eth2**) and type in the chosen IP address as shown below:
-
-.. figure:: ad-rpi-t1lpse-sl-static-ip-set-ip.png
-   :width: 400 px
-
-   Static IP Address Configuration
-
-The next set is to reset the ip link, which can be done by entering the
-following command in a terminal:
-
-.. shell::
-   :user: analog
-   :group: analog
-   :show-user:
-
-   $sudo ip link set eth0 down
-
-.. figure:: ad-rpi-t1lpse-sl-static-ip-set-eth0-down.png
-   :width: 400 px
-
-   Setting eth0 down
-
-Next, set the interface up again by entering the following command:
-
-.. shell::
-   :user: analog
-   :group: analog
-   :show-user:
-
-   $sudo ip link set eth0 up
-
-.. figure:: ad-rpi-t1lpse-sl-static-ip-set-eth0-up.png
-   :width: 400 px
-
-   Setting eth0 up
-
-If everything was done correctly the interface should be up and running with
-the static IP address set. To verify this, enter the following command in the
-console, the next to the **inet** field the static IP address should be shown:
-
-.. shell::
-   :user: analog
-   :group: analog
-   :show-user:
-
-   $ip a
-
-.. figure:: ad-rpi-t1lpse-sl-static-ip-result.png
-   :width: 400 px
-
-   Static IP Address Result
+- :ref:`software-setup` - Building and flashing the Micro-SD card
+- :ref:`setting-up-static-ip` - Configuring a static IP address
 
 
 Results
