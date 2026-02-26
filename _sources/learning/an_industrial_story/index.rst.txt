@@ -41,7 +41,7 @@ worrying about the complexities of integration, enabling faster time-to-market
 for their products.
 
 In this demo setup, the Raspberry Pi, running :adi:`Kuiper 2 <kuiper>`, serves
-as the central interogation unit, communicating with the ADI hardware components
+as the central aggregation unit, communicating with the ADI hardware components
 to acquire data using the  :adi:`AD-RPI-T1LPSE-SL <ad-rpi-t1lpse-sl>` via T1L
 connections.
 
@@ -53,8 +53,8 @@ To demonstrate the flexibility of DataX™, the :adi:`AD-APARD32690-SL <ad-apard
 runs Zephyr RTOS, while the :adi:`EVAL-ADIN1110 <eval-adin1110>` runs no-OS. 
 Both of the boards have an :adi:`EVAL-CN0391-ARDZ <cn0391>` connected to them, 
 which is used to read the temperature using 4 thermocouples each.
-The system can be interchaned, by simply compiling the Zephyr application for the 
-:adi:`EVAL-ADIN1110 <eval-adin1110>` and the no-OS application for the
+The system can be interchanged, by simply compiling the Zephyr application for
+the :adi:`EVAL-ADIN1110 <eval-adin1110>` and the no-OS application for the
 :adi:`AD-APARD32690-SL <ad-apard32690-sl>`, demonstrating the ease of using
 DataX™ in enabling data acquisition across mixed vendor compute platforms.
 
