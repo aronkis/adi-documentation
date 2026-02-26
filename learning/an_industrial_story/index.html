@@ -101,6 +101,13 @@
 <li><a class="reference internal" href="#required-hardware">Required Hardware</a></li>
 <li><a class="reference internal" href="#building-steps">Building steps</a><ul>
 <li><a class="reference internal" href="#raspberry-pi">Raspberry Pi</a></li>
+<li><a class="reference internal" href="#zephyr-rtos">Zephyr RTOS</a><ul>
+<li><a class="reference internal" href="#setting-up-the-zephyr-environment">Setting Up the Zephyr Environment</a></li>
+<li><a class="reference internal" href="#getting-libiio">Getting Libiio</a></li>
+<li><a class="reference internal" href="#build-and-run">Build and Run</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#no-os">no-OS</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#results">Results</a></li>
@@ -550,8 +557,8 @@ reduces integration overhead and accelerates product development.</p>
 <section id="resources">
 <h2>Resources<a class="headerlink" href="#resources" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Zeprhy: <a class="icon git reference external" href="https://github.com/analogdevicesinc/zephyr/tree/ZEPHYR_PROJECT_NAME/" target="_blank">ZEPHYR_PROJECT_NAME</a></p></li>
-<li><p>NO-OS: <a class="icon git reference external" href="https://github.com/analogdevicesinc/noos/tree/NO_OS_PROJECT_NAME/" target="_blank">NO_OS_PROJECT_NAME</a></p></li>
+<li><p>Zephyr: <a class="icon git reference external" href="https://github.com/analogdevicesinc/zephyr/tree/ZEPHYR_PROJECT_NAME/" target="_blank">ZEPHYR_PROJECT_NAME</a></p></li>
+<li><p>no-OS: <a class="icon git reference external" href="https://github.com/analogdevicesinc/noos/tree/NO_OS_PROJECT_NAME/" target="_blank">NO_OS_PROJECT_NAME</a></p></li>
 <li><p>Linux: <a class="icon git reference external" href="https://github.com/analogdevicesinc/linux/tree/LINUX_PROJECT_NAME/" target="_blank">LINUX_PROJECT_NAME</a></p></li>
 <li><p>Hardware:</p>
 <ul>
@@ -575,7 +582,7 @@ reduces integration overhead and accelerates product development.</p>
 <p>This demo illustrates the flexibility of ADI DataX™ in enabling data acquisition
 across mixed vendor compute platforms. The system integrates ADI’s data
 acquisition hardware with a variety of compute platforms, including Zephyr RTOS
-and NO-OS. The demo showcases the seamless connectivity and data flow between
+and no-OS. The demo showcases the seamless connectivity and data flow between
 the hardware and software components, demonstrating how developers can easily
 build and deploy data acquisition workflows across different environments. By
 leveraging ADI DataX™, developers can focus on application development without
@@ -589,11 +596,11 @@ connections.</p>
 which powers the <a class="icon adi reference external" href="https://www.analog.com/ad-apard32690-sl" target="_blank">AD-APARD32690-SL</a> and forwards power
 to the <a class="icon adi reference external" href="https://www.analog.com/eval-adin1110" target="_blank">EVAL-ADIN1110</a>.</p>
 <p>To demonstrate the flexibility of DataX™, the <a class="icon adi reference external" href="https://www.analog.com/ad-apard32690-sl" target="_blank">AD-APARD32690-SL</a>
-runs Zephyr RTOS, while the <a class="icon adi reference external" href="https://www.analog.com/eval-adin1110" target="_blank">EVAL-ADIN1110</a> runs NO-OS.
+runs Zephyr RTOS, while the <a class="icon adi reference external" href="https://www.analog.com/eval-adin1110" target="_blank">EVAL-ADIN1110</a> runs no-OS.
 Both of the boards have an <a class="icon adi reference external" href="https://www.analog.com/cn0391" target="_blank">EVAL-CN0391-ARDZ</a> connected to them,
 which is used to read the temperature using 4 thermocouples each.
 The system can be interchaned, by simply compiling the Zephyr application for the
-<a class="icon adi reference external" href="https://www.analog.com/eval-adin1110" target="_blank">EVAL-ADIN1110</a> and the NO-OS application for the
+<a class="icon adi reference external" href="https://www.analog.com/eval-adin1110" target="_blank">EVAL-ADIN1110</a> and the no-OS application for the
 <a class="icon adi reference external" href="https://www.analog.com/ad-apard32690-sl" target="_blank">AD-APARD32690-SL</a>, demonstrating the ease of using
 DataX™ in enabling data acquisition across mixed vendor compute platforms.</p>
 </section>
@@ -653,19 +660,119 @@ DataX™ in enabling data acquisition across mixed vendor compute platforms.</p>
 <li><p><a class="reference internal" href="../../solutions/reference-designs/ad-rpi-t1lpse-sl/index.html#setting-up-static-ip"><span class="std std-ref">Setting Up a Static IP</span></a> - Configuring a static IP address</p></li>
 </ul>
 </section>
+<section id="zephyr-rtos">
+<h3>Zephyr RTOS<a class="headerlink" href="#zephyr-rtos" title="Link to this heading"></a></h3>
+<p>This project builds an Industrial I/O Daemon (iiod) with network support on the
+APARD32690 platform. It enables remote access to industrial I/O devices over the
+network using the Libiio v.1.0 library run on Zephyr RTOS.
+The monitored device here is an ad7124 which exposes 4 virtual channels for
+reading the temperature from 4 different Type K thermocouples.
+The data can be visualized using Scopy, which connects to the iiod running on the
+APARD32690 board.</p>
+<section id="setting-up-the-zephyr-environment">
+<h4>Setting Up the Zephyr Environment<a class="headerlink" href="#setting-up-the-zephyr-environment" title="Link to this heading"></a></h4>
+</section>
+<section id="getting-libiio">
+<h4>Getting Libiio<a class="headerlink" href="#getting-libiio" title="Link to this heading"></a></h4>
+<p>Get the latest version of Libiio into the Zephyr project by updating <em>west.yml</em>.
+Add the following lines under <cite>remotes</cite>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">manifest</span><span class="p">:</span>
+<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libiio</span>
+<span class="w">   </span><span class="nt">url-base</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/analogdevicesinc</span>
+</pre></div>
+</div>
+<p>Add the following lines under <cite>projects</cite>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libiio</span>
+<span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">modules/lib/libiio</span>
+<span class="w">  </span><span class="nt">revision</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+</pre></div>
+</div>
+<p>Run this command to update the Zephyr project with the new manifest:</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~/zephyrproject/zephyr$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>west<span class="w"> </span>update
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div><p>You should now have Libiio in the Zephyr project under <em>modules/lib/libiio</em>.</p>
+</section>
+<section id="build-and-run">
+<h4>Build and Run<a class="headerlink" href="#build-and-run" title="Link to this heading"></a></h4>
+<p>After activating the virtual environment, build the application using the following command:</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~/zephyrproject/zephyr$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>west<span class="w"> </span>build<span class="w"> </span>-p<span class="w"> </span>always<span class="w"> </span>-b<span class="w"> </span>apard32690/max32690/m4<span class="w"> </span>../modules/lib/libiio/zephyr/samples/iiod/<span class="w"> </span>-S<span class="w"> </span>iiod-network<span class="w"> </span>--shield<span class="w"> </span>eval_cn0391_ardz<span class="w"> </span>--shield<span class="w"> </span>ad_apardpfw_sl
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div><p>Then flash:</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~/zephyrproject/zephyr$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>~/MaximSDK/Tools/OpenOCD/openocd<span class="w"> </span>-s<span class="w"> </span>~/MaximSDK/Tools/OpenOCD/scripts/<span class="w"> </span>-f<span class="w"> </span>interface/cmsis-dap.cfg<span class="w"> </span>-f<span class="w"> </span>target/max32690.cfg<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;program ./build/zephyr/zephyr.hex verify reset exit&quot;</span>
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div><p>By connecting to the serial communication of the board (e.g.: <code class="docutils literal notranslate"><span class="pre">minicom</span> <span class="pre">-D</span> <span class="pre">/dev/ttyACM0</span> <span class="pre">-b</span> <span class="pre">115200</span></code>) and resetting, the following output should be observed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hello World! apard32690/max32690/m4
+[00:00:00.176,000] &lt;inf&gt; phy_adin: PHY 1 ID 283BCA1
+[00:00:00.178,000] &lt;inf&gt; phy_adin: PHY 1 2.4V mode supported
+[00:00:00.180,000] &lt;inf&gt; phy_adin: PHY 2 ID 283BCA1
+[00:00:00.182,000] &lt;inf&gt; phy_adin: PHY 2 2.4V mode supported
+*** Booting Zephyr OS build v4.3.0-5400-g0c770e917768 ***
+</pre></div>
+</div>
+<p>You are now ready to connect to the board using Scopy and start acquiring data from the thermocouples.
+Open Scopy and enter the URI of the APARD32690-SL board (<code class="docutils literal notranslate"><span class="pre">ip:192.168.97.100</span></code>), then click <strong>Verify</strong>.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-zephyr-apard32690-verify.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-zephyr-apard32690-verify.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-zephyr-apard32690-verify.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 1 </span><span class="caption-text">Enter URI and Verify</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Click <strong>Add Device</strong> with both <em>DataLogger</em> and <em>Debugger</em> selected.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-zephyr-apard32690-add-device.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-zephyr-apard32690-add-device.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-zephyr-apard32690-add-device.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 2 </span><span class="caption-text">Add Device</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Then click <strong>Connect</strong>.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-zephyr-apard32690-connect.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-zephyr-apard32690-connect.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-zephyr-apard32690-connect.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 3 </span><span class="caption-text">Connect to the Device</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Go to the <strong>Data Logger</strong> tab, select the channels you want to display and then click <strong>Start</strong> to start acquiring data from the thermocouples.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-zephyr-apard32690-plot.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-zephyr-apard32690-plot.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-zephyr-apard32690-plot.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 4 </span><span class="caption-text">Plot Data from the Thermocouples</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="no-os">
+<h3>no-OS<a class="headerlink" href="#no-os" title="Link to this heading"></a></h3>
+</section>
 </section>
 <section id="results">
 <h2>Results<a class="headerlink" href="#results" title="Link to this heading"></a></h2>
-<figure class="align-center" id="id2">
+<figure class="align-center" id="id6">
 <img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-result-placeholder.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-result-placeholder.png" />
 <figcaption>
-<p><span class="caption-number">Figure 1 </span><span class="caption-text">Results on the AD-APARD32690-SL using Zephyr RTOS</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 5 </span><span class="caption-text">Results on the AD-APARD32690-SL using Zephyr RTOS</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
 <ul class="simple">
-<li><p>Build steps for both systems</p></li>
+<li><p>Build steps for no-OS</p></li>
+<li><p>Setting Up the Zephyr Environment</p></li>
 <li><p>Scopy results</p></li>
 </ul>
 </div>
