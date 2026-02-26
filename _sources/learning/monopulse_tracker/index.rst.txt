@@ -132,10 +132,10 @@ SD Card Configuration
 - For the :adi:`ADRV9009-ZU11EG RF-SOM <adrv9009-zu11eg>` platform, the boot 
   files are generated using the Using Kuiper Image:
 
-  :external+adi-kuiper-gen:ref:`Writing the Image to an SD Card
-  <use-kuiper-image>`
+    - :external+adi-kuiper-gen:ref:`Writing the Image to an SD Card
+      <use-kuiper-image>`
 
-- For the Jupiter SDR platform, begin by writing the image to an SD card the
+- For the :adi:`AD-JUPITER-EBZ <ad-jupiter-ebz>` platform, begin by writing the image to an SD card the
   same way as for the ADRV9009-ZU11EG, then copy the files from the following zip
   to the boot partition of the SD card:
 
