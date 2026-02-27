@@ -216,15 +216,38 @@ You should now have Libiio in the Zephyr project under *modules/lib/libiio*.
 
 Build and Run
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-After activating the virtual environment, build the application using the following command:
+To further emphasize the way ADI DataX™ allows software to efortlessly accomodate 
+hardware changes, there are 2 possible setups for this Zephyr project. The only 
+software and hardware difference between the two is the inclusion or exclusion of the 
+AD-APARDPFW-SL shield from the build command and from the physical setup, as 
+explained below:
 
-.. shell::
-   :user: analog
-   :group: analog
-   :show-user:
+ 1) Both the AD-APARDPFW-SL shield and the EVAL-CN0391-ARDZ shield connected to the AD-APARD32690-SL board.
+    AD-APARDPFW-SL powers the AD-APARD32690-SL and establishes the ethernet connection over SPI0.
 
-   ~/zephyrproject/zephyr   
-   $west build -p always -b apard32690/max32690/m4 ../modules/lib/libiio/zephyr/samples/iiod/ -S iiod-network --shield eval_cn0391_ardz --shield ad_apardpfw_sl
+      Build the application for this setup using the following command:
+
+      .. shell::
+         :user: analog
+         :group: analog
+         :show-user:
+
+         ~/zephyrproject/zephyr   
+         $west build -p always -b apard32690/max32690/m4 ../modules/lib/libiio/zephyr/samples/iiod/ -S iiod-network --shield eval_cn0391_ardz --shield ad_apardpfw_sl
+
+
+ 2) Only EVAL-CN0391-ARDZ shield connected to the AD-APARD32690-SL. 
+    The AD-APARD32690-SL is externally powered through the USB and uses SPI4 to communicate via ethernet.
+
+      Build the application:
+
+      .. shell::
+         :user: analog
+         :group: analog
+         :show-user:
+
+         ~/zephyrproject/zephyr   
+         $west build -p always -b apard32690/max32690/m4 ../modules/lib/libiio/zephyr/samples/iiod/ -S iiod-network --shield eval_cn0391_ardz
 
 Then flash:
 
@@ -234,18 +257,38 @@ Then flash:
    :show-user:
    
    ~/zephyrproject/zephyr
-   $~/MaximSDK/Tools/OpenOCD/openocd -s ~/MaximSDK/Tools/OpenOCD/scripts/ -f interface/cmsis-dap.cfg -f target/max32690.cfg -c "program ./build/zephyr/zephyr.hex verify reset exit"
+   $west flash --runner openocd
 
-By connecting to the serial communication of the board (e.g.: ``minicom -D /dev/ttyACM0 -b 115200``) and resetting, the following output should be observed:
+.. Note::
+   This flashing process requires the ADI distribution of OpenOCD to be installed. Details on how to 
+   install it can be found on `ADI OpenOCD GitHub <https://github.com/analogdevicesinc/openocd>`_.
 
-.. code-block::
+   If you have problems with the flashing process, please use ``-DOPENOCD=<path_to_your_adi_openocd>`` with the build command. 
+   You should see *<path_to_your_adi_openocd>* in *./build/zephyr/runners.yaml*, under *config -> openocd*.
 
-   Hello World! apard32690/max32690/m4
-   [00:00:00.176,000] <inf> phy_adin: PHY 1 ID 283BCA1
-   [00:00:00.178,000] <inf> phy_adin: PHY 1 2.4V mode supported
-   [00:00:00.180,000] <inf> phy_adin: PHY 2 ID 283BCA1
-   [00:00:00.182,000] <inf> phy_adin: PHY 2 2.4V mode supported
-   *** Booting Zephyr OS build v4.3.0-5400-g0c770e917768 ***
+By connecting to the serial communication of the board (e.g.: ``minicom -D /dev/ttyACM0 -b 115200``) and resetting, the following output should be observed for each configuration:
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Configuration 1 (with AD-APARDPFW-SL)
+     - Configuration 2 (without AD-APARDPFW-SL)
+   * - .. code-block::
+
+          Hello World! apard32690/max32690/m4
+          [00:00:00.176,000] <inf> phy_adin: PHY 1 ID 283BCA1
+          [00:00:00.178,000] <inf> phy_adin: PHY 1 2.4V mode supported
+          [00:00:00.180,000] <inf> phy_adin: PHY 2 ID 283BCA1
+          [00:00:00.182,000] <inf> phy_adin: PHY 2 2.4V mode supported
+          *** Booting Zephyr OS build v4.3.0-5400-g0c770e917768 ***
+
+     - .. code-block::
+
+          Hello World! apard32690/max32690/m4
+          [00:00:00.150,000] <inf> phy_adin: PHY 1 ID 283BCA1
+          [00:00:00.152,000] <inf> phy_adin: PHY 1 2.4V mode supported
+          *** Booting Zephyr OS build v4.3.0-5400-g0c770e917768 ***
 
 You are now ready to connect to the board using Scopy and start acquiring data from the thermocouples.
 Open Scopy and enter the URI of the APARD32690-SL board (``ip:192.168.97.100``), then click **Verify**. 
@@ -292,4 +335,5 @@ Results
 .. TODO::
     - Build steps for no-OS
     - Setting Up the Zephyr Environment
+    - Scopy connect video
     - Scopy results
