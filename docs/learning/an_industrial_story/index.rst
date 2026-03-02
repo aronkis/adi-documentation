@@ -182,6 +182,10 @@ APARD32690 board.
 Setting Up the Zephyr Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+In order to build the Zephyr application, you need to set up the Zephyr environment. 
+Please follow the instructions on `Zephyr Getting Started Guide <https://docs.zephyrproject.org/latest/getting_started/index.html>`_ to do so. 
+Make sure to install all the required dependencies and initialize the Zephyr workspace before proceeding to the next steps. 
+
 Getting Libiio
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -261,12 +265,14 @@ Then flash:
 
 .. Note::
    This flashing process requires the ADI distribution of OpenOCD to be installed. Details on how to 
-   install it can be found on `ADI OpenOCD GitHub <https://github.com/analogdevicesinc/openocd>`_.
+   install it can be found on `ADI OpenOCD GitHub <https://github.com/analogdevicesinc/openocd#:~:text=%23%20Building%20OpenOCD%0A%0AThe,sudo%20make%20install>`_.
 
-   If you have problems with the flashing process, please use ``-DOPENOCD=<path_to_your_adi_openocd>`` with the build command. 
-   You should see *<path_to_your_adi_openocd>* in *./build/zephyr/runners.yaml*, under *config -> openocd*.
+   If you have problems with the flashing process, please append the build command with 
+   ``-DOPENOCD=<path_to_your_adi_openocd>`` and rebuild. You should see *<path_to_your_adi_openocd>* 
+   in *./build/zephyr/runners.yaml*, under *config -> openocd*.
 
-By connecting to the serial communication of the board (e.g.: ``minicom -D /dev/ttyACM0 -b 115200``) and resetting, the following output should be observed for each configuration:
+By connecting to the serial communication of the board (e.g.: ``minicom -D /dev/ttyACM0 -b 115200``) 
+and resetting the AD-APARD32690-SL board, the following output should be observed for each configuration:
 
 .. list-table::
    :widths: 50 50
@@ -291,33 +297,18 @@ By connecting to the serial communication of the board (e.g.: ``minicom -D /dev/
           *** Booting Zephyr OS build v4.3.0-5400-g0c770e917768 ***
 
 You are now ready to connect to the board using Scopy and start acquiring data from the thermocouples.
-Open Scopy and enter the URI of the APARD32690-SL board (``ip:192.168.97.100``), then click **Verify**. 
+To do this, follow the steps below, also explained in the video:
 
-.. figure:: scopy-zephyr-apard32690-verify.png
-   :width: 400 px
+   1) Open Scopy and enter the URI of the APARD32690-SL board (``ip:192.168.97.100``), then click **Verify**. 
+   2) Click **Add Device** with both *DataLogger* and *Debugger* selected.
+   3) Then click **Connect**.
+   4) Go to the **Data Logger** tab, select the channels you want to display and then click **Start** to start acquiring data from the thermocouples.
 
-   Enter URI and Verify
+   .. figure:: scopy_connect.gif
+      :align: center
+      :width: 600 px
 
-Click **Add Device** with both *DataLogger* and *Debugger* selected.
-
-.. figure:: scopy-zephyr-apard32690-add-device.png
-   :width: 400 px
-
-   Add Device
-
-Then click **Connect**.
-
-.. figure:: scopy-zephyr-apard32690-connect.png
-   :width: 400 px
-
-   Connect to the Device
-
-Go to the **Data Logger** tab, select the channels you want to display and then click **Start** to start acquiring data from the thermocouples.
-
-.. figure:: scopy-zephyr-apard32690-plot.png
-   :width: 400 px
-
-   Plot Data from the Thermocouples
+      Connecting to the APARD32690-SL using Scopy.
 
 no-OS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -334,6 +325,4 @@ Results
 
 .. TODO::
     - Build steps for no-OS
-    - Setting Up the Zephyr Environment
-    - Scopy connect video
     - Scopy results
