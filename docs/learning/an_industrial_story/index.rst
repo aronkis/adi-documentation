@@ -11,7 +11,7 @@ reduces integration overhead and accelerates product development.
 Resources
 --------------------------------------------------------------------------------
 - Zephyr: :git-zephyr:`ZEPHYR_PROJECT_NAME <ZEPHYR_PROJECT_NAME:>`
-- no-OS: :git-noos:`NO_OS_PROJECT_NAME <NO_OS_PROJECT_NAME:>`
+- no-OS: :git-noos:`NO_OS_PROJECT_NAME <https://github.com/analogdevicesinc/no-OS/tree/staging/eval-cn0391-ardz:>`
 - Linux: :git-linux:`LINUX_PROJECT_NAME <LINUX_PROJECT_NAME:>`
 - Hardware: 
   
@@ -187,7 +187,89 @@ To do this, follow the steps below, also explained in the video:
 no-OS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+This project builds an Industrial I/O Daemon (iiod) with network support on the
+EVAL-ADIN1110 platform. It enables remote access to industrial I/O devices over
+the network using the Libiio v.1.0 library run on no-OS environment.
+The monitored device here is an ad7124-8 which exposes 4 virtual channels
+(``voltage0`` .. ``voltage3``) for reading the temperature from 4 different
+Type K thermocouples. The channel index corresponds directly to the ``CHx``
+label silkscreened on the EVAL-CN0391-ARDZ board.
+The data can be visualized using Scopy, which connects to the iiod running on
+the EVAL-ADIN1110 board.
 
+
+Setting Up HW Environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Hardware configuration (switches, jumpers, ...) of the 
+:adi:`EVAL-ADIN1110 <eval-adin1110>` board can be observed inside below picture.
+
+.. figure:: ADIN1110_Hw_Config.png
+      :align: center
+      :width: 800 px
+
+      EVAL-ADIN1110 HW Configuration
+
+.. Note::
+   For this particular setup, the :adi:`EVAL-CN0391-ARDZ <cn0391>` can be powered
+   only through the USB port of the :adi:`EVAL-ADIN1110 <eval-adin1110>` board.
+
+
+Setting Up the no-OS SW Environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In order to build the no-OS application, you need to set up the no-OS build
+environment. Please follow the instructions on the
+`no-OS Build Guide <https://wiki.analog.com/resources/no-os/build>`_ to do so.
+Make sure to install all the required dependencies (GNU Make, ARM GCC toolchain,
+OpenOCD) before proceeding to the next steps.
+
+Build and Run
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Build the application using the following command from the no-OS root directory:
+
+.. shell::
+   :user: analog
+   :group: analog
+   :show-user:
+
+   ~/no-OS
+   $make -j$(nproc) -C projects/eval-cn0391-ardz EXAMPLE=iio_lwip_example ADIN1110_STATIC_IP=y
+
+Then flash:
+
+.. shell::
+   :user: analog
+   :group: analog
+   :show-user:
+
+   ~/no-OS
+   $make -C projects/eval-cn0391-ardz run
+
+After flashing, reset the EVAL-ADIN1110 board. The IIO server will start
+automatically and listen for connections over the T1L network interface.
+No serial output is produced by this example.
+
+.. Note::
+   The default static IP address is ``192.168.90.60``. To use a different
+   address, override ``NO_OS_IP``, ``NO_OS_NETMASK``, and ``NO_OS_GATEWAY``
+   on the build command:
+
+   .. shell::
+      :user: analog
+      :group: analog
+      :show-user:
+
+      ~/no-OS
+      $make -j$(nproc) -C projects/eval-cn0391-ardz EXAMPLE=iio_lwip_example ADIN1110_STATIC_IP=y NO_OS_IP=192.168.1.100 NO_OS_NETMASK=255.255.255.0 NO_OS_GATEWAY=192.168.1.1
+
+You are now ready to connect to the board using Scopy and start acquiring data from the thermocouples.
+To do this, follow the steps below, also explained in the video:
+
+   1) Open Scopy and enter the URI of the EVAL-ADIN1110 board (``ip:192.168.90.60``), then click **Verify**.
+   2) Click **Add Device** with both *DataLogger* and *Debugger* selected.
+   3) Then click **Connect**.
+   4) Go to the **Data Logger** tab, select the channels you want to display and then click **Start** to start acquiring data from the thermocouples.
 
 Results
 --------------------------------------------------------------------------------
@@ -198,5 +280,4 @@ Results
    Results on the AD-APARD32690-SL using Zephyr RTOS
 
 .. TODO::
-    - Build steps for no-OS
     - Scopy results
