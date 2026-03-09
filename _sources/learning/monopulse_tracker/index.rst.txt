@@ -173,7 +173,3 @@ waterfall type of plot.
    :align: center
 
    Matlab implementation results
-
-.. TODO::
-    - Matlab code
-    - Images with setup?
