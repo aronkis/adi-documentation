@@ -116,7 +116,6 @@
 <li><a class="reference internal" href="#scopy">Scopy</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#results">Results</a></li>
 </ul>
 </li>
 </ul>
@@ -735,14 +734,40 @@ Add the following lines under <cite>remotes</cite>:</p>
 </section>
 <section id="build-and-run">
 <h4>Build and Run<a class="headerlink" href="#build-and-run" title="Link to this heading"></a></h4>
-<p>After activating the virtual environment, build the application using the following command:</p>
+<p>To further emphasize the way ADI DataX™ allows software to efortlessly accomodate
+hardware changes, there are 2 possible setups for this Zephyr project. The only
+software and hardware difference between the two is the inclusion or exclusion of the
+AD-APARDPFW-SL shield from the build command and from the physical setup, as
+explained below:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Both the AD-APARDPFW-SL shield and the EVAL-CN0391-ARDZ shield connected to the AD-APARD32690-SL board.
+AD-APARDPFW-SL powers the AD-APARD32690-SL and establishes the ethernet connection over SPI0.</p>
+<blockquote>
+<div><p>Build the application for this setup using the following command:</p>
 <div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~/zephyrproject/zephyr$
 </pre></div>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>west<span class="w"> </span>build<span class="w"> </span>-p<span class="w"> </span>always<span class="w"> </span>-b<span class="w"> </span>apard32690/max32690/m4<span class="w"> </span>../modules/lib/libiio/zephyr/samples/iiod/<span class="w"> </span>-S<span class="w"> </span>iiod-network<span class="w"> </span>--shield<span class="w"> </span>eval_cn0391_ardz<span class="w"> </span>--shield<span class="w"> </span>ad_apardpfw_sl
 </pre></div>
 </div>
-<div class="clear-left"></div></div></div><p>Then flash:</p>
+<div class="clear-left"></div></div></div></div></blockquote>
+</li>
+<li><p>Only EVAL-CN0391-ARDZ shield connected to the AD-APARD32690-SL.
+The AD-APARD32690-SL is externally powered through the USB and uses SPI4 to communicate via ethernet.</p>
+<blockquote>
+<div><p>Build the application:</p>
+<div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~/zephyrproject/zephyr$
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>west<span class="w"> </span>build<span class="w"> </span>-p<span class="w"> </span>always<span class="w"> </span>-b<span class="w"> </span>apard32690/max32690/m4<span class="w"> </span>../modules/lib/libiio/zephyr/samples/iiod/<span class="w"> </span>-S<span class="w"> </span>iiod-network<span class="w"> </span>--shield<span class="w"> </span>eval_cn0391_ardz
+</pre></div>
+</div>
+<div class="clear-left"></div></div></div></div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+<p>Then flash:</p>
 <div class="code-shell"><div><div class="no-select float-left highlight-default notranslate"><div class="highlight"><pre><span></span>analog@analog:~/zephyrproject/zephyr$
 </pre></div>
 </div>
@@ -759,13 +784,37 @@ in <em>./build/zephyr/runners.yaml</em>, under <em>config -&gt; openocd</em>.</p
 </div>
 <p>By connecting to the serial communication of the board (e.g.: <code class="docutils literal notranslate"><span class="pre">minicom</span> <span class="pre">-D</span> <span class="pre">/dev/ttyACM0</span> <span class="pre">-b</span> <span class="pre">115200</span></code>)
 and resetting the AD-APARD32690-SL board, the following output should be observed for each configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hello World! apard32690/max32690/m4
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuration 1 (with AD-APARDPFW-SL)</p></th>
+<th class="head"><p>Configuration 2 (without AD-APARDPFW-SL)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hello World! apard32690/max32690/m4
 [00:00:00.176,000] &lt;inf&gt; phy_adin: PHY 1 ID 283BCA1
 [00:00:00.178,000] &lt;inf&gt; phy_adin: PHY 1 2.4V mode supported
 [00:00:00.180,000] &lt;inf&gt; phy_adin: PHY 2 ID 283BCA1
 [00:00:00.182,000] &lt;inf&gt; phy_adin: PHY 2 2.4V mode supported
 *** Booting Zephyr OS build v4.3.0-5400-g0c770e917768 ***
 </pre></div>
+</div>
+</td>
+<td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hello World! apard32690/max32690/m4
+[00:00:00.150,000] &lt;inf&gt; phy_adin: PHY 1 ID 283BCA1
+[00:00:00.152,000] &lt;inf&gt; phy_adin: PHY 1 2.4V mode supported
+*** Booting Zephyr OS build v4.3.0-5400-g0c770e917768 ***
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </section>
 </section>
@@ -780,11 +829,11 @@ thermocouples. The data can be visualized using Scopy, which connects to the
 iiod running on the EVAL-ADIN1110 board.</p>
 <section id="hardware-configuration">
 <h4>Hardware Configuration<a class="headerlink" href="#hardware-configuration" title="Link to this heading"></a></h4>
-<figure class="align-center" id="id3">
+<figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ADIN1110_Hw_Config.png"><img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ADIN1110_Hw_Config.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/ADIN1110_Hw_Config.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 1 </span><span class="caption-text">EVAL-ADIN1110 hardware configuration</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 1 </span><span class="caption-text">EVAL-ADIN1110 hardware configuration</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
@@ -854,36 +903,15 @@ To do this, follow the steps below, also explained in the video:</p>
 <li><p>Then click <strong>Connect</strong>.</p></li>
 <li><p>Go to the <strong>Data Logger</strong> tab, select the channels you want to display and then click <strong>Start</strong> to start acquiring data from the thermocouples.</p></li>
 </ol>
-<figure class="align-center" id="id4">
+<figure class="align-center" id="id3">
 <a class="reference internal image-reference" href="../../_images/scopy_connect.gif"><img alt="../../_images/scopy_connect.gif" src="../../_images/scopy_connect.gif" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figure 2 </span><span class="caption-text">Connecting to the APARD32690-SL using Scopy.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+<p><span class="caption-number">Figure 2 </span><span class="caption-text">Connecting to the APARD32690-SL using Scopy.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </div></blockquote>
 </section>
-</section>
-<section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Link to this heading"></a></h2>
-<figure class="align-center" id="id5">
-<img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-result-placeholder.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-result-placeholder.png" />
-<figcaption>
-<p><span class="caption-number">Figure 3 </span><span class="caption-text">Results on the AD-APARD32690-SL using Zephyr RTOS</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id6">
-<img alt="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-result-placeholder.png" src="https://media.githubusercontent.com/media/aronkis/adi-documentation/main/docs/learning/an_industrial_story/scopy-result-placeholder.png" />
-<figcaption>
-<p><span class="caption-number">Figure 4 </span><span class="caption-text">Results on the EVAL-CN0391-ARDZ using no-OS</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<div class="admonition-todo admonition" id="id2">
-<p class="admonition-title">Todo</p>
-<ul class="simple">
-<li><p>Scopy results</p></li>
-</ul>
-</div>
 </section>
 </section>
 
