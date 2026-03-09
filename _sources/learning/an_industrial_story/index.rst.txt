@@ -169,20 +169,6 @@ and resetting the AD-APARD32690-SL board, the following output should be observe
    [00:00:00.182,000] <inf> phy_adin: PHY 2 2.4V mode supported
    *** Booting Zephyr OS build v4.3.0-5400-g0c770e917768 ***
 
-You are now ready to connect to the board using Scopy and start acquiring data from the thermocouples.
-To do this, follow the steps below, also explained in the video:
-
-   1) Open Scopy and enter the URI of the APARD32690-SL board (``ip:192.168.97.100``), then click **Verify**. 
-   2) Click **Add Device** with both *DataLogger* and *Debugger* selected.
-   3) Then click **Connect**.
-   4) Go to the **Data Logger** tab, select the channels you want to display and then click **Start** to start acquiring data from the thermocouples.
-
-   .. figure:: scopy_connect.gif
-      :align: center
-      :width: 600 px
-
-      Connecting to the APARD32690-SL using Scopy.
-
 no-OS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -263,6 +249,22 @@ the thermocouples. To do this, follow the steps below:
    2) Click **Add Device** with both *DataLogger* and *Debugger* selected.
    3) Then click **Connect**.
    4) Go to the **Data Logger** tab, select the channels you want to display and then click **Start** to start acquiring data from the thermocouples.
+
+Scopy
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You are now ready to connect to the board using Scopy and start acquiring data from the thermocouples.
+To do this, follow the steps below, also explained in the video:
+
+   1) Open Scopy and enter the URI of the APARD32690-SL board (``ip:192.168.97.100``), then click **Verify**. 
+   2) Click **Add Device** with both *DataLogger* and *Debugger* selected.
+   3) Then click **Connect**.
+   4) Go to the **Data Logger** tab, select the channels you want to display and then click **Start** to start acquiring data from the thermocouples.
+
+   .. figure:: scopy_connect.gif
+      :align: center
+      :width: 600 px
+
+      Connecting to the APARD32690-SL using Scopy.
 
 Results
 --------------------------------------------------------------------------------
