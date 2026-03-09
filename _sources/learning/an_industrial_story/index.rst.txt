@@ -10,7 +10,7 @@ reduces integration overhead and accelerates product development.
 
 Resources
 --------------------------------------------------------------------------------
-- Zephyr: :git-zephyr:`ZEPHYR_PROJECT_NAME <ZEPHYR_PROJECT_NAME:>`
+- Zephyr: :git-zephyr:`EVAL-CN0391-ARDZ <https://github.com/MaureenHelm/zephyr/tree/eval_cn0391_ardz>`
 - no-OS: :git-noos:`EVAL-CN0391-ARDZ <https://github.com/analogdevicesinc/no-OS/tree/staging/eval-cn0391-ardz:>`
 - Hardware: 
   
@@ -188,7 +188,7 @@ no-OS
 
 This project builds an Industrial I/O Daemon (iiod) with network support on the
 EVAL-ADIN1110 platform. It enables remote access to industrial I/O devices over the
-network using the Libiio v.1.0 library run on no-OS environment.
+network using the Libiio v.0.x library run on no-OS environment.
 The monitored device here is an :adi:`AD7124-8 <AD7124-8>` which exposes 4
 virtual channels for reading the temperature from 4 different Type K 
 thermocouples. The data can be visualized using Scopy, which connects to the 
