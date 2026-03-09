@@ -26,6 +26,8 @@ Block diagram
 .. figure:: demo_block_diagram.svg
    :align: center
 
+   Block diagram of the demo setup.
+
 
 Demo description
 --------------------------------------------------------------------------------
@@ -300,4 +302,7 @@ To do this, follow the steps below, also explained in the video:
       :align: center
       :width: 600 px
 
-      Connecting to the APARD32690-SL using Scopy.
+      Connecting to the boards using Scopy.
+
+   .. note::
+      Use ip:192.168.97.100 for AD-APARD32690-SL or ip:192.168.90.60 for EVAL-ADIN1110EBZ.
